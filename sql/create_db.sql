@@ -6,7 +6,8 @@ CREATE TABLE User (
 	email TEXT NOT NULL
 		CONSTRAINT User_pk
 			PRIMARY KEY
-    constraint User_ck CHECK(email LIKE '%_@__%.__%'),
+		CONSTRAINT email_ck 
+			CHECK(email LIKE '%_@__%.__%'),
 	password TEXT NOT NULL,
 	lname TEXT NOT NULL,
 	fname TEXT NOT NULL,
@@ -22,14 +23,15 @@ CREATE TABLE Activity (
 			PRIMARY KEY,
 	user_id INTEGER NOT NULL
 		CONSTRAINT Activity_User_fk
-			REFERENCES User (email),
+			REFERENCES User(email),
 	date TEXT NOT NULL,
 	description TEXT NOT NULL
 );
 
 CREATE TABLE ActivityData (
     activity_id INTEGER NOT NULL
-        CONSTRAINT ActivityData_Activity_fk REFERENCES Activity(id),
+        CONSTRAINT ActivityData_Activity_fk 
+			REFERENCES Activity(id),
     time TEXT NOT NULL,
     cardio_frequency INTEGER NOT NULL,
     latitude INTEGER NOT NULL,
