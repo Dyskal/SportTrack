@@ -4,7 +4,8 @@
 create table User (
 	email text not null
 		constraint User_pk
-			primary key,
+			primary key
+		constraint User_ck CHECK(email LIKE '%_@__%.__%'),
 	password text not null,
 	lname text not null,
 	fname text not null,
