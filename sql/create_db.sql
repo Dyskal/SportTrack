@@ -2,14 +2,11 @@
 --Activity(id(1),user_id=@User.email(NN),date(NN),description(NN))
 --ActivityData(activity_id=@Activity.id(NN),time(NN),cardio_frequency(NN),latitude(NN),longitude(NN),altitude(NN))
 
-DELETE FROM ActivityData
-DELETE FROM Activity
-DELETE FROM User
-
 CREATE TABLE User (
 	email TEXT NOT NULL
 		CONSTRAINT User_pk
-			PRIMARY KEY,
+			PRIMARY KEY
+    constraint User_ck CHECK(email LIKE '%_@__%.__%'),
 	password TEXT NOT NULL,
 	lname TEXT NOT NULL,
 	fname TEXT NOT NULL,
@@ -30,15 +27,12 @@ CREATE TABLE Activity (
 	description TEXT NOT NULL
 );
 
-
-
 CREATE TABLE ActivityData (
     activity_id INTEGER NOT NULL
-        CONSTRAINT activitydata_activity_fk REFERENCES Activity(id),
+        CONSTRAINT ActivityData_Activity_fk REFERENCES Activity(id),
     time TEXT NOT NULL,
-    cardi_frequency INTEGER NOT NULL,
+    cardio_frequency INTEGER NOT NULL,
     latitude INTEGER NOT NULL,
     longitude INTEGER NOT NULL,
-    altitude INTEGER NOT NULL,
-
+    altitude INTEGER NOT NULL
 );
