@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800&display=swap');
 
 body {
     background-image: url("../img/background.jpg");
@@ -19,11 +19,9 @@ body {
     border-radius: 10px;
 }
 
-button {
-    background: transparent;
-    border: solid #fff 2px;
-    color: white;
-    transition: 0.2s all;
+label {
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 input {
@@ -36,24 +34,23 @@ input {
 }
 
 button {
+    background: transparent;
+    border: solid #fff 2px;
+    color: white;
+    transition: 0.2s all;
     margin-bottom: 10px;
     font-size: 20px;
 }
 
-label {
-    margin-bottom: 10px;
+button:hover, .button:hover {
+    background: white;
+    color: #414247;
+}
+
+a {
+    color: white;
+    text-decoration: none;
     font-size: 20px;
-}
-
-button:hover {
-    background: white;
-    color: #414247;
-}
-
-
-.button:hover {
-    background: white;
-    color: #414247;
 }
 
 .button {
@@ -61,12 +58,6 @@ button:hover {
     border: solid #fff 2px;
     color: white;
     transition: 0.2s all;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
 }
 
 .right {
