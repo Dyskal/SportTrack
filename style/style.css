@@ -81,8 +81,17 @@ label {
     background: white;
     color: #42c431;
     cursor: pointer;
+    transform: scale(
+        1.02
+    );
 }
 
+
+.container-radio{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .button {
     background: #42c431;
     border: none;
@@ -108,4 +117,15 @@ a:hover {
 
 .right {
     float: right;
+}
+
+.cancel{
+    background: white;
+    color: black;
+    opacity: 0.6;
+}
+.cancel:hover{
+    background: white;
+    opacity: 0.8;
+    color: red;
 }
