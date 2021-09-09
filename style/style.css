@@ -2,7 +2,7 @@
 @font-face {
     font-family: "Monoton";
     src: url("../font/Monoton.ttf");
-  }
+}
 
 body {
     background-image: url("../img/background.jpg");
@@ -26,9 +26,8 @@ body {
     border-radius: 10px;
 }
 
-
 header {
-    font-family: "Monoton";
+    font-family: "Monoton", cursive;
     text-transform: uppercase;
     width: calc(100% - 7px);
     float: left;
@@ -38,56 +37,47 @@ header {
     padding-left: 7px;
     font-size: 22px;
 }
-h1{
+h1 {
     font-weight: 1;
     margin: 0;
 }
 
-h2{
+h2 {
     margin-top: 0;
 }
 
 input {
-    padding: 0;
-    margin: 0;
-
-    margin-bottom: 10px;
+    margin: 0 0 10px;
     font-size: 20px;
     background: rgba(255, 255, 255, 0.5);
     border: none;
     border-radius: 2px;
     color: black;
     width: 100%;
-    padding:  5px 0 5px 0;
-
+    padding: 5px 0 5px 0; /* 5px 0 juste ?*/
 }
 
-
-.input{
-    -webkit-box-shadow: inset 0px 0px 13px 5px rgba(0,0,0,0.19); 
-    box-shadow: inset 0px 0px 13px 5px rgba(0,0,0,0.19);
+.input {
+    -webkit-box-shadow: inset 0 0 13px 5px rgba(0,0,0,0.19);
+    box-shadow: inset 0 0 13px 5px rgba(0,0,0,0.19);
 }
 
 label {
     margin-top: 20px;
     font-size: 20px;
 }
-.radio{
+.radio {
     width: auto;
 }
-
 
 .button:hover {
     background: white;
     color: #42c431;
     cursor: pointer;
-    transform: scale(
-        1.02
-    );
+    transform: scale(1.02);
 }
 
-
-.container-radio{
+.container-radio {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -95,13 +85,12 @@ label {
 .button {
     background: #42c431;
     border: none;
-    color: rgb(240, 240, 240);
+    color: #F0F0F0FF;
     transition: 0.2s all;
-    padding: 12px  24px 12px   24px ;
+    padding: 12px 24px 12px 24px; /*12px 24px ?*/
     font-size: 20px;
     border-radius: 3px;
     height: auto;
-
 }
 
 a {
@@ -109,6 +98,7 @@ a {
     text-decoration: none;
     font-size: 20px;
 }
+
 a:hover {
     color: #42c431;
     text-decoration: none;
@@ -119,15 +109,24 @@ a:hover {
     float: right;
 }
 
-.cancel{
+.cancel {
     background: white;
     color: black;
     opacity: 0.6;
 }
-.cancel:hover{
+
+.cancel:hover {
     background: white;
     opacity: 0.8;
     color: red;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type=number] {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
 }
 
 .upload-btn-wrapper {
@@ -138,9 +137,9 @@ a:hover {
     height: 12vw;
     border:dotted 2px rgb(56, 56, 56);
     border-radius:8px;
-  }
+}
   
-  .btn {
+.btn {
     border :none;
     color: rgb(56, 56, 56);
     background-color: rgba(255, 255, 255, 0.5);
@@ -149,9 +148,9 @@ a:hover {
     font-weight: bold;
     width: 100%;
     height: 100%;
-  }
-  
-  .upload-btn-wrapper input[type=file] {
+}
+
+.upload-btn-wrapper input[type=file] {
     font-size: 100px;
     position: absolute;
     left: 0;
@@ -159,5 +158,4 @@ a:hover {
     opacity: 0;
     width: 100%;
     height: 100%;
-  }
-  
+}

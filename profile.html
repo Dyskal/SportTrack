@@ -4,52 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <title>SportTrack | Profile</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <link rel="icon" href="./img/logo.svg" />
-
 </head>
 
 <body>
     <header>
         <h1>SportTrack</h1>
     </header>
-    <div class=container>
-
+    <div class="container">
         <h2>Profile</h2>
         <form>
             <label for="fname">First name:</label><br>
-            <input class=input type="text" id="fname" name="fname" required /><br>
+            <input class="input" type="text" id="fname" name="fname" required /><br>
             <label for="lname">Last name:</label><br>
-            <input class=input type="text" id="lname" name="lname" required /><br>
+            <input class="input" type="text" id="lname" name="lname" required /><br>
             <label for="date">Birth date:</label><br>
-            <input class=input type="date" id="date" name="date" required /><br>
-            <label>Sex:</label><br>
-            <div class=container-radio>
+            <input class="input" type="date" id="date" name="date" required /><br>
+            <label>Gender:</label><br>
+            <div class="container-radio">
                 <div>
-                    <input class=radio type="radio" id="w" name="sex" required checked />
+                    <input class="radio" type="radio" id="w" name="sex" required checked />
                     <label for="w">Woman</label></div>
                 <div>
-                    <input class=radio type="radio" id="m" name="sex">
+                    <input class="radio" type="radio" id="m" name="sex">
                     <label for="m">Man</label>
                 </div>
                 <div>
-                    <input class=radio type="radio" id="o" name="sex">
+                    <input class="radio" type="radio" id="o" name="sex">
                     <label for="o">Other</label>
                 </div>
             </div>
             <label for="height">Height:</label><br>
-            <input class=input type="number" id="height" name="height" required /><br>
+            <input class="input" type="number" id="height" name="height" min="0" oninput="validity.valid||(value='');" required /><br>
             <label for="weight">Weight:</label><br>
-            <input class=input type="number" id="weight" name="weight" required /><br>
+            <input class="input" type="number" id="weight" name="weight" min="0" oninput="validity.valid||(value='');" required /><br>
             <label for="mail">Email address:</label><br>
-            <input class=input type="text" id="mail" name="mail" required /><br>
+            <input class="input" type="text" id="mail" name="mail" required /><br>
             <label for="password">Password:</label><br>
-            <input class=input type="password" id="password" name="password" minlength="8" required /><br>
+            <input class="input" type="password" id="password" name="password" minlength="8" required /><br>
             <input class="button right" type="submit" value="Save changes" />
-            <input class="button cancel" type="button"  value="Cancel" />
-
+            <input class="button cancel" type="button" value="Cancel" />
         </form>
     </div>
 </body>
-
 </html>

@@ -8,36 +8,45 @@ DROP TABLE IF EXISTS Activity;
 DROP TABLE IF EXISTS User;
 
 CREATE TABLE User (
-	email TEXT NOT NULL
-		CONSTRAINT User_pk
-			PRIMARY KEY
-		CONSTRAINT email_ck 
-			CHECK(email LIKE '%_@__%.__%'),
-	password TEXT NOT NULL,
-	lname TEXT NOT NULL,
-	fname TEXT NOT NULL,
-	date TEXT NOT NULL,
-	sex TEXT NOT NULL,
-	height INTEGER NOT NULL,
+	email TEXT NOT NULL PRIMARY KEY
+	    CHECK(email LIKE '%_@__%.__%'),
+	password TEXT NOT NULL
+        CHECK(length(password) >= 8),
+	lname TEXT NOT NULL
+        CHECK(lname NOT LIKE ''),
+	fname TEXT NOT NULL
+        CHECK(fname NOT LIKE ''),
+	date TEXT NOT NULL
+        CHECK(date NOT LIKE ''),
+	sex TEXT NOT NULL
+        CHECK(sex IN ('M', 'W', 'O')),
+	height INTEGER NOT NULL
+        CHECK(height > 0),
 	weight INTEGER NOT NULL
+        CHECK(height > 0)
 );
 
 CREATE TABLE Activity (
-	id INTEGER
-		CONSTRAINT Activity_pk
-			PRIMARY KEY,
-	user_id INTEGER NOT NULL,
-	date TEXT NOT NULL,
-	description TEXT NOT NULL,
+	id INTEGER PRIMARY KEY,
+	user_id TEXT NOT NULL,
+	date TEXT NOT NULL
+        CHECK(date NOT LIKE ''),
+	description TEXT NOT NULL
+        CHECK(description NOT LIKE ''),
     FOREIGN KEY(user_id) REFERENCES User(email)
 );
 
 CREATE TABLE ActivityData (
     activity_id INTEGER NOT NULL,
-    time TEXT NOT NULL,
-    cardio_frequency INTEGER NOT NULL,
-    latitude REAL NOT NULL,
-    longitude REAL NOT NULL,
-    altitude INTEGER NOT NULL,
+    time TEXT NOT NULL
+        CHECK(time NOT LIKE ''),
+    cardio_frequency INTEGER NOT NULL
+        CHECK(cardio_frequency > 0),
+    latitude REAL NOT NULL
+        CHECK(latitude NOT LIKE ''),
+    longitude REAL NOT NULL
+        CHECK(longitude NOT LIKE ''),
+    altitude INTEGER NOT NULL
+        CHECK(altitude NOT LIKE ''),
     FOREIGN KEY(activity_id) REFERENCES Activity(id)
 );
