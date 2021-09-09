@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@font-face {
+    font-family: "Monoton";
+    src: url("../font/Monoton.ttf");
+  }
 
 body {
     background-image: url("../img/background.jpg");
@@ -8,63 +12,94 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    margin: 0;
     background-size: cover;
+    flex-direction: column;
 }
 
 .container {
-    background-color: rgba(65, 66, 71, 0.3);
-    backdrop-filter: blur(5px);
+    min-width: 30%;
+    background-color: rgba(79, 81, 94, 0.3);
+    backdrop-filter: blur(10px);
     color: white;
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
 }
 
-button {
-    background: transparent;
-    border: solid #fff 2px;
-    color: white;
-    transition: 0.2s all;
+
+header {
+    font-family: "Monoton";
+    text-transform: uppercase;
+    width: calc(100% - 7px);
+    float: left;
+    position: absolute;
+    top: 0;
+    color: chartreuse;
+    padding-left: 7px;
+    font-size: 22px;
+}
+h1{
+    font-weight: 1;
+    margin: 0;
+}
+
+h2{
+    margin-top: 0;
 }
 
 input {
+    padding: 0;
+    margin: 0;
+
     margin-bottom: 10px;
     font-size: 20px;
     background: rgba(255, 255, 255, 0.5);
-    border: 2px solid #fff;
+    border: none;
     border-radius: 2px;
     color: black;
+    width: 100%;
+    padding:  5px 0 5px 0;
+
 }
 
-button {
-    margin-bottom: 10px;
-    font-size: 20px;
+
+.input{
+    -webkit-box-shadow: inset 0px 0px 13px 5px rgba(0,0,0,0.19); 
+    box-shadow: inset 0px 0px 13px 5px rgba(0,0,0,0.19);
 }
 
 label {
-    margin-bottom: 10px;
+    margin-top: 20px;
     font-size: 20px;
 }
 
-button:hover {
-    background: white;
-    color: #414247;
-}
 
 
 .button:hover {
     background: white;
-    color: #414247;
+    color: #42c431;
+    cursor: pointer;
 }
 
 .button {
-    background: transparent;
-    border: solid #fff 2px;
-    color: white;
+    background: #42c431;
+    border: none;
+    color: rgb(240, 240, 240);
     transition: 0.2s all;
+    padding: 12px  24px 12px   24px ;
+    font-size: 20px;
+    border-radius: 3px;
+    height: auto;
+
 }
 
 a {
     color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+a:hover {
+    color: #42c431;
     text-decoration: none;
     font-size: 20px;
 }
