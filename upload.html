@@ -14,12 +14,13 @@
         <h1>SportTrack</h1>
     </header>
     <div class=container>
-
         <h2>Upload</h2>
         <form>
-            <label for="file">Select a file:</label><br>
-            <input  class=input  type="file" accept=".json, application/json" id="file" name="file" required /><br>
-            <input class="button" type="submit" value="Upload" />
+            <div class="upload-btn-wrapper">
+                <button class="btn">Upload a file</button>
+                <input accept=".json, application/json" id="file" name="file" required type="file" name="myfile" />
+              </div>
+            <input class="button" type="submit" value="Submit" />
         </form>
     </div>
 </body>
