@@ -1,5 +1,5 @@
 --User(email (1), password (NN), lname (NN), fname (NN), bdate (NN), gender (NN), height (NN), weight (NN))
---Activity(id (1), user_id=@User.email (NN), date (NN), description (NN), start_time, duration, distance, freq_min, freq_max, freq_avg)
+--Activity(id (1), user_id=@User.email (NN), date (NN), description (NN), start_time, duration, freq_min, freq_max, freq_avg)
 --ActivityData(activity_id=@Activity.id (NN), time (NN), cardio_frequency (NN), latitude (NN), longitude (NN), altitude (NN))
 
 PRAGMA foreign_keys = ON;
@@ -37,8 +37,6 @@ CREATE TABLE Activity (
         CHECK(start_time IS TIME(start_time)),
     duration TIME
         CHECK(duration IS TIME(duration)),
-    distance REAL
-        CHECK(distance >= 0),
     freq_min INTEGER
           CHECK(freq_min > 0),
     freq_max INTEGER
@@ -49,7 +47,6 @@ CREATE TABLE Activity (
 );
 
 CREATE TABLE ActivityData (
-    data_id INTEGER PRIMARY KEY,
     activity_id INTEGER NOT NULL,
     time TIME NOT NULL
         CHECK(time IS TIME(time)),
@@ -77,5 +74,4 @@ CREATE TRIGGER activity_computed_values
 BEGIN
     UPDATE Activity SET start_time = (SELECT MIN(time) FROM ActivityData WHERE activity_id = id);
     UPDATE Activity SET duration = (SELECT TIME(CAST((JULIANDAY(MAX(time)) - JULIANDAY(MIN(time))) AS TIME), '12:00') FROM ActivityData WHERE activity_id = id);
-    UPDATE Activity SET distance = (SELECT ROUND(6378.137 * ACOS(SIN(RADIANS(47.646870))*SIN(RADIANS(47.644795))+COS(RADIANS(47.646870))*COS(RADIANS(47.644795))*COS(RADIANS(-2.778911) - RADIANS(-2.776605))), 3) FROM ActivityData WHERE activity_id = id);
 END;
