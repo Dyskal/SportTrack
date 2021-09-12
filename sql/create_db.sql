@@ -1,5 +1,5 @@
 --User(email (1), password (NN), lname (NN), fname (NN), bdate (NN), gender (NN), height (NN), weight (NN))
---Activity(id (1), user_id=@User.email (NN), date (NN), description (NN), start_time, duration, freq_min, freq_max, freq_avg)
+--Activity(id (1), user_id=@User.email (NN), date (NN), description (NN), / start_time, / duration, / freq_min, / freq_max, / freq_avg)
 --ActivityData(activity_id=@Activity.id (NN), time (NN), cardio_frequency (NN), latitude (NN), longitude (NN), altitude (NN))
 
 PRAGMA foreign_keys = ON;
@@ -66,7 +66,7 @@ CREATE TRIGGER cardio_frequency_values
 BEGIN
     UPDATE Activity SET freq_min = (SELECT MIN(cardio_frequency) FROM ActivityData WHERE activity_id = id);
     UPDATE Activity SET freq_max = (SELECT MAX(cardio_frequency) FROM ActivityData WHERE activity_id = id);
-    UPDATE Activity SET freq_avg = (SELECT AVG(cardio_frequency) FROM ActivityData WHERE activity_id = id);
+    UPDATE Activity SET freq_avg = ROUND((SELECT AVG(cardio_frequency) FROM ActivityData WHERE activity_id = id), 1);
 END;
 
 CREATE TRIGGER activity_computed_values
