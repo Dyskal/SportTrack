@@ -7,9 +7,14 @@
     <link href="./style/style.css" rel="stylesheet">
     <link href="./img/logo.svg" rel="icon"/>
 </head>
-
 <body>
 <header>
+    <?php 
+    include 'CalculDistance.php';
+    include 'CalculDistanceImpl.php';
+    $res = calculDistance2PointsGPS(12, 41, 11, 5);
+    echo ($res);
+    ?>
     <h1>SportTrack</h1>
 </header>
 <div class="container">

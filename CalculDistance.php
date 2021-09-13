@@ -1,5 +1,8 @@
 <?php
 interface CalculDistance {
+
+
+
     /**
      * Retourne la distance en mètres entre 2 points GPS exprimés en degrés.
      * @param float $lat1 Latitude du premier point GPS
