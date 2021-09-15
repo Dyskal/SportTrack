@@ -1,5 +1,4 @@
 <?php
-
 class User {
     private $lname;
     private $fname;
@@ -12,11 +11,11 @@ class User {
 
     public function __construct() {}
 
-    public function init($lname, $fname, $password, $email, $bdate, $gender, $height, $weight) {
+    public function init($email, $password, $lname, $fname, $bdate, $gender, $height, $weight) {
+        $this->email = $email;
+        $this->password = $password;
         $this->lname = $lname;
         $this->fname = $fname;
-        $this->password = $password;
-        $this->email = $email;
         $this->bdate = $bdate;
         $this->gender = $gender;
         $this->height = $height;
