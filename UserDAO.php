@@ -1,5 +1,5 @@
 <?php
-require_once('SqliteConnection.php');
+require_once('model/SqliteConnection.php');
 class UserDAO {
     private static $dao;
 
@@ -24,7 +24,7 @@ class UserDAO {
       if($st instanceof User){
          $dbc = SqliteConnection::getInstance()->getConnection();
          // prepare the SQL statement
-         $query = "insert into students(login, nom, prenom) values (:l,:n,:p)";
+         $query = "insert into students(email, password, lname, fname, bdate, gender) values (:l,:n,:p)";
          $stmt = $dbc->prepare($query);
 
          // bind the paramaters
