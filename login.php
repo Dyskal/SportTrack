@@ -9,12 +9,6 @@
 </head>
 <body>
 <header>
-    <?php 
-    include 'CalculDistance.php';
-    include 'CalculDistanceImpl.php';
-    $res = calculDistance2PointsGPS(12, 41, 11, 5);
-    echo ($res);
-    ?>
     <h1>SportTrack</h1>
 </header>
 <div class="container">
