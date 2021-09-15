@@ -1,5 +1,6 @@
 <?php
 class ActivityData {
+    private $id;
     private $activity_id;
     private $time;
     private $cardio_frequency;
@@ -9,13 +10,18 @@ class ActivityData {
 
     public function __construct() {}
 
-    public function init($activity_id, $time, $cardio_frequency, $latitude, $longitude, $altitude) {
+    public function init($id, $activity_id, $time, $cardio_frequency, $latitude, $longitude, $altitude) {
+        $this->id = $id;
         $this->activity_id = $activity_id;
         $this->time = $time;
         $this->cardio_frequency = $cardio_frequency;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->altitude = $altitude;
+    }
+
+    public function getId() {
+        return $this->id;
     }
 
     public function getActivityId() {
@@ -26,7 +32,7 @@ class ActivityData {
         return $this->time;
     }
 
-    public function getCardiofrequency() {
+    public function getCardioFrequency() {
         return $this->cardio_frequency;
     }
 
@@ -46,5 +52,4 @@ class ActivityData {
         return $this->activity_id . " " . $this->time . " " . $this->cardio_frequency . " " . $this->latitude . " " . $this->longitude . " " . $this->altitude;
     }
 }
-
 ?>

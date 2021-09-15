@@ -58,5 +58,4 @@ class User {
         return $this->lname . " " . $this->fname . " " . $this->password . " " . $this->email . " " . $this->bdate . " " . $this->gender . " " . $this->height . " " . $this->weight;
     }
 }
-
 ?>

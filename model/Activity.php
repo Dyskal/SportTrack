@@ -64,5 +64,4 @@ class Activity {
         return $this->id . " " . $this->user_id . " " . $this->date . " " . $this->description . " " . $this->start_time . " " . $this->duration . " " . $this->freq_min . " " . $this->freq_max . " " . $this->freq_avg;
     }
 }
-
 ?>

@@ -47,6 +47,7 @@ CREATE TABLE Activity (
 );
 
 CREATE TABLE ActivityData (
+    id INTEGER PRIMARY KEY,
     activity_id INTEGER NOT NULL,
     time TIME NOT NULL
         CHECK(time IS TIME(time)),
