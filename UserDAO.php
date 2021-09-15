@@ -55,11 +55,11 @@ class UserDAO {
       }
   }
 
-  public function update($obj){
+  public function update($st){
       if($st instanceof User){
          $dbc = SqliteConnection::getInstance()->getConnection();
          // prepare the SQL statement
-         $query = "insert into User(email, password, lname, fname, bdate, gender, height, weight) values (:email, :password, lname, :fname, :bdate, :gender, :height, :weight)";
+         $query = "Update User SET email = :email , password = :password, lname = :lname, fname = :fname, bdate = :bdate, gender = :gender, height = :height, weight = :weight where email =:email";
          $stmt = $dbc->prepare($query);
 
          // bind the paramaters
