@@ -1,0 +1,2 @@
+Deny From All
+ErrorDocument 403 /errors/403.html
