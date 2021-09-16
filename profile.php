@@ -46,7 +46,7 @@
         <label for="password">Password:</label><br>
         <input class="input" id="password" minlength="8" name="password" required type="password"/><br>
         <input class="button right" type="submit" value="Save changes"/>
-        <input class="button cancel" type="button" value="Cancel"/>
+        <input class="button cancel" type="button" value="Cancel" formnovalidate/>
     </form>
 </div>
 </body>
