@@ -18,7 +18,7 @@
         <input class="input" id="email" required type="email"><br>
         <label for="password">Password</label><br>
         <input class="input" id="password" minlength="8" required type="password"><br>
-        <button class="button">Register</button>
+        <button class="button" href="./register.php">Register</button>
         <button class="button right">Login</button>
         <br>
         <a href=#>Forget password ?</a><br>
