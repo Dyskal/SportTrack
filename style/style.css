@@ -27,6 +27,20 @@ body {
     border-radius: 10px;
 }
 
+.accueil{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 30%;
+    width: 30%;
+}
+
+
+.accueil button{
+    width: 100%;
+}
+
 header {
     font-family: "Monoton", cursive;
     text-transform: uppercase;
@@ -39,7 +53,14 @@ header {
     font-size: 22px;
 }
 
-h1 {
+
+
+header h1:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+h1  {
     font-weight: 1;
     margin: 0;
 }

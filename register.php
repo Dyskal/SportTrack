@@ -10,7 +10,7 @@
 
 <body>
 <header>
-    <h1>SportTrack</h1>
+<h1 onclick="window.location.href='./'">SportTrack</h1>
 </header>
 <div class="container">
     <h2>Register</h2>
