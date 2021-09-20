@@ -1,4 +1,5 @@
 <?php
+
 class ApplicationController {
     private static $instance;
     private $routes;
@@ -6,7 +7,13 @@ class ApplicationController {
     private function __construct() {
         // Sets the controller and the view of the application.
         $this->routes = [
-            '/' => ['controller' => 'MainController', 'view' => 'MainView'],
+            'profile' => ['controller' => 'MainController', 'view' => 'profile'],
+            'login' => ['controller' => 'MainController', 'view' => 'login'],
+
+            'register' => ['controller' => 'MainController', 'view' => 'register'],
+
+            'upload' => ['controller' => 'MainController', 'view' => 'upload'],
+
             'error' => ['controller' => null, 'view' => 'ErrorView']
         ];
     }
@@ -31,7 +38,10 @@ class ApplicationController {
      * request specified as parameter.
      */
     public function getController(array $request) {
-        if (array_key_exists($request['page'], $this->routes)) {
+
+        if ($request != null && array_key_exists($request['page'], $this->routes)) {
+
+
             return $this->routes[$request['page']]['controller'];
         }
         return null;
@@ -45,10 +55,11 @@ class ApplicationController {
      * specified as parameter.
      */
     public function getView(array $request) {
-        if (array_key_exists($request['page'], $this->routes)) {
+        if ($request != null && array_key_exists($request['page'], $this->routes)) {
             return $this->routes[$request['page']]['view'];
         }
         return $this->routes['error']['view'];
     }
 }
+
 ?>
