@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>SportTrack | Login</title>
-    <link href="./style/style.css" rel="stylesheet">
-    <link href="./img/logo.svg" rel="icon"/>
+    <link href="../style/style.css" rel="stylesheet">
+    <link href="../img/logo.svg" rel="icon"/>
 </head>
 <body>
 <header>

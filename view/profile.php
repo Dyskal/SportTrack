@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SportTrack | Register</title>
-    <link href="./style/style.css" rel="stylesheet">
-    <link href="./img/logo.svg" rel="icon"/>
+    <title>SportTrack | Profile</title>
+    <link href="../style/style.css" rel="stylesheet">
+    <link href="../img/logo.svg" rel="icon"/>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <h1 onclick="window.location.href='./'">SportTrack</h1>
 </header>
 <div class="container">
-    <h2>Register</h2>
+    <h2>Profile</h2>
     <form>
         <label for="fname">First name:</label><br>
         <input class="input" id="fname" name="fname" required type="text"/><br>
@@ -45,7 +45,8 @@
         <input class="input" id="mail" name="mail" required type="text"/><br>
         <label for="password">Password:</label><br>
         <input class="input" id="password" minlength="8" name="password" required type="password"/><br>
-        <input class="button right" type="submit" value="Submit"/>
+        <input class="button right" type="submit" value="Save changes"/>
+        <input class="button cancel" type="button" value="Cancel" formnovalidate/>
     </form>
 </div>
 </body>
