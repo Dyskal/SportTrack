@@ -5,6 +5,113 @@
     src: url("../font/Monoton.ttf");
 }
 
+
+.loading1,.loading2,.loading3{
+    background-color: chartreuse;
+
+    border-radius:1000px;
+    position:relative;
+    margin-left:0;
+    transition:1s;
+
+}
+
+.loading1{
+    position:absolute;
+    left:0;
+    transform:translate(-50%,-50%);
+    animation:loading1 linear infinite 1.2s;
+}
+.loading2{
+    position:absolute;
+    left:50%;
+    transform:translate(-50%,-50%);
+    animation:loading2 linear infinite  1.2s;
+}
+.loading3{
+    position:absolute;
+    left:100%;
+    transform:translate(-50%,-50%);
+    animation:loading3 linear infinite  1.2s;
+}
+
+
+.loading-content{
+    display:flex;
+    position:relative;
+    justify-content:space-between;
+    width:100px;
+
+}
+
+@keyframes loading1 {
+    from{
+        height: 30px;
+        width:30px;
+    }
+    25%{
+        height: 15px;
+        width: 15px;
+    }
+    50%{
+        height: 0;
+        width: 0;
+    }
+    75%{
+        height: 15px;
+        width: 15px;
+    }
+    to {
+        height : 30px;
+        width:30px;
+    }
+}
+@keyframes loading2 {
+    from{
+        height: 15px;
+        width:15px;
+    }
+    25%{
+        height: 30px;
+        width: 30px;
+    }
+    50%{
+        height: 15px;
+        width: 15px;
+    }
+    75%{
+        height: 0;
+        width: 0;
+    }
+    to {
+        height : 15px;
+        width:15px;
+    }
+}
+@keyframes loading3 {
+    from{
+        height: 0;
+        width:0;
+    }
+    25%{
+        height: 15px;
+        width: 15px;
+    }
+    50%{
+        height: 30px;
+        width: 30px;
+    }
+    75%{
+        height: 15px;
+        width: 15px;
+    }
+    to {
+        height : 0;
+        width:0;
+    }
+}
+
+
 body {
     background-image: url("../img/background.jpg");
     font-family: "Nunito Sans", sans-serif;
