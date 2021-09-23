@@ -20,6 +20,18 @@ class UserDAO {
         return $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
     }
 
+    public final function verifyPassword($email, $password) {
+        $dbc = SqliteConnection::getInstance()->getConnection();
+        $query = "Select password from User Where email = '$email'";
+        echo($query);
+        $stmt = $dbc->query($query);
+        $row = $stmt->fetch();
+        if ($row['password'] == $password) {
+            return true;
+        }
+        return false;
+    }
+
     public final function insert($st) {
         if ($st instanceof User) {
             $dbc = SqliteConnection::getInstance()->getConnection();
