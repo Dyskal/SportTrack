@@ -9,7 +9,7 @@ class AddUserController implements Controller {
 
     public function AddUser() {
         $User = new User();
-        $User->init($_POST["mail"], $_POST["password"], $_POST["lname"], $_POST["fname"], $_POST["date"], $_POST["sex"], $_POST["height"], $_POST["weight"]);
+        $User->init($_POST["mail"], $_POST["password"], $_POST["lname"], $_POST["fname"], $_POST["bdate"], $_POST["gender"], $_POST["height"], $_POST["weight"]);
         $UserDAO = UserDAO::getInstance();
         $UserDAO->insert($User);
         ?>
