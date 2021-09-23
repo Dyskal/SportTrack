@@ -13,7 +13,7 @@
 </header>
 <div class="container">
     <h2>Login</h2>
-    <form>
+    <form action="./controller/ConnectUserController.php" method="post">
         <label for="email">Email</label><br>
         <input class="input" id="email" required type="email"><br>
         <label for="password">Password</label><br>
