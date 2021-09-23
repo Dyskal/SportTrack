@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>SportTrack | Register</title>
-    <link href="../style/style.css" rel="stylesheet">
-    <link href="../img/logo.svg" rel="icon"/>
+    <link href="./style/style.css" rel="stylesheet">
+    <link href="./img/logo.svg" rel="icon"/>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 </header>
 <div class="container">
     <h2>Register</h2>
-    <form action="../controller/AddUserController.php" method="post">
+    <form action="./controller/AddUserController.php" method="post">
         <label for="mail">Email address:</label><br>
         <input class="input" id="mail" name="mail" required type="text"/><br>
         <label for="password">Password:</label><br>
