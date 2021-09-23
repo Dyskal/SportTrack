@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+
+
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 require('controller/ApplicationController.php');
@@ -23,14 +25,43 @@ if ($controller != null) {
 </head>
 
 <body>
-<header>
-    <h1 onclick="window.location.href='./'">SportTrack</h1>
-</header>
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+    $mail = $_SESSION['email'];
+    ?>
+    <header>
+        <h1 onclick="window.location.href='./'">SportTrack</h1>
+        <nav>
+            <button onclick="window.location.href='?page=upload'" class="header-btn header-upload"></button>
+            <button onclick="window.location.href='?page=profile'" class="header-btn header-account"></button>
+            <form action="./controller/DisconnectUserController.php" method="get">
+            <button class="header-btn header-logout"></button></form>
+
+        </nav>
+    </header>
+
+    <?php
+} else {
+    ?>
+    <header>
+        <h1 onclick="window.location.href='./'">SportTrack</h1>
+        <nav>
+            <button onclick="window.location.href='?page=register'" class="header-btn header-login">Register</button>
+            <button onclick="window.location.href='?page=login'" class="header-btn header-login">Login</button>
+
+
+        </nav>
+    </header>
+    <?php
+}
+?>
+
 <div class=accueil>
-    <button class=button onclick="window.location.href='?page=profile'">Profile</button>
-    <button class=button onclick="window.location.href='?page=login'">Login</button>
-    <button class=button onclick="window.location.href='?page=register'">Register</button>
-    <button class=button onclick="window.location.href='?page=upload'">Upload</button>
+<!--    <button class=button onclick="window.location.href='?page=profile'">Profile</button>-->
+<!--    <button class=button onclick="window.location.href='?page=login'">Login</button>-->
+<!--    <button class=button onclick="window.location.href='?page=register'">Register</button>-->
+<!--    <button class=button onclick="window.location.href='?page=upload'">Upload</button>-->
 </div>
 <?php
 }

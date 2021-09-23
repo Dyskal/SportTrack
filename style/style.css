@@ -6,114 +6,7 @@
 }
 
 
-.loading1, .loading2, .loading3 {
-    background-color: chartreuse;
 
-    border-radius: 1000px;
-    position: relative;
-    margin-left: 0;
-    transition: 1s;
-
-}
-
-.loading1 {
-    position: absolute;
-    left: 0;
-    transform: translate(-50%, -50%);
-    animation: loading1 linear infinite 1.2s;
-}
-
-.loading2 {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: loading2 linear infinite 1.2s;
-}
-
-.loading3 {
-    position: absolute;
-    left: 100%;
-    transform: translate(-50%, -50%);
-    animation: loading3 linear infinite 1.2s;
-}
-
-
-.loading-content {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    width: 100px;
-
-}
-
-@keyframes loading1 {
-    from {
-        height: 30px;
-        width: 30px;
-    }
-    25% {
-        height: 15px;
-        width: 15px;
-    }
-    50% {
-        height: 0;
-        width: 0;
-    }
-    75% {
-        height: 15px;
-        width: 15px;
-    }
-    to {
-        height: 30px;
-        width: 30px;
-    }
-}
-
-@keyframes loading2 {
-    from {
-        height: 15px;
-        width: 15px;
-    }
-    25% {
-        height: 30px;
-        width: 30px;
-    }
-    50% {
-        height: 15px;
-        width: 15px;
-    }
-    75% {
-        height: 0;
-        width: 0;
-    }
-    to {
-        height: 15px;
-        width: 15px;
-    }
-}
-
-@keyframes loading3 {
-    from {
-        height: 0;
-        width: 0;
-    }
-    25% {
-        height: 15px;
-        width: 15px;
-    }
-    50% {
-        height: 30px;
-        width: 30px;
-    }
-    75% {
-        height: 15px;
-        width: 15px;
-    }
-    to {
-        height: 0;
-        width: 0;
-    }
-}
 
 
 
@@ -130,6 +23,113 @@
     bottom:0;
 }
 
+.header-btn{
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 25px;
+    font-weight: 1000;
+    margin-left: 15px;
+    min-width: 60px;
+    color: #3eb42e;
+    height:60px;
+    background: transparent;
+    border-radius: 1000px;
+    border: solid 5px #fff;
+    position: relative;
+    transition: 0.1s;
+    filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);
+
+}
+.header-btn:hover{
+    color: #fff;
+    filter: none;
+    background: #3eb42e;
+    border: solid 5px #3eb42e;
+    cursor: pointer;
+}
+
+.header-btn::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);
+    transition: 0.1s;
+}
+
+.header-btn:hover::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(321deg) brightness(98%) contrast(112%);
+}
+
+.header-login{
+    padding:0 20px 0 20px ;
+}
+
+.header-account::before {
+    background-image: url("../img/account.svg");
+}
+
+.header-logout::before {
+    background-image: url("../img/logout.svg");
+}
+.header-logout:hover{
+    background: red;
+    border: red 5px solid;
+
+}
+.header-upload::before {
+    background-image: url("../img/upload.svg");
+}
+
+
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+header {
+    font-family: "Monoton", cursive;
+    text-transform: uppercase;
+    width: calc(100% - 14px);
+    float: left;
+    position: absolute;
+    top: 0;
+    color: chartreuse;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+
+header h1:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
 
 .hide{
     display: none;
@@ -170,23 +170,7 @@ body {
     width: 100%;
 }
 
-header {
-    font-family: "Monoton", cursive;
-    text-transform: uppercase;
-    width: calc(100% - 7px);
-    float: left;
-    position: absolute;
-    top: 0;
-    color: chartreuse;
-    padding-left: 7px;
-    font-size: 22px;
-}
 
-
-header h1:hover {
-    cursor: pointer;
-    opacity: 0.8;
-}
 
 h1 {
     font-weight: 1;
@@ -311,4 +295,113 @@ input[type=number] {
     opacity: 0;
     width: 100%;
     height: 100%;
+}
+
+
+.loading1, .loading2, .loading3 {
+    background-color: chartreuse;
+
+    border-radius: 1000px;
+    position: relative;
+    margin-left: 0;
+    transition: 1s;
+
+}
+
+.loading1 {
+    position: absolute;
+    left: 0;
+    transform: translate(-50%, -50%);
+    animation: loading1 linear infinite 1.2s;
+}
+
+.loading2 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: loading2 linear infinite 1.2s;
+}
+
+.loading3 {
+    position: absolute;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    animation: loading3 linear infinite 1.2s;
+}
+
+.loading-content {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 100px;
+
+}
+
+@keyframes loading1 {
+    from {
+        height: 30px;
+        width: 30px;
+    }
+    25% {
+        height: 15px;
+        width: 15px;
+    }
+    50% {
+        height: 0;
+        width: 0;
+    }
+    75% {
+        height: 15px;
+        width: 15px;
+    }
+    to {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+@keyframes loading2 {
+    from {
+        height: 15px;
+        width: 15px;
+    }
+    25% {
+        height: 30px;
+        width: 30px;
+    }
+    50% {
+        height: 15px;
+        width: 15px;
+    }
+    75% {
+        height: 0;
+        width: 0;
+    }
+    to {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@keyframes loading3 {
+    from {
+        height: 0;
+        width: 0;
+    }
+    25% {
+        height: 15px;
+        width: 15px;
+    }
+    50% {
+        height: 30px;
+        width: 30px;
+    }
+    75% {
+        height: 15px;
+        width: 15px;
+    }
+    to {
+        height: 0;
+        width: 0;
+    }
 }

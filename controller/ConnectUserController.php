@@ -22,6 +22,7 @@ class ConnectUserController implements Controller {
             echo "nice";
             session_start();
             $_SESSION["email"] = $_POST["email"];
+            echo $_POST["email"];
             ?>
             <head>
                 <meta charset="UTF-8">
