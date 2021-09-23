@@ -1,18 +1,11 @@
 <?php
-
-
 require("../model/UserDAO.php");
 require ("Controller.php");
-
 class AddUserController implements Controller {
     public function __construct() {
-
         $this->AddUser();
     }
-
-    public function handle($request) {
-        // TODO: Implement handle() method.
-    }
+    public function handle($request) {}
 
     public function AddUser() {
         $User = new User();
@@ -32,6 +25,5 @@ class AddUserController implements Controller {
         <div class=loading-content><div class=loading1></div><div class=loading2></div><div class=loading3></div></div>
         <?php
     }
-
 }
 $o = new AddUserController();
