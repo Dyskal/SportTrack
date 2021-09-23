@@ -46,7 +46,7 @@ class ConnectUserController implements Controller {
             </head>
             <div class=loading-content><div class=loading1></div><div class=loading2></div><div class=loading3></div></div>
             <script type="text/javascript">
-                window.location.href = '../?page=login&msg=Wrong%20password%20or%20email';
+                window.location.href = '../?page=login&msg=Wrong%20password%20or%20email,%20please try again.';
             </script>
 
             <?php
