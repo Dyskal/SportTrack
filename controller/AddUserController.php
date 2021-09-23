@@ -13,9 +13,6 @@ class AddUserController implements Controller {
         $UserDAO = UserDAO::getInstance();
         $UserDAO->insert($User);
         ?>
-        <script type="text/javascript">
-            window.location.href = '..';
-        </script>
         <head>
             <meta charset="UTF-8">
             <title>SportTrack | Accueil</title>
@@ -23,6 +20,10 @@ class AddUserController implements Controller {
             <link href="../img/logo.svg" rel="icon"/>
         </head>
         <div class=loading-content><div class=loading1></div><div class=loading2></div><div class=loading3></div></div>
+        <script type="text/javascript">
+            window.location.href = '..';
+        </script>
+
         <?php
     }
 }

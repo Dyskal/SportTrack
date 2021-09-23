@@ -116,6 +116,24 @@
 }
 
 
+
+.error{
+
+    position: fixed;
+    transform: translate(0,-50%);
+    transition: 1s;
+    background: rgba(255,0,0,0.5);
+    color:white;
+    font-size: 20px;
+    padding: 30px;
+    border-radius: 50px;
+    bottom:0;
+}
+
+
+.hide{
+    display: none;
+}
 body {
     background-image: url("../img/background.jpg");
     font-family: "Nunito Sans", sans-serif;

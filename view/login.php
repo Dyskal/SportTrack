@@ -15,14 +15,38 @@
     <h2>Login</h2>
     <form action="./controller/ConnectUserController.php" method="post">
         <label for="email">Email</label><br>
-        <input class="input" id="email" required type="email"><br>
+        <input class="input" id="email" name="email" required type="email"><br>
         <label for="password">Password</label><br>
-        <input class="input" id="password" minlength="8" required type="password"><br>
-        <button class="button" formnovalidate>Register</button>
+        <input class="input" id="password" name="password" minlength="8" required type="password"><br>
+        <button onclick="window.location.href='?page=register'" name="register" class="button" formnovalidate>Register
+        </button>
         <button class="button right">Login</button>
         <br>
-        <a href=#>Forget password ?</a><br>
+        <a onclick="alert('not implemented yet')">Forget password ?</a><br>
     </form>
+
 </div>
+<?php
+if (isset($_GET['msg'])) {
+    $error = urldecode($_GET['msg']);
+    if (strlen($error) > 1) {
+        ?>
+        <div class="error" id="hideDiv">
+            <?php
+            echo $error;
+            ?>
+        </div>
+        <?php
+    }
+
+}
+
+?>
+<script>
+    setTimeout(function (){document.getElementById("hideDiv").classList.add("hide");console.log("uho");}, 10000)
+
+
+
+</script>
 </body>
 </html>
