@@ -83,6 +83,83 @@
     background-image: url("../img/account.svg");
 }
 
+.header-account:hover::after {
+    content: "Account";
+    color:#3eb42e;
+    position: absolute;
+    top: -2px; right:0;
+    padding-left: 15px;
+    width: calc(100% + 90px); height: 100%;
+    align-items: center;
+    display: flex;
+    border: 2px solid;
+    border-radius: 1000px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.header-account:hover::after {
+    opacity: 1;
+}
+
+.header-account:hover {
+    margin-left: 120px;
+}
+
+
+
+.header-upload:hover::after {
+    content: "Upload";
+    color:#3eb42e;
+    position: absolute;
+    top: -2px; right:0;
+    padding-left: 15px;
+    width: calc(100% + 90px); height: 100%;
+    align-items: center;
+    display: flex;
+    border: 2px solid;
+    border-radius: 1000px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.header-upload:hover::after {
+    opacity: 1;
+}
+
+.header-upload:hover {
+    margin-left: 120px;
+}
+
+
+.header-logout:hover::after {
+    content: "Logout";
+    color:red;
+    position: absolute;
+    top: -2px; right:0;
+    padding-left: 15px;
+    width: calc(100% + 90px); height: 100%;
+    align-items: center;
+    display: flex;
+    border: 2px solid;
+    border-radius: 1000px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.1s;
+}
+
+.header-logout:hover::after {
+    opacity: 1;
+}
+
+.header-logout:hover {
+    margin-left: 120px;
+}
+
+
+
 .header-logout::before {
     background-image: url("../img/logout.svg");
 }
