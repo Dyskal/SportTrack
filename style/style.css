@@ -40,7 +40,7 @@
 
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     nav{
         clip-path: circle(0 at 97% 3%);
         display: flex !important;
@@ -62,7 +62,7 @@
 
     }
 }
-@media (min-width: 901px) {
+@media (min-width: 1201px) {
     .header-burger{
         display: none !important;
 
@@ -252,6 +252,7 @@ header {
     font-family: "Alegreya", cursive;
     width: calc(100% - 14px);
     float: left;
+    left:0;
     position: absolute;
     top: 0;
     color: #3eb42e;
