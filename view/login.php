@@ -7,7 +7,7 @@
     <link href="./style/style.css" rel="stylesheet">
     <link href="./img/logo.svg" rel="icon"/>
 </head>
-<body>
+<body class="bg-image">
 <header>
     <h1 onclick="window.location.href='./'">SportTrack</h1>
 </header>
