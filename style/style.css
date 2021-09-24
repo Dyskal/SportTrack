@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 @font-face {
-    font-family: "Monoton";
-    src: url("../font/Monoton.ttf");
+    font-family: "Alegreya";
+    src: url("../font/AlegreyaSansSC.ttf");
 }
 
 
@@ -25,15 +25,15 @@
 
 .header-btn{
     font-family: "Nunito Sans", sans-serif;
-    font-size: 25px;
-    font-weight: 1000;
+    font-size: 20px;
+    font-weight: 400;
     margin-left: 15px;
-    min-width: 60px;
+    min-width: 40px;
     color: #3eb42e;
-    height:60px;
+    height:40px;
     background: transparent;
     border-radius: 1000px;
-    border: solid 5px #fff;
+    border: solid 2px #fff;
     position: relative;
     transition: 0.1s;
     filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);
@@ -43,7 +43,7 @@
     color: #fff;
     filter: none;
     background: #3eb42e;
-    border: solid 5px #3eb42e;
+    border: solid 2px #3eb42e;
     cursor: pointer;
 }
 
@@ -53,7 +53,7 @@
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background-size: 30px;
+    background-size: 20px;
     background-position: center;
     background-repeat: no-repeat;
     filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);
@@ -65,7 +65,7 @@
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-size: 30px;
+    background-size: 20px;
     background-position: center;
     background-repeat: no-repeat;
     filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(321deg) brightness(98%) contrast(112%);
@@ -84,7 +84,7 @@
 }
 .header-logout:hover{
     background: red;
-    border: red 5px solid;
+    border: red 2px solid;
 
 }
 .header-upload::before {
@@ -101,6 +101,12 @@ nav{
 }
 
 
+nav form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
 
@@ -108,21 +114,31 @@ nav{
 
 
 
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
 header {
-    font-family: "Monoton", cursive;
-    text-transform: uppercase;
+    font-weight: 100;
+    font-family: "Alegreya", cursive;
     width: calc(100% - 14px);
     float: left;
     position: absolute;
     top: 0;
-    color: chartreuse;
+    color: #3eb42e;
     padding-left: 7px;
     padding-right: 7px;
-    font-size: 22px;
+    font-size: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
 }
 
 
@@ -135,7 +151,7 @@ header h1:hover {
     display: none;
 }
 body {
-    background-image: url("../img/background.jpg");
+    background: transparent;
     font-family: "Nunito Sans", sans-serif;
     display: flex;
     align-items: center;
@@ -299,7 +315,7 @@ input[type=number] {
 
 
 .loading1, .loading2, .loading3 {
-    background-color: chartreuse;
+    background-color: #3eb42e;
 
     border-radius: 1000px;
     position: relative;

@@ -19,10 +19,8 @@ class ConnectUserController implements Controller {
 
         $passwordCheck = $UserDAO->verifyPassword($_POST["email"],$_POST["password"]);
         if ($passwordCheck) {
-            echo "nice";
             session_start();
             $_SESSION["email"] = $_POST["email"];
-            echo $_POST["email"];
             ?>
             <head>
                 <meta charset="UTF-8">

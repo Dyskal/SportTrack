@@ -25,6 +25,9 @@ if ($controller != null) {
 </head>
 
 <body>
+<video preload="auto" autoplay loop id="myVideo">
+    <source src="./img/video.mp4" type="video/mp4">
+</video>
 <?php
 session_start();
 if (isset($_SESSION['email'])) {
