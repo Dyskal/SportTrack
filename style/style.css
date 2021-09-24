@@ -35,10 +35,56 @@
     border-radius: 1000px;
     border: solid 2px #fff;
     position: relative;
-    transition: 0.1s;
+    transition: 0.3s;
     filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);
 
 }
+
+@media (max-width: 900px) {
+    nav{
+        clip-path: circle(0 at 97% 3%);
+        display: flex !important;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top:0;
+        left:0;
+        justify-content: space-evenly !important;
+        transition: 1s;
+        flex-direction: column !important;
+        background: #383838;
+        z-index:0;
+    }
+
+
+    nav.toggle{
+        clip-path: circle(200% at 97% 3%);
+
+    }
+}
+@media (min-width: 901px) {
+    .header-burger{
+        display: none !important;
+
+    }
+}
+
+
+
+
+.header-burger{
+    z-index: 1000;
+}
+
+.header-burger.toggle{
+    z-index: 1000;
+}
+
+.header-burger::before {
+    background-image: url("../img/hamburger.svg");
+}
+
+
 .header-btn:hover{
     color: #fff;
     filter: none;
@@ -96,7 +142,7 @@
     border-radius: 1000px;
     text-align: center;
     opacity: 0;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 .header-account:hover::after {
@@ -122,7 +168,7 @@
     border-radius: 1000px;
     text-align: center;
     opacity: 0;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 .header-upload:hover::after {
@@ -147,7 +193,7 @@
     border-radius: 1000px;
     text-align: center;
     opacity: 0;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 .header-logout:hover::after {

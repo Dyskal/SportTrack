@@ -35,7 +35,9 @@ if (isset($_SESSION['email'])) {
     ?>
     <header>
         <h1 onclick="window.location.href='./'">SportTrack</h1>
-        <nav>
+        <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
+
+        <nav id="menu">
             <button onclick="window.location.href='?page=upload'" class="header-btn header-upload"></button>
             <button onclick="window.location.href='?page=profile'" class="header-btn header-account"></button>
             <form action="./controller/DisconnectUserController.php" method="get">
@@ -49,7 +51,9 @@ if (isset($_SESSION['email'])) {
     ?>
     <header>
         <h1 onclick="window.location.href='./'">SportTrack</h1>
-        <nav>
+        <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
+
+        <nav id="menu">
             <button onclick="window.location.href='?page=register'" class="header-btn header-login">Register</button>
             <button onclick="window.location.href='?page=login'" class="header-btn header-login">Login</button>
 
@@ -69,5 +73,16 @@ if (isset($_SESSION['email'])) {
 <?php
 }
 ?>
+<script>
+
+    function burgerMenu(){
+        var nav = document.getElementById("menu");
+
+            nav.classList.toggle("toggle");
+        document.getElementById("header-burger").classList.toggle("toggle");
+
+    }
+
+</script>
 </body>
 </html>
