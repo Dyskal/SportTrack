@@ -42,7 +42,7 @@
 
 @media (max-width: 1200px) {
     nav{
-        clip-path: circle(0 at 97% 3%);
+        clip-path: circle(0 at calc(100vw - 27px) calc(40px));
         display: flex !important;
         position: fixed;
         width: 100vw;
@@ -129,7 +129,7 @@
     background-image: url("../img/account.svg");
 }
 
-.header-account:hover::after {
+.header-account::after {
     content: "Account";
     color:#3eb42e;
     position: absolute;
@@ -155,7 +155,7 @@
 
 
 
-.header-upload:hover::after {
+.header-upload::after {
     content: "Upload";
     color:#3eb42e;
     position: absolute;
@@ -180,7 +180,7 @@
 }
 
 
-.header-logout:hover::after {
+.header-logout::after {
     content: "Logout";
     color:red;
     position: absolute;
@@ -263,8 +263,37 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    background: rgba(255,255,255,0.5);
+
+    background-color: rgba(255, 255, 255, 0.11);
     backdrop-filter: blur(5px);
+}
+
+
+body:after {
+    background-image: url("../img/noise.png");
+    background-size: 500px;
+    content: " ";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 1;
+}
+body:before {
+    background-image: url("../img/overlayLine.svg");
+    background-size: 10px;
+    content: " ";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 1;
 }
 
 
@@ -290,14 +319,22 @@ body {
 }
 
 .container {
-    min-width: 30%;
-    background-color: rgba(79, 81, 94, 0.3);
-    backdrop-filter: blur(10px);
+    max-width: 500px;
+    min-width: 400px;
+    background-color: rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(5px);
     color: white;
     padding: 40px;
     border-radius: 10px;
 }
 
+
+.container h2{
+    text-align: center;
+    text-transform: uppercase;
+    color: #3eb42e;
+    font-size: 29px;
+}
 .accueil {
     display: flex;
     justify-content: space-between;
@@ -334,9 +371,73 @@ input {
     padding: 5px 0;
 }
 
+label{
+    opacity: 0.8;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px !important;
+    margin-left: 15px;
+}
+
+
+.container-radio label{
+    opacity: 1;
+    font-weight: normal;
+}
+
+.container-radio{
+    margin-bottom: 20px !important;
+
+}
+
 .input {
-    -webkit-box-shadow: inset 0 0 13px 5px rgba(0, 0, 0, 0.19);
-    box-shadow: inset 0 0 13px 5px rgba(0, 0, 0, 0.19);
+
+    height: 30px;
+    display: block;
+    align-content: center;
+    border-radius: 1000px;
+    padding: 5px 20px 5px 20px;
+    width: calc(100% - 40px);
+    margin-bottom: 20px !important;
+
+
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+select {
+
+    height: 40px;
+    display: block;
+    align-content: center;
+    border-radius: 1000px;
+    padding: 5px 20px 5px 20px;
+    width: 100% ;
+    margin-bottom: 20px !important;
+
+
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+    transition: 0.3s;
+}
+
+select:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.6);
+
+}
+
+form a{
+    margin-top:10px;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.input-btns{
+    display: flex;
+    justify-content: space-between;
 }
 
 label {
@@ -348,12 +449,7 @@ label {
     width: auto;
 }
 
-.button:hover {
-    background: white;
-    color: #42c431;
-    cursor: pointer;
-    transform: scale(1.02);
-}
+
 
 .container-radio {
     display: flex;
@@ -362,26 +458,35 @@ label {
 }
 
 .button {
-    background: #42c431;
-    border: none;
-    color: #F0F0F0FF;
-    transition: 0.2s all;
-    padding: 12px 24px;
+    font-family: "Nunito Sans", sans-serif;
     font-size: 20px;
-    border-radius: 3px;
-    height: auto;
+    font-weight: 400;
+    min-width: 40px;
+    color: #3eb42e;
+    height:40px;
+    background: transparent;
+    border-radius: 1000px;
+    border: solid 2px #3eb42e;
+    position: relative;
+    transition: 0.3s;
+    padding: 0 20px 0 20px;
 }
 
+.button:hover {
+    cursor: pointer;
+    background: #3eb42e;
+    color: #fff;
+}
 a {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
+    display: block;
 }
 
 a:hover {
     color: #42c431;
-    text-decoration: none;
-    font-size: 20px;
+    cursor: pointer;
 }
 
 .right {

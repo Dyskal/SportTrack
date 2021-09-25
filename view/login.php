@@ -14,15 +14,15 @@
 <div class="container">
     <h2>Login</h2>
     <form action="./controller/ConnectUserController.php" method="post">
-        <label for="email">Email</label><br>
-        <input class="input" id="email" name="email" required type="email"><br>
-        <label for="password">Password</label><br>
-        <input class="input" id="password" name="password" minlength="8" required type="password"><br>
+        <label for="email">Email</label>
+        <input class="input" id="email" name="email" required type="email">
+        <label for="password">Password</label>
+        <input class="input" id="password" name="password" minlength="8" required type="password">
+        <div class="input-btns">
         <button onclick="window.location.href='?page=register'" name="register" class="button" >Register
         </button>
-        <button class="button right">Login</button>
-        <br>
-        <a onclick="alert('not implemented yet')">Forget password ?</a><br>
+        <button class="button right">Login</button></div>
+        <a onclick="alert('not implemented yet')">Forget password ?</a>
     </form>
 
 </div>
