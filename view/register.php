@@ -11,6 +11,16 @@
 <body class="bg-image">
 <header>
     <h1 onclick="window.location.href='./'">SportTrack</h1>
+    <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
+
+    <nav id="menu">
+        <button onclick="window.location.href='./'" class="header-btn header-home"></button>
+
+        <button onclick="window.location.href='?page=register'" class="header-btn header-login">Register</button>
+        <button onclick="window.location.href='?page=login'" class="header-btn header-login">Login</button>
+
+
+    </nav>
 </header>
 <div class="container">
     <h2>Register</h2>

@@ -108,6 +108,7 @@
     background-repeat: no-repeat;
     filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);
     transition: 0.1s;
+
 }
 
 .header-btn:hover::before {
@@ -119,6 +120,7 @@
     background-position: center;
     background-repeat: no-repeat;
     filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(321deg) brightness(98%) contrast(112%);
+
 }
 
 .header-login{
@@ -128,6 +130,8 @@
 .header-account::before {
     background-image: url("../img/account.svg");
 }
+
+
 
 .header-account::after {
     content: "Account";
@@ -152,6 +156,35 @@
 .header-account:hover {
     margin-left: 120px;
 }
+
+.header-home::before {
+    background-image: url("../img/home.svg");
+}
+
+.header-home::after {
+    content: "Home";
+    color:#3eb42e;
+    position: absolute;
+    top: -2px; right:0;
+    padding-left: 15px;
+    width: calc(100% + 70px); height: 100%;
+    align-items: center;
+    display: flex;
+    border: 2px solid;
+    border-radius: 1000px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.header-home:hover::after {
+    opacity: 1;
+}
+
+.header-home:hover {
+    margin-left: 100px;
+}
+
 
 
 
@@ -193,7 +226,6 @@
     border-radius: 1000px;
     text-align: center;
     opacity: 0;
-    transition: 0.3s;
 }
 
 .header-logout:hover::after {
@@ -204,6 +236,15 @@
     margin-left: 120px;
 }
 
+
+.header-btn::after{
+    pointer-events: none;
+
+}
+.header-btn:hover::after{
+    pointer-events: all;
+
+}
 
 
 .header-logout::before {
@@ -494,15 +535,14 @@ a:hover {
 }
 
 .cancel {
-    background: white;
-    color: black;
-    opacity: 0.6;
+    background: transparent;
+    color: red;
+    border: red 2px solid;
 }
 
 .cancel:hover {
-    background: white;
-    opacity: 0.8;
-    color: red;
+    background: red;
+    color: #fff;
 }
 
 input::-webkit-outer-spin-button,
@@ -522,6 +562,11 @@ input[type=number] {
     border: dotted 2px #383838;
     border-radius: 8px;
 }
+
+.upload-btn-wrapper:hover {
+    cursor: pointer;
+}
+
 
 .btn {
     border: none;

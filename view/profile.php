@@ -11,40 +11,42 @@
 <body class="bg-image">
 <header>
     <h1 onclick="window.location.href='./'">SportTrack</h1>
+    <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
+
+    <nav id="menu">
+        <button onclick="window.location.href='./'" class="header-btn header-home"></button>
+        <button onclick="window.location.href='?page=upload'" class="header-btn header-upload"></button>
+        <button onclick="window.location.href='?page=profile'" class="header-btn header-account"></button>
+        <form action="./controller/DisconnectUserController.php" method="get">
+            <button class="header-btn header-logout"></button></form>
+
+    </nav>
 </header>
 <div class="container">
     <h2>Profile</h2>
     <form>
-        <label for="fname">First name:</label><br>
-        <input class="input" id="fname" name="fname" required type="text"/><br>
-        <label for="lname">Last name:</label><br>
-        <input class="input" id="lname" name="lname" required type="text"/><br>
-        <label for="date">Birth date:</label><br>
-        <input class="input" id="date" name="date" required type="date"/><br>
-        <label>Gender:</label><br>
-        <div class="container-radio">
-            <div>
-                <input checked class="radio" id="w" name="sex" required type="radio"/>
-                <label for="w">Woman</label></div>
-            <div>
-                <input class="radio" id="m" name="sex" type="radio">
-                <label for="m">Man</label>
-            </div>
-            <div>
-                <input class="radio" id="o" name="sex" type="radio">
-                <label for="o">Other</label>
-            </div>
-        </div>
-        <label for="height">Height:</label><br>
+        <label for="fname">First name</label>
+        <input class="input" id="fname" name="fname" required type="text"/>
+        <label for="lname">Last name</label>
+        <input class="input" id="lname" name="lname" required type="text"/>
+        <label for="date">Birth date</label>
+        <input class="input" id="date" name="date" required type="date"/>
+        <label>Gender</label>
+        <select  name="gender">
+            <option value="M">Man</option>
+            <option value="W">Women</option>
+            <option value="O">Other</option>
+        </select>
+        <label for="height">Height:</label>
         <input class="input" id="height" min="0" name="height" oninput="validity.valid||(value='');" required
-               type="number"/><br>
-        <label for="weight">Weight:</label><br>
+               type="number"/>
+        <label for="weight">Weight:</label>
         <input class="input" id="weight" min="0" name="weight" oninput="validity.valid||(value='');" required
-               type="number"/><br>
-        <label for="mail">Email address:</label><br>
-        <input class="input" id="mail" name="mail" required type="text"/><br>
-        <label for="password">Password:</label><br>
-        <input class="input" id="password" minlength="8" name="password" required type="password"/><br>
+               type="number"/>
+        <label for="mail">Email address</label>
+        <input class="input" id="mail" name="mail" required type="text"/>
+        <label for="password">Password</label>
+        <input class="input" id="password" minlength="8" name="password" required type="password"/>
         <input class="button right" type="submit" value="Save changes"/>
         <input class="button cancel" type="button" value="Cancel" formnovalidate/>
     </form>

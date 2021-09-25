@@ -38,6 +38,7 @@ if (isset($_SESSION['email'])) {
         <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
 
         <nav id="menu">
+            <button onclick="window.location.href='./'" class="header-btn header-home"></button>
             <button onclick="window.location.href='?page=upload'" class="header-btn header-upload"></button>
             <button onclick="window.location.href='?page=profile'" class="header-btn header-account"></button>
             <form action="./controller/DisconnectUserController.php" method="get">
@@ -54,6 +55,8 @@ if (isset($_SESSION['email'])) {
         <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
 
         <nav id="menu">
+            <button onclick="window.location.href='./'" class="header-btn header-home"></button>
+
             <button onclick="window.location.href='?page=register'" class="header-btn header-login">Register</button>
             <button onclick="window.location.href='?page=login'" class="header-btn header-login">Login</button>
 
