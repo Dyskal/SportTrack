@@ -18,10 +18,11 @@
         <button onclick="window.location.href='?page=upload'" class="header-btn header-upload"></button>
         <button onclick="window.location.href='?page=profile'" class="header-btn header-account"></button>
         <form action="./controller/DisconnectUserController.php" method="get">
-            <button class="header-btn header-logout"></button></form>
-
+            <button class="header-btn header-logout"></button>
+        </form>
     </nav>
 </header>
+
 <div class="container">
     <h2>Profile</h2>
     <form>
@@ -31,8 +32,8 @@
         <input class="input" id="lname" name="lname" required type="text"/>
         <label for="date">Birth date</label>
         <input class="input" id="date" name="date" required type="date"/>
-        <label>Gender</label>
-        <select  name="gender">
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender">
             <option value="M">Man</option>
             <option value="W">Women</option>
             <option value="O">Other</option>

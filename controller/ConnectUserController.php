@@ -1,23 +1,14 @@
 <?php
-require("../model/UserDAO.php");
 require("Controller.php");
-
+require("../model/UserDAO.php");
 class ConnectUserController implements Controller {
-
-
-    public function __construct(){
+    public function __construct() {
         $this->connect();
     }
 
-    public function handle($request) {
-        // TODO: Implement handle() method.
-    }
-
     public function connect() {
-
         $UserDAO = UserDAO::getInstance();
-
-        $passwordCheck = $UserDAO->verifyPassword($_POST["email"],$_POST["password"]);
+        $passwordCheck = $UserDAO->verifyPassword($_POST["email"], $_POST["password"]);
         if ($passwordCheck) {
             session_start();
             $_SESSION["email"] = $_POST["email"];
@@ -28,11 +19,14 @@ class ConnectUserController implements Controller {
                 <link href="../style/style.css" rel="stylesheet">
                 <link href="../img/logo.svg" rel="icon"/>
             </head>
-            <div class=loading-content><div class=loading1></div><div class=loading2></div><div class=loading3></div></div>
+            <div class=loading-content>
+                <div class=loading1></div>
+                <div class=loading2></div>
+                <div class=loading3></div>
+            </div>
             <script type="text/javascript">
                 window.location.href = '..';
             </script>
-
             <?php
         } else {
             ?>
@@ -42,16 +36,19 @@ class ConnectUserController implements Controller {
                 <link href="../style/style.css" rel="stylesheet">
                 <link href="../img/logo.svg" rel="icon"/>
             </head>
-            <div class=loading-content><div class=loading1></div><div class=loading2></div><div class=loading3></div></div>
+            <div class=loading-content>
+                <div class=loading1></div>
+                <div class=loading2></div>
+                <div class=loading3></div>
+            </div>
             <script type="text/javascript">
                 window.location.href = '../?page=login&msg=Wrong%20password%20or%20email,%20please try again.';
             </script>
-
             <?php
-
-
         }
-
     }
+
+    public function handle($request) {}
 }
 $o = new ConnectUserController();
+?>

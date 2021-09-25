@@ -6,7 +6,7 @@ class UserDAO {
 
     private function __construct() {}
 
-    public final static function getInstance() {
+    public final static function getInstance(): UserDAO {
         if (!isset(self::$dao)) {
             self::$dao = new UserDAO();
         }
@@ -20,7 +20,7 @@ class UserDAO {
         return $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
     }
 
-    public final function verifyPassword($email, $password) {
+    public final function verifyPassword($email, $password): bool {
         $dbc = SqliteConnection::getInstance()->getConnection();
         $query = "Select password from User Where email = '$email'";
         $stmt = $dbc->query($query);
@@ -45,8 +45,8 @@ class UserDAO {
             $stmt->bindValue(':fname', $st->getFirstname(), PDO::PARAM_STR);
             $stmt->bindValue(':bdate', $st->getBirthDate(), PDO::PARAM_STR);
             $stmt->bindValue(':gender', $st->getGender(), PDO::PARAM_STR);
-            $stmt->bindValue(':height', $st->getHeight(), PDO::PARAM_STR);
-            $stmt->bindValue(':weight', $st->getWeight(), PDO::PARAM_STR);
+            $stmt->bindValue(':height', $st->getHeight(), PDO::PARAM_INT);
+            $stmt->bindValue(':weight', $st->getWeight(), PDO::PARAM_INT);
 
             // execute the prepared statement
             $stmt->execute();
@@ -78,8 +78,8 @@ class UserDAO {
             $stmt->bindValue(':fname', $st->getFirstname(), PDO::PARAM_STR);
             $stmt->bindValue(':bdate', $st->getBirthDate(), PDO::PARAM_STR);
             $stmt->bindValue(':gender', $st->getGender(), PDO::PARAM_STR);
-            $stmt->bindValue(':height', $st->getHeight(), PDO::PARAM_STR);
-            $stmt->bindValue(':weight', $st->getWeight(), PDO::PARAM_STR);
+            $stmt->bindValue(':height', $st->getHeight(), PDO::PARAM_INT);
+            $stmt->bindValue(':weight', $st->getWeight(), PDO::PARAM_INT);
 
             // execute the prepared statement
             $stmt->execute();

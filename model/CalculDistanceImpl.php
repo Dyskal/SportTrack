@@ -5,14 +5,14 @@ class CalculDistanceImpl implements CalculDistance {
     /**
      * @inheritDoc
      */
-    public function calculDistance2PointsGPS($lat1, $long1, $lat2, $long2) {
+    public function calculDistance2PointsGPS(float $lat1, float $long1, float $lat2, float $long2) : float {
         return 6378137 * acos(sin(deg2rad($lat2)) * sin(deg2rad($lat1)) + cos(deg2rad($lat2)) * cos(deg2rad($lat1)) * cos(deg2rad($long2) - deg2rad($long1)));
     }
 
     /**
      * @inheritDoc
      */
-    public function calculDistanceTrajet($parcours) {
+    public function calculDistanceTrajet(array $parcours) : float {
         $ret = 0.0;
         for ($i = 1; $i < sizeof($parcours); $i++) {
             $ret += $this->calculDistance2PointsGPS($parcours[$i-1]['latitude'], $parcours[$i-1]['longitude'], $parcours[$i]['latitude'], $parcours[$i]['longitude']);
@@ -20,7 +20,7 @@ class CalculDistanceImpl implements CalculDistance {
         return $ret;
     }
 
-    public function json_cut($array) {
+    public function json_cut(string $array): array {
         $narray = [];
         $array = json_decode($array, true);
         for ($i = 0; $i < sizeof($array); $i++) {
@@ -29,3 +29,4 @@ class CalculDistanceImpl implements CalculDistance {
         return $narray;
     }
 }
+?>

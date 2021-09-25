@@ -6,7 +6,7 @@ class ActivityDataDAO {
 
     private function __construct() {}
 
-    public final static function getInstance() {
+    public final static function getInstance(): ActivityDataDAO {
         if (!isset(self::$dao)) {
             self::$dao = new ActivityDataDAO();
         }
@@ -24,17 +24,17 @@ class ActivityDataDAO {
         if ($st instanceof ActivityData) {
             $dbc = SqliteConnection::getInstance()->getConnection();
             // prepare the SQL statement
-            $query = "Insert Into ActivityData(id, activity_id, time, cardio_frequency, latitude, longitude, altitude) Values (:id, :activity_id, :time, :cardio_frequency, :latitude, :longitude, :altitude)";
+            $query = "Insert Into ActivityData(activity_id, time, cardio_frequency, latitude, longitude, altitude) Values (:activity_id, :time, :cardio_frequency, :latitude, :longitude, :altitude)";
             $stmt = $dbc->prepare($query);
 
             // bind the paramaters
-            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_STR);
-            $stmt->bindValue(':activity_id', $st->getActivityId(), PDO::PARAM_STR);
+//            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_STR);
+            $stmt->bindValue(':activity_id', $st->getActivityId(), PDO::PARAM_INT);
             $stmt->bindValue(':time', $st->getTime(), PDO::PARAM_STR);
-            $stmt->bindValue(':cardio_frequency', $st->getCardioFrequency(), PDO::PARAM_STR);
-            $stmt->bindValue(':latitude', $st->getLatitude(), PDO::PARAM_STR);
-            $stmt->bindValue(':longitude', $st->getLongitude(), PDO::PARAM_STR);
-            $stmt->bindValue(':altitude', $st->getAltitude(), PDO::PARAM_STR);
+            $stmt->bindValue(':cardio_frequency', $st->getCardioFrequency(), PDO::PARAM_INT);
+            $stmt->bindValue(':latitude', $st->getLatitude(), PDO::PARAM_INT);
+            $stmt->bindValue(':longitude', $st->getLongitude(), PDO::PARAM_INT);
+            $stmt->bindValue(':altitude', $st->getAltitude(), PDO::PARAM_INT);
 
             // execute the prepared statement
             $stmt->execute();
@@ -47,7 +47,7 @@ class ActivityDataDAO {
             // prepare the SQL statement
             $query = "Delete From ActivityData Where id = :id";
             $stmt = $dbc->prepare($query);
-            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_STR);
+            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_INT);
             $stmt->execute();
         }
     }
@@ -60,13 +60,13 @@ class ActivityDataDAO {
             $stmt = $dbc->prepare($query);
 
             // bind the paramaters
-            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_STR);
-            $stmt->bindValue(':activity_id', $st->getActivityId(), PDO::PARAM_STR);
+            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_INT);
+            $stmt->bindValue(':activity_id', $st->getActivityId(), PDO::PARAM_INT);
             $stmt->bindValue(':time', $st->getTime(), PDO::PARAM_STR);
-            $stmt->bindValue(':cardio_frequency', $st->getCardioFrequency(), PDO::PARAM_STR);
-            $stmt->bindValue(':latitude', $st->getLatitude(), PDO::PARAM_STR);
-            $stmt->bindValue(':longitude', $st->getLongitude(), PDO::PARAM_STR);
-            $stmt->bindValue(':altitude', $st->getAltitude(), PDO::PARAM_STR);
+            $stmt->bindValue(':cardio_frequency', $st->getCardioFrequency(), PDO::PARAM_INT);
+            $stmt->bindValue(':latitude', $st->getLatitude(), PDO::PARAM_INT);
+            $stmt->bindValue(':longitude', $st->getLongitude(), PDO::PARAM_INT);
+            $stmt->bindValue(':altitude', $st->getAltitude(), PDO::PARAM_INT);
 
             // execute the prepared statement
             $stmt->execute();

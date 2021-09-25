@@ -10,8 +10,8 @@ class ActivityData {
 
     public function __construct() {}
 
-    public function init($id, $activity_id, $time, $cardio_frequency, $latitude, $longitude, $altitude) {
-        $this->id = $id;
+    public function init($activity_id, $time, $cardio_frequency, $latitude, $longitude, $altitude) {
+//        $this->id = $id;
         $this->activity_id = $activity_id;
         $this->time = $time;
         $this->cardio_frequency = $cardio_frequency;

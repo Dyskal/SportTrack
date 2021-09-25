@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
-
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 require('controller/ApplicationController.php');
@@ -28,6 +26,7 @@ if ($controller != null) {
 <video preload="auto" autoplay loop id="myVideo">
     <source src="./img/video.mp4" type="video/mp4">
 </video>
+
 <?php
 session_start();
 if (isset($_SESSION['email'])) {
@@ -36,14 +35,13 @@ if (isset($_SESSION['email'])) {
     <header>
         <h1 onclick="window.location.href='./'">SportTrack</h1>
         <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
-
         <nav id="menu">
             <button onclick="window.location.href='./'" class="header-btn header-home"></button>
             <button onclick="window.location.href='?page=upload'" class="header-btn header-upload"></button>
             <button onclick="window.location.href='?page=profile'" class="header-btn header-account"></button>
             <form action="./controller/DisconnectUserController.php" method="get">
-            <button class="header-btn header-logout"></button></form>
-
+                <button class="header-btn header-logout"></button>
+            </form>
         </nav>
     </header>
 
@@ -53,14 +51,10 @@ if (isset($_SESSION['email'])) {
     <header>
         <h1 onclick="window.location.href='./'">SportTrack</h1>
         <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
-
         <nav id="menu">
             <button onclick="window.location.href='./'" class="header-btn header-home"></button>
-
             <button onclick="window.location.href='?page=register'" class="header-btn header-login">Register</button>
             <button onclick="window.location.href='?page=login'" class="header-btn header-login">Login</button>
-
-
         </nav>
     </header>
     <?php
@@ -68,24 +62,20 @@ if (isset($_SESSION['email'])) {
 ?>
 
 <div class=accueil>
-<!--    <button class=button onclick="window.location.href='?page=profile'">Profile</button>-->
-<!--    <button class=button onclick="window.location.href='?page=login'">Login</button>-->
-<!--    <button class=button onclick="window.location.href='?page=register'">Register</button>-->
-<!--    <button class=button onclick="window.location.href='?page=upload'">Upload</button>-->
+    <!--    <button class=button onclick="window.location.href='?page=profile'">Profile</button>-->
+    <!--    <button class=button onclick="window.location.href='?page=login'">Login</button>-->
+    <!--    <button class=button onclick="window.location.href='?page=register'">Register</button>-->
+    <!--    <button class=button onclick="window.location.href='?page=upload'">Upload</button>-->
 </div>
 <?php
 }
 ?>
 <script>
-
-    function burgerMenu(){
-        var nav = document.getElementById("menu");
-
-            nav.classList.toggle("toggle");
+    function burgerMenu() {
+        let nav = document.getElementById("menu");
+        nav.classList.toggle("toggle");
         document.getElementById("header-burger").classList.toggle("toggle");
-
     }
-
 </script>
 </body>
 </html>

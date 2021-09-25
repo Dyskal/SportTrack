@@ -1,5 +1,4 @@
 <?php
-
 class ApplicationController {
     private static $instance;
     private $routes;
@@ -9,11 +8,8 @@ class ApplicationController {
         $this->routes = [
             'profile' => ['controller' => 'MainController', 'view' => 'profile'],
             'login' => ['controller' => 'MainController', 'view' => 'login'],
-
             'register' => ['controller' => 'MainController', 'view' => 'register'],
-
             'upload' => ['controller' => 'MainController', 'view' => 'upload'],
-
             'error' => ['controller' => null, 'view' => 'ErrorView']
         ];
     }
@@ -38,10 +34,7 @@ class ApplicationController {
      * request specified as parameter.
      */
     public function getController(array $request) {
-
         if ($request != null && array_key_exists($request['page'], $this->routes)) {
-
-
             return $this->routes[$request['page']]['controller'];
         }
         return null;
@@ -61,5 +54,4 @@ class ApplicationController {
         return $this->routes['error']['view'];
     }
 }
-
 ?>

@@ -4,7 +4,7 @@ class SQLiteConnection {
 
     private function __construct() {}
 
-    public final static function getInstance() {
+    public final static function getInstance(): SQLiteConnection {
         if(!isset(self::$instance)) {
             self::$instance = new SQLiteConnection();
         }
@@ -22,6 +22,7 @@ class SQLiteConnection {
         }
     }
 }
+?>
 
 
 

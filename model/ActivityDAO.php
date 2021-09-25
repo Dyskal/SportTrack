@@ -6,7 +6,7 @@ class ActivityDAO {
 
     private function __construct() {}
 
-    public final static function getInstance() {
+    public final static function getInstance(): ActivityDAO {
         if (!isset(self::$dao)) {
             self::$dao = new ActivityDAO();
         }
@@ -28,15 +28,15 @@ class ActivityDAO {
             $stmt = $dbc->prepare($query);
 
             // bind the paramaters
-            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_STR);
+            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_INT);
             $stmt->bindValue(':user_id', $st->getUserId(), PDO::PARAM_STR);
             $stmt->bindValue(':date', $st->getDate(), PDO::PARAM_STR);
             $stmt->bindValue(':description', $st->getDescription(), PDO::PARAM_STR);
             $stmt->bindValue(':start_time', $st->getStartTime(), PDO::PARAM_STR);
             $stmt->bindValue(':duration', $st->getDuration(), PDO::PARAM_STR);
-            $stmt->bindValue(':freq_min', $st->getFreqmin(), PDO::PARAM_STR);
-            $stmt->bindValue(':freq_max', $st->getFreqmax(), PDO::PARAM_STR);
-            $stmt->bindValue(':freq_avg', $st->getFreqavg(), PDO::PARAM_STR);
+            $stmt->bindValue(':freq_min', $st->getFreqmin(), PDO::PARAM_INT);
+            $stmt->bindValue(':freq_max', $st->getFreqmax(), PDO::PARAM_INT);
+            $stmt->bindValue(':freq_avg', $st->getFreqavg(), PDO::PARAM_INT);
 
             // execute the prepared statement
             $stmt->execute();
@@ -49,7 +49,7 @@ class ActivityDAO {
             // prepare the SQL statement
             $query = "Delete From Activity Where id = :id";
             $stmt = $dbc->prepare($query);
-            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_STR);
+            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_INT);
             $stmt->execute();
         }
     }
@@ -62,15 +62,15 @@ class ActivityDAO {
             $stmt = $dbc->prepare($query);
 
             // bind the paramaters
-            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_STR);
+            $stmt->bindValue(':id', $st->getId(), PDO::PARAM_INT);
             $stmt->bindValue(':user_id', $st->getUserId(), PDO::PARAM_STR);
             $stmt->bindValue(':date', $st->getDate(), PDO::PARAM_STR);
             $stmt->bindValue(':description', $st->getDescription(), PDO::PARAM_STR);
             $stmt->bindValue(':start_time', $st->getStartTime(), PDO::PARAM_STR);
             $stmt->bindValue(':duration', $st->getDuration(), PDO::PARAM_STR);
-            $stmt->bindValue(':freq_min', $st->getFreqmin(), PDO::PARAM_STR);
-            $stmt->bindValue(':freq_max', $st->getFreqmax(), PDO::PARAM_STR);
-            $stmt->bindValue(':freq_avg', $st->getFreqavg(), PDO::PARAM_STR);
+            $stmt->bindValue(':freq_min', $st->getFreqmin(), PDO::PARAM_INT);
+            $stmt->bindValue(':freq_max', $st->getFreqmax(), PDO::PARAM_INT);
+            $stmt->bindValue(':freq_avg', $st->getFreqavg(), PDO::PARAM_INT);
 
             // execute the prepared statement
             $stmt->execute();
