@@ -125,7 +125,7 @@
     color: #3eb42e;
     position: absolute;
     top: -2px;
-    right: 0;
+    right: -2px;
     padding-left: 15px;
     width: calc(100% + 90px);
     height: 100%;
@@ -155,7 +155,7 @@
     color: #3eb42e;
     position: absolute;
     top: -2px;
-    right: 0;
+    right: -2px;
     padding-left: 15px;
     width: calc(100% + 70px);
     height: 100%;
@@ -181,7 +181,7 @@
     color: #3eb42e;
     position: absolute;
     top: -2px;
-    right: 0;
+    right: -2px;
     padding-left: 15px;
     width: calc(100% + 90px);
     height: 100%;
@@ -207,7 +207,7 @@
     color: red;
     position: absolute;
     top: -2px;
-    right: 0;
+    right: -2px;
     padding-left: 15px;
     width: calc(100% + 90px);
     height: 100%;
