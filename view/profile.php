@@ -26,12 +26,16 @@
 <div class="container">
     <h2>Profile</h2>
     <form>
+        <label for="mail">Email address</label>
+        <input class="input" id="mail" name="mail" required type="text"/>
+        <label for="password">Password</label>
+        <input class="input" id="password" minlength="8" name="password" required type="password"/>
         <label for="fname">First name</label>
         <input class="input" id="fname" name="fname" required type="text"/>
         <label for="lname">Last name</label>
         <input class="input" id="lname" name="lname" required type="text"/>
-        <label for="date">Birth date</label>
-        <input class="input" id="date" name="date" required type="date"/>
+        <label for="bdate">Birth date</label>
+        <input class="input" id="bdate" name="bdate" max="<?= date('Y-m-d'); ?>" required type="date"/>
         <label for="gender">Gender</label>
         <select name="gender" id="gender">
             <option value="M">Man</option>
@@ -44,10 +48,6 @@
         <label for="weight">Weight:</label>
         <input class="input" id="weight" min="0" name="weight" oninput="validity.valid||(value='');" required
                type="number"/>
-        <label for="mail">Email address</label>
-        <input class="input" id="mail" name="mail" required type="text"/>
-        <label for="password">Password</label>
-        <input class="input" id="password" minlength="8" name="password" required type="password"/>
         <input class="button right" type="submit" value="Save changes"/>
         <input class="button cancel" type="button" value="Cancel" formnovalidate/>
     </form>
