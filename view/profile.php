@@ -68,7 +68,7 @@ session_start()
                oninput="validity.valid||(value='');" required
                type="number"/>
         <input class="button right" type="submit" value="Save changes"/>
-        <input class="button cancel" type="button" value="Cancel" formnovalidate/>
+        <input class="button cancel" onclick="window.location.href='./'" type="button" value="Cancel" formnovalidate/>
     </form>
 </div>
 </body>

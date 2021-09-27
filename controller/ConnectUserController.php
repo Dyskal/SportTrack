@@ -20,10 +20,7 @@ class ConnectUserController implements Controller {
             $query = "Select * From User Where email='$email'";
             $stmt = $dbc->query($query);
             $user = $stmt->fetchAll(PDO::FETCH_CLASS, 'User')[0];
-            echo '<pre>';
-            var_dump($user);
 
-            echo '<pre>';
             $_SESSION['gender'] = $user->getGender();
             $_SESSION['lname'] = $user->getLastName();
             $_SESSION['fname'] = $user->getFirstName();
