@@ -1,6 +1,6 @@
 <?php
 require("Controller.php");
-require("../model/UserDAO.php");
+require_once("../model/UserDAO.php");
 class AddUserController implements Controller {
     public function __construct() {
         $this->AddUser();

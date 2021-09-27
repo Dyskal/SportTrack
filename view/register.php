@@ -31,7 +31,7 @@
         <label for="fname">First name</label>
         <input class="input" id="fname" name="fname" required type="text"/>
         <label for="bdate">Birth date</label>
-        <input class="input" id="bdate" name="bdate" required type="date"/>
+        <input class="input" id="bdate" name="bdate" max="<?= date('Y-m-d'); ?>" required type="date"/>
         <label for="gender">Gender</label>
         <!--        <div class="container-radio">-->
         <!--            <div>-->
