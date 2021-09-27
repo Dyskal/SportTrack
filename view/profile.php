@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+session_start()
+?>
 <head>
     <meta charset="UTF-8">
     <title>SportTrack | Profile</title>
@@ -24,29 +26,46 @@
 </header>
 
 <div class="container">
-    <h2>Profile</h2>
+    <h2><?php echo $_SESSION["email"]; ?></h2>
     <form action="./controller/ModifyUserController.php" method="post">
-        <label for="mail">Email address</label>
-        <input class="input" id="mail" name="mail" required type="text"/>
-        <label for="password">Password</label>
-        <input class="input" id="password" minlength="8" name="password" required type="password"/>
+
+
         <label for="fname">First name</label>
-        <input class="input" id="fname" name="fname" required type="text"/>
+        <input value="<?php echo $_SESSION["fname"]; ?>" class="input" id="fname" name="fname" required type="text"/>
         <label for="lname">Last name</label>
-        <input class="input" id="lname" name="lname" required type="text"/>
+        <input value="<?php echo $_SESSION["lname"]; ?>" class="input" id="lname" name="lname" required type="text"/>
         <label for="bdate">Birth date</label>
-        <input class="input" id="bdate" name="bdate" max="<?= date('Y-m-d'); ?>" required type="date"/>
+        <input value="<?php echo $_SESSION["bdate"]; ?>" class="input" id="bdate" name="bdate"
+               max="<?= date('Y-m-d'); ?>" required type="date"/>
         <label for="gender">Gender</label>
         <select name="gender" id="gender">
-            <option value="M">Man</option>
-            <option value="W">Women</option>
-            <option value="O">Other</option>
+            <option
+                <?php
+            if ($_SESSION["gender"] == "M") {
+                echo "selected";
+            }; ?>
+                    value="M">Man
+            </option>
+            <option
+                <?php
+                if ($_SESSION["gender"] == "W") {
+                    echo "selected";
+                }; ?>
+                    value="W">Women</option>
+            <option
+                <?php
+                if ($_SESSION["gender"] == "O") {
+                    echo "selected";
+                }; ?>
+                    value="O">Other</option>
         </select>
         <label for="height">Height:</label>
-        <input class="input" id="height" min="0" name="height" oninput="validity.valid||(value='');" required
+        <input value="<?php echo $_SESSION["height"]; ?>" class="input" id="height" min="0" name="height"
+               oninput="validity.valid||(value='');" required
                type="number"/>
         <label for="weight">Weight:</label>
-        <input class="input" id="weight" min="0" name="weight" oninput="validity.valid||(value='');" required
+        <input value="<?php echo $_SESSION["weight"]; ?>" class="input" id="weight" min="0" name="weight"
+               oninput="validity.valid||(value='');" required
                type="number"/>
         <input class="button right" type="submit" value="Save changes"/>
         <input class="button cancel" type="button" value="Cancel" formnovalidate/>

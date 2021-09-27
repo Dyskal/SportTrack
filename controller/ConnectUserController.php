@@ -19,7 +19,7 @@ class ConnectUserController implements Controller {
             $dbc = SqliteConnection::getInstance()->getConnection();
             $query = "Select * From User Where email='$email'";
             $stmt = $dbc->query($query);
-            $user = (User) $stmt->fetch(PDO::FETCH_OBJ);
+            $user = $stmt->fetchAll(PDO::FETCH_CLASS, 'User')[0];
             echo '<pre>';
             var_dump($user);
 
@@ -30,7 +30,7 @@ class ConnectUserController implements Controller {
             $_SESSION['fname'] = $user->getFirstName();
             $_SESSION['bdate'] = $user->getBirthDate();
             $_SESSION['height'] = $user->getHeight();
-            $_SESSION['weight'] = $user->getWidth();
+            $_SESSION['weight'] = $user->getWeight();
 
 
 

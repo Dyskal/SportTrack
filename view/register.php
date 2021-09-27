@@ -23,11 +23,11 @@
     <h2>Register</h2>
     <form action="./controller/AddUserController.php" method="post">
         <label for="mail">Email address</label>
-        <!--        <input class="input" id="mail" name="mail" required type="text"/>-->
-        <!--        <label for="password">Password</label>-->
-        <!--        <input class="input" id="password" minlength="8" name="password" required type="password"/>-->
+                <input class="input" id="mail" name="mail" required type="text"/>
+                <label for="password">Password</label>
+                <input class="input" id="password" minlength="8" name="password" required type="password"/>
         <label for="lname">Last name</label>
-        <input value="<? php echo $_SESSION["lname"]?>" class="input" id="lname" name="lname" required type="text"/>
+        <input class="input" id="lname" name="lname" required type="text"/>
         <label for="fname">First name</label>
         <input class="input" id="fname" name="fname" required type="text"/>
         <label for="bdate">Birth date</label>
