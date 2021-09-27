@@ -1,4 +1,5 @@
 <?php
+
 class User {
     private $lname;
     private $fname;
@@ -9,7 +10,8 @@ class User {
     private $height;
     private $weight;
 
-    public function __construct() {}
+    public function __construct() {
+    }
 
     public function init($email, $password, $lname, $fname, $bdate, $gender, $height, $weight) {
         $this->email = $email;
@@ -21,6 +23,9 @@ class User {
         $this->height = $height;
         $this->weight = $weight;
     }
+
+
+
 
     public function getLastname() {
         return $this->lname;
@@ -54,8 +59,11 @@ class User {
         return $this->weight;
     }
 
+
+
     public function __toString() {
         return $this->lname . " " . $this->fname . " " . $this->password . " " . $this->email . " " . $this->bdate . " " . $this->gender . " " . $this->height . " " . $this->weight;
     }
 }
+
 ?>

@@ -25,7 +25,7 @@
 
 <div class="container">
     <h2>Profile</h2>
-    <form>
+    <form action="./controller/ModifyUserController.php" method="post">
         <label for="mail">Email address</label>
         <input class="input" id="mail" name="mail" required type="text"/>
         <label for="password">Password</label>

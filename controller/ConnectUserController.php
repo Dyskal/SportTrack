@@ -12,6 +12,29 @@ class ConnectUserController implements Controller {
         if ($passwordCheck) {
             session_start();
             $_SESSION["email"] = $_POST["email"];
+
+
+
+            $email = $_SESSION['email'];
+            $dbc = SqliteConnection::getInstance()->getConnection();
+            $query = "Select * From User Where email='$email'";
+            $stmt = $dbc->query($query);
+            $user = (User) $stmt->fetch(PDO::FETCH_OBJ);
+            echo '<pre>';
+            var_dump($user);
+
+            echo '<pre>';
+            $_SESSION['gender'] = $user->getGender();
+            $_SESSION['lname'] = $user->getLastName();
+            $_SESSION['fname'] = $user->getFirstName();
+            $_SESSION['fname'] = $user->getFirstName();
+            $_SESSION['bdate'] = $user->getBirthDate();
+            $_SESSION['height'] = $user->getHeight();
+            $_SESSION['weight'] = $user->getWidth();
+
+
+
+
             ?>
             <head>
                 <meta charset="UTF-8">
