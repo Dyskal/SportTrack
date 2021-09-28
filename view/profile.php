@@ -71,5 +71,26 @@ session_start()
         <input class="button cancel" onclick="window.location.href='./'" type="button" value="Cancel" formnovalidate/>
     </form>
 </div>
+<?php
+if (isset($_GET['msg'])) {
+
+    $error = urldecode($_GET['msg']);
+    if (strlen($error) > 1) {
+        ?>
+        <div style="background: <?php if (isset($_GET['color'])){ echo $_GET['color'];} ?>" class="error" id="hideDiv">
+            <?php
+            echo $error;
+            ?>
+        </div>
+        <?php
+    }
+}
+?>
+<script>
+    setTimeout(function() {
+        document.getElementById("hideDiv").classList.add("hide");
+        console.log("uho");
+    }, 10000)
+</script>
 </body>
 </html>

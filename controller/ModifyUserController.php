@@ -33,7 +33,7 @@ class ModifyUserController implements Controller {
         $UserDAO->update($user);
         ?>
         <script type="text/javascript">
-            window.location.href = '../?page=profile';
+            window.location.href = '../?page=profile&msg=Changes%20have%20been%20saved.&color=%2300fc0080';
         </script>
         <?php
 

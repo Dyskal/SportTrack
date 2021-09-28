@@ -24,7 +24,7 @@ class AddUserController implements Controller {
             <div class=loading3></div>
         </div>
         <script type="text/javascript">
-            window.location.href = '../?page=login&msg=Thank%20you%20for%20registering%20on%20our%20website.%20Please%20log%20in.';
+            window.location.href = '../?page=login&msg=Thank%20you%20for%20registering%20on%20our%20website.%20Please%20log%20in.&color=%2300fc0080';
         </script>
         <?php
     }
