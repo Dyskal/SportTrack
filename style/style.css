@@ -17,6 +17,26 @@
     bottom: 0;
 }
 
+
+::-webkit-scrollbar{
+    width: 13px;
+    height: 13px;
+}
+::-webkit-scrollbar-thumb{
+    background: #3eb42e;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: rgba(62, 180, 46, 0.5);
+}
+::-webkit-scrollbar-track{
+    background: #F0F0F0;
+    border-radius: 0px;
+    box-shadow: inset 0px 0px 0px 0px #F0F0F0;
+}
+
+
+
 .header-btn {
     font-family: "Nunito Sans", sans-serif;
     font-size: 20px;
@@ -35,7 +55,7 @@
 
 @media (max-width: 1200px) {
     nav {
-        clip-path: circle(0 at calc(100vw - 47px) calc(60px));
+        clip-path: circle(0 at calc(100vw - 27px) calc(40px));
         display: flex !important;
         position: fixed;
         width: 100vw;
@@ -48,59 +68,67 @@
         background: #383838;
         z-index: 0;
     }
-
-    .header-btn {
-        font-family: "Nunito Sans", sans-serif;
-        font-size: 30px;
-        font-weight: 400;
-        margin-left: 15px;
-        min-width: 80px;
-        color: #3eb42e;
-        height: 80px;
-        background: transparent;
-        border-radius: 1000px;
-        border: solid 2px #fff;
-        position: relative;
-        transition: 0.3s;
-        filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);
+    .container{
+        width: 70% !important;
+        max-width: unset !important;
+        min-width: unset !important;
 
     }
-    .header-btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: 40px !important;
 
+    .container h2 {
+        font-size: 18px !important;
     }
+    /*.header-btn {*/
+    /*    font-family: "Nunito Sans", sans-serif;*/
+    /*    font-size: 30px;*/
+    /*    font-weight: 400;*/
+    /*    margin-left: 15px;*/
+    /*    min-width: 80px;*/
+    /*    color: #3eb42e;*/
+    /*    height: 80px;*/
+    /*    background: transparent;*/
+    /*    border-radius: 1000px;*/
+    /*    border: solid 2px #fff;*/
+    /*    position: relative;*/
+    /*    transition: 0.3s;*/
+    /*    filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);*/
+
+    /*}*/
+    /*.header-btn::before {*/
+    /*    content: "";*/
+    /*    position: absolute;*/
+    /*    top: 0;*/
+    /*    left: 0;*/
+    /*    width: 100%;*/
+    /*    height: 100%;*/
+    /*    background-size: 40px !important;*/
+
+
     nav.toggle {
-        clip-path: circle(200% at calc(100vw - 47px) calc(60px));
+        clip-path: circle(200% at calc(100vw - 27px) calc(40px));
     }
 
 
 
-    .header-login{
-        padding:0 40px 0 40px !important;
-    }
+    /*.header-login{*/
+    /*    padding:0 40px 0 40px !important;*/
+    /*}*/
 
-    .header-btn::after {
+    /*.header-btn::after {*/
 
-        padding-left: 40px !important;
-        width: auto !important;
-        padding-right: calc(100% + 40px) !important;
+    /*    padding-left: 40px !important;*/
+    /*    width: auto !important;*/
+    /*    padding-right: calc(100% + 40px) !important;*/
 
-    }
+    /*}*/
     header{
-        height: 120px !important;
         z-index: 10;
     }
-    .container {
+    /*.container {*/
 
-        margin-top: 160px !important;
-        margin-bottom: 40px !important;
-    }
+    /*    margin-top: 160px !important;*/
+    /*    margin-bottom: 40px !important;*/
+    /*}*/
 }
 
 @media (min-width: 1201px) {
