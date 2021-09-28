@@ -1,0 +1,6 @@
+.idea
+*.bak*
+*.lck
+*.pdf
+*.zip
+test.*
