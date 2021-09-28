@@ -6,19 +6,21 @@ class Activity {
     private $description;
     private $start_time;
     private $duration;
+    private $distance;
     private $freq_min;
     private $freq_max;
     private $freq_avg;
 
     public function __construct() {}
 
-    public function init($id, $user_id, $date, $description, $start_time, $duration, $freq_min, $freq_max, $freq_avg) {
+    public function init($id, $user_id, $date, $description, $start_time, $duration, $distance, $freq_min, $freq_max, $freq_avg) {
         $this->id = $id;
         $this->user_id = $user_id;
         $this->date = $date;
         $this->description = $description;
         $this->start_time = $start_time;
         $this->duration = $duration;
+        $this->distance = $distance;
         $this->freq_min = $freq_min;
         $this->freq_max = $freq_max;
         $this->freq_avg = $freq_avg;
@@ -46,6 +48,14 @@ class Activity {
 
     public function getDuration() {
         return $this->duration;
+    }
+
+    public function getDistance() {
+        return $this->distance;
+    }
+
+    public function setDistance($distance): void {
+        $this->distance = $distance;
     }
 
     public function getFreqmin() {

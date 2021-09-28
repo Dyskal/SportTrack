@@ -9,5 +9,8 @@ $array = '[
     {"time":"13:00:20","cardio_frequency":98,"latitude":47.647867,"longitude":-2.781744,"altitude":16},
     {"time":"13:00:25","cardio_frequency":103,"latitude":47.648510,"longitude":-2.780145,"altitude":16}
   ]';
+echo('<pre>');
+var_dump($o->json_cut($array));
+echo('</pre>');
 echo($o->calculDistanceTrajet($o->json_cut($array)));
 ?>

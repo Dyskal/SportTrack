@@ -1,25 +1,60 @@
 <?php
 require("Controller.php");
-require("../model/Activity.php");
+require("../model/CalculDistanceImpl.php");
+require_once("../model/ActivityDAO.php");
+require_once("../model/ActivityDataDAO.php");
 class UploadActivityController implements Controller {
     public function __construct() {
         $this->UploadFile();
     }
 
     public function UploadFile() {
-        var_dump($_FILES['file']['tmp_name']);
-        echo('<br>');
+        session_start();
         $file = fopen($_FILES['file']['tmp_name'], 'r');
         $json = (fread($file, filesize($_FILES['file']['tmp_name'])));
         fclose($file);
         $jsond = json_decode($json, true);
-        var_dump($jsond);
+
+
         $activity = new Activity();
-        $activity->init(null, $_SESSION['email'], $jsond['activity']['date'], $jsond['activity']['description'], null, null, null, null, null);
+        $ActivityDAO = ActivityDAO::getInstance();
+        $activity_id = $ActivityDAO->getNextId();
+        $activity->init($activity_id, $_SESSION['email'], date('Y-m-d', strtotime($jsond['activity']['date'])), $jsond['activity']['description'], null, null, null, null, null, null);
+        $ActivityDAO->delete($activity);
+        $ActivityDAO->insert($activity);
+
+        $ActivityDataDAO = ActivityDataDAO::getInstance();
+        foreach ($jsond['data'] as $line) {
+            $data = new ActivityData();
+            $data_id = $ActivityDataDAO->getNextId();
+            $data->init($data_id, $activity_id, $line['time'], $line['cardio_frequency'], $line['latitude'], $line['longitude'], $line['altitude']);
+            $ActivityDataDAO->insert($data);
+        }
+
+        $distance = new CalculDistanceImpl();
+        $activity_array = $ActivityDAO->find($activity_id);
+        $activity = $activity_array[0];
+        $activity->setDistance($distance->calculDistanceTrajet($distance->json_cut(json_encode($jsond['data']))));
+        $ActivityDAO->update($activity);
+        ?>
+        <head>
+            <meta charset="UTF-8">
+            <title>SportTrack | Accueil</title>
+            <link href="../style/style.css" rel="stylesheet">
+            <link href="../img/logo.svg" rel="icon"/>
+        </head>
+        <div class=loading-content>
+            <div class=loading1></div>
+            <div class=loading2></div>
+            <div class=loading3></div>
+        </div>
+        <script type="text/javascript">
+            window.location.href = '..';
+        </script>
+        <?php
     }
 
     public function handle($request) {}
 }
-
 $o = new UploadActivityController();
 ?>

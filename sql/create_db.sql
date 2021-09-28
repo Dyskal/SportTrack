@@ -37,17 +37,19 @@ CREATE TABLE Activity (
         CHECK(start_time IS TIME(start_time)),
     duration TIME
         CHECK(duration IS TIME(duration)),
+    distance INTEGER
+        CHECK(distance > 0),
     freq_min INTEGER
-          CHECK(freq_min > 0),
+        CHECK(freq_min > 0),
     freq_max INTEGER
-          CHECK(freq_max > 0),
+        CHECK(freq_max > 0),
     freq_avg REAL
-          CHECK(freq_avg > 0),
+        CHECK(freq_avg > 0),
     FOREIGN KEY(user_id) REFERENCES User(email)
 );
 
 CREATE TABLE ActivityData (
-    id INTEGER PRIMARY KEY,
+    data_id INTEGER PRIMARY KEY,
     activity_id INTEGER NOT NULL,
     time TIME NOT NULL
         CHECK(time IS TIME(time)),
@@ -70,8 +72,23 @@ BEGIN
     UPDATE Activity SET freq_avg = ROUND((SELECT AVG(cardio_frequency) FROM ActivityData WHERE activity_id = id), 1);
 END;
 
+CREATE TRIGGER cardio_frequency_values_up
+    AFTER UPDATE ON ActivityData
+BEGIN
+    UPDATE Activity SET freq_min = (SELECT MIN(cardio_frequency) FROM ActivityData WHERE activity_id = id);
+    UPDATE Activity SET freq_max = (SELECT MAX(cardio_frequency) FROM ActivityData WHERE activity_id = id);
+    UPDATE Activity SET freq_avg = ROUND((SELECT AVG(cardio_frequency) FROM ActivityData WHERE activity_id = id), 1);
+END;
+
 CREATE TRIGGER activity_computed_values
     AFTER INSERT ON ActivityData
+BEGIN
+    UPDATE Activity SET start_time = (SELECT MIN(time) FROM ActivityData WHERE activity_id = id);
+    UPDATE Activity SET duration = (SELECT TIME(CAST((JULIANDAY(MAX(time)) - JULIANDAY(MIN(time))) AS TIME), '12:00') FROM ActivityData WHERE activity_id = id);
+END;
+
+CREATE TRIGGER activity_computed_values_up
+    AFTER UPDATE ON ActivityData
 BEGIN
     UPDATE Activity SET start_time = (SELECT MIN(time) FROM ActivityData WHERE activity_id = id);
     UPDATE Activity SET duration = (SELECT TIME(CAST((JULIANDAY(MAX(time)) - JULIANDAY(MIN(time))) AS TIME), '12:00') FROM ActivityData WHERE activity_id = id);
