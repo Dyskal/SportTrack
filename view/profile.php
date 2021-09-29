@@ -37,9 +37,11 @@ session_start()
 
 
         <label for="fname">First name</label>
-        <input value="<?php echo htmlspecialchars($_SESSION["fname"]); ?>" class="input" id="fname" name="fname" required type="text"/>
+        <input value="<?php echo htmlspecialchars($_SESSION["fname"]); ?>" class="input" id="fname" name="fname"
+               required type="text"/>
         <label for="lname">Last name</label>
-        <input value="<?php echo htmlspecialchars($_SESSION["lname"]); ?>" class="input" id="lname" name="lname" required type="text"/>
+        <input value="<?php echo htmlspecialchars($_SESSION["lname"]); ?>" class="input" id="lname" name="lname"
+               required type="text"/>
         <label for="bdate">Birth date</label>
         <input value="<?php echo htmlspecialchars($_SESSION["bdate"]); ?>" class="input" id="bdate" name="bdate"
                max="<?= date('Y-m-d'); ?>" required type="date"/>
@@ -57,20 +59,24 @@ session_start()
                 if (htmlspecialchars($_SESSION["gender"]) == "W") {
                     echo("selected");
                 } ?>
-                    value="W">Women</option>
+                    value="W">Women
+            </option>
             <option
                 <?php
                 if (htmlspecialchars($_SESSION["gender"]) == "O") {
                     echo("selected");
                 } ?>
-                    value="O">Other</option>
+                    value="O">Other
+            </option>
         </select>
         <label for="height">Height:</label>
-        <input value="<?php echo(htmlspecialchars($_SESSION["height"])); ?>" class="input" id="height" min="0" name="height"
+        <input value="<?php echo(htmlspecialchars($_SESSION["height"])); ?>" class="input" id="height" min="0"
+               name="height"
                oninput="validity.valid||(value='');" required
                type="number"/>
         <label for="weight">Weight:</label>
-        <input value="<?php echo(htmlspecialchars($_SESSION["weight"])); ?>" class="input" id="weight" min="0" name="weight"
+        <input value="<?php echo(htmlspecialchars($_SESSION["weight"])); ?>" class="input" id="weight" min="0"
+               name="weight"
                oninput="validity.valid||(value='');" required
                type="number"/>
         <input class="button right" type="submit" value="Save changes"/>
@@ -83,7 +89,9 @@ if (isset($_GET['msg'])) {
     $error = urldecode($_GET['msg']);
     if (strlen($error) > 1) {
         ?>
-        <div style="background: <?php if (isset($_GET['color'])){ echo $_GET['color'];} ?>" class="error" id="hideDiv">
+        <div style="background: <?php if (isset($_GET['color'])) {
+            echo $_GET['color'];
+        } ?>" class="error" id="hideDiv">
             <?php echo(htmlspecialchars($error)); ?>
         </div>
         <?php
@@ -91,7 +99,7 @@ if (isset($_GET['msg'])) {
 }
 ?>
 <script>
-    setTimeout(function() {
+    setTimeout(function () {
         document.getElementById("hideDiv").classList.add("hide");
     }, 10000)
 </script>

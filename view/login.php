@@ -44,7 +44,9 @@ if (isset($_GET['msg'])) {
     $error = urldecode($_GET['msg']);
     if (strlen($error) > 1) {
         ?>
-        <div style="background: <?php if (isset($_GET['color'])){ echo $_GET['color'];} ?>" class="error" id="hideDiv">
+        <div style="background: <?php if (isset($_GET['color'])) {
+            echo $_GET['color'];
+        } ?>" class="error" id="hideDiv">
             <?php echo(htmlspecialchars($error)); ?>
         </div>
         <?php
@@ -52,7 +54,7 @@ if (isset($_GET['msg'])) {
 }
 ?>
 <script>
-    setTimeout(function() {
+    setTimeout(function () {
         document.getElementById("hideDiv").classList.add("hide");
     }, 10000)
 </script>
