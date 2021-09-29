@@ -6,6 +6,8 @@ class ApplicationController {
     private function __construct() {
         // Sets the controller and the view of the application.
         $this->routes = [
+            '/' => ['controller' => null, 'view' => 'home'],
+            'home' => ['controller' => 'ListActivityController', 'view' => 'home'],
             'profile' => ['controller' => 'MainController', 'view' => 'profile'],
             'login' => ['controller' => 'MainController', 'view' => 'login'],
             'register' => ['controller' => 'MainController', 'view' => 'register'],

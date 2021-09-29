@@ -21,7 +21,6 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 require ('controller/ApplicationController.php');
 
-if (isset($_REQUEST))
 $controller = ApplicationController::getInstance()->getController($_REQUEST);
 if($controller != null){
     include "controller/$controller.php";
