@@ -15,14 +15,14 @@ class ModifyUserController implements Controller {
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetchAll(PDO::FETCH_CLASS, 'User')[0];
-        $user->init($email, $user->getPassword(), $_POST["lname"], $_POST["fname"], $_POST["bdate"],  $_POST["gender"], $_POST["height"], $_POST["weight"]);
+        $user->init($email, $user->getPassword(), htmlspecialchars($_POST["lname"]), htmlspecialchars($_POST["fname"]), htmlspecialchars($_POST["bdate"]),  htmlspecialchars($_POST["gender"]), htmlspecialchars($_POST["height"]), htmlspecialchars($_POST["weight"]));
 
-        $_SESSION["lname"] = $_POST["lname"];
-        $_SESSION["fname"] = $_POST["fname"];
-        $_SESSION["gender"] = $_POST["gender"];
-        $_SESSION["bdate"] = $_POST["bdate"];
-        $_SESSION["height"] = $_POST["height"];
-        $_SESSION["weight"] = $_POST["weight"];
+        $_SESSION["lname"] = htmlspecialchars($_POST["lname"]);
+        $_SESSION["fname"] = htmlspecialchars($_POST["fname"]);
+        $_SESSION["gender"] = htmlspecialchars($_POST["gender"]);
+        $_SESSION["bdate"] = htmlspecialchars($_POST["bdate"]);
+        $_SESSION["height"] = htmlspecialchars($_POST["height"]);
+        $_SESSION["weight"] = htmlspecialchars($_POST["weight"]);
 
         $UserDAO = UserDAO::getInstance();
         $UserDAO->update($user);

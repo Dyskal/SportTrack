@@ -45,7 +45,7 @@ if (isset($_GET['msg'])) {
     if (strlen($error) > 1) {
         ?>
         <div style="background: <?php if (isset($_GET['color'])){ echo $_GET['color'];} ?>" class="error" id="hideDiv">
-            <?php echo($error); ?>
+            <?php echo(htmlspecialchars($error)); ?>
         </div>
         <?php
     }

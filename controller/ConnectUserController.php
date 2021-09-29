@@ -8,12 +8,10 @@ class ConnectUserController implements Controller {
 
     public function connect() {
         $UserDAO = UserDAO::getInstance();
-        $passwordCheck = $UserDAO->verifyPassword($_POST["email"], $_POST["password"]);
+        $passwordCheck = $UserDAO->verifyPassword(htmlspecialchars($_POST["email"]), htmlspecialchars($_POST["password"]));
         if ($passwordCheck) {
             session_start();
-            $_SESSION["email"] = $_POST["email"];
-
-
+            $_SESSION["email"] = htmlspecialchars($_POST["email"]);
 
             $email = $_SESSION['email'];
             $dbc = SqliteConnection::getInstance()->getConnection();
@@ -30,9 +28,6 @@ class ConnectUserController implements Controller {
             $_SESSION['bdate'] = $user->getBirthDate();
             $_SESSION['height'] = $user->getHeight();
             $_SESSION['weight'] = $user->getWeight();
-
-
-
 
             ?>
             <head>
