@@ -45,11 +45,19 @@ class UserDAO {
             $stmt->bindValue(':fname', $st->getFirstname(), PDO::PARAM_STR);
             $stmt->bindValue(':bdate', $st->getBirthDate(), PDO::PARAM_STR);
             $stmt->bindValue(':gender', $st->getGender(), PDO::PARAM_STR);
-            $stmt->bindValue(':height', $st->getHeight(), PDO::PARAM_INT);
-            $stmt->bindValue(':weight', $st->getWeight(), PDO::PARAM_INT);
+            $stmt->bindValue(':height', $st->getHeight(), PDO::PARAM_STR);
+            $stmt->bindValue(':weight', $st->getWeight(), PDO::PARAM_STR);
 
             // execute the prepared statement
-            $stmt->execute();
+            try {
+                $stmt->execute();
+            } catch (PDOException $e) {
+                ?>
+                <script type="text/javascript">
+                    window.location.href = '../?page=register&msg=User%20can%20not%20be%20created.';
+                </script>
+                <?php
+            }
         }
     }
 
@@ -78,8 +86,8 @@ class UserDAO {
             $stmt->bindValue(':fname', $st->getFirstname(), PDO::PARAM_STR);
             $stmt->bindValue(':bdate', $st->getBirthDate(), PDO::PARAM_STR);
             $stmt->bindValue(':gender', $st->getGender(), PDO::PARAM_STR);
-            $stmt->bindValue(':height', $st->getHeight(), PDO::PARAM_INT);
-            $stmt->bindValue(':weight', $st->getWeight(), PDO::PARAM_INT);
+            $stmt->bindValue(':height', $st->getHeight(), PDO::PARAM_STR);
+            $stmt->bindValue(':weight', $st->getWeight(), PDO::PARAM_STR);
 
             // execute the prepared statement
             $stmt->execute();
