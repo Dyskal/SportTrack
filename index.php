@@ -5,13 +5,18 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 require('controller/ApplicationController.php');
 
-$controller = ApplicationController::getInstance()->getController($_REQUEST);
-if ($controller != null) {
-    require("controller/$controller.php");
-    (new $controller())->handle($_REQUEST);
-    $view = ApplicationController::getInstance()->getView($_REQUEST);
-    if ($view != null) {
-        require("view/$view.php");
+
+if (isset($_REQUEST["page"])) {
+    $controller = ApplicationController::getInstance()->getController($_REQUEST);
+    echo $controller;
+
+    if ($controller != null) {
+        require("controller/$controller.php");
+        (new $controller())->handle($_REQUEST);
+        $view = ApplicationController::getInstance()->getView($_REQUEST);
+        if ($view != null) {
+            require("view/$view.php");
+        }
     }
 } else {
 ?>
@@ -36,18 +41,9 @@ session_start();
 if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];
     ?>
-    <header>
-        <h1 onclick="window.location.href='./'">SportTrack</h1>
-        <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
-        <nav id="menu">
-            <button onclick="window.location.href='./'" class="header-btn header-home"></button>
-            <button onclick="window.location.href='?page=upload'" class="header-btn header-upload"></button>
-            <button onclick="window.location.href='?page=profile'" class="header-btn header-account"></button>
-            <form action="./controller/DisconnectUserController.php" method="get">
-                <button class="header-btn header-logout"></button>
-            </form>
-        </nav>
-    </header>
+    <script type="text/javascript">
+        window.location.href = './?page=home';
+    </script>
 
     <?php
 } else {

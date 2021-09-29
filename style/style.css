@@ -376,6 +376,8 @@ body:after {
     z-index: 0;
     pointer-events: none;
     opacity: 1;
+    height: 100%;
+    width: 100%;
 }
 
 body:before {
@@ -390,6 +392,8 @@ body:before {
     z-index: 1;
     pointer-events: none;
     opacity: 1;
+    height: 100%;
+    width: 100%;
 }
 
 header h1:hover {
