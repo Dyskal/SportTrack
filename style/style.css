@@ -17,7 +17,19 @@
     bottom: 0;
 }
 
-
+.page-content{
+    background: transparent;
+    font-family: "Nunito Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-size: cover;
+    flex-direction: column;
+    overflow-x: hidden;
+}
 
 .activity-table{
     text-align: center;
@@ -42,11 +54,30 @@ footer{
     margin: 0;
     width: 100%;
     z-index: 5;
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
+    background-color: #fff;
+    position: relative;
     bottom: 0;
-    left:0;
-    backdrop-filter: blur(5px);
+    transform: translate(0, 250px);
+    text-align: center;
+    color: rgba(62, 180, 46, 0.6);
+    clear: both;
+    flex-basis:100%;
+}
+
+
+footer h3 {
+    font-weight: normal;
+}
+footer::after{
+    content: "";
+    position: absolute;
+    top: -250px;
+    right: 0;
+    height: 250px;
+    background-image: url("../img/footer.svg");
+    background-size: 100% 100%;
+    width: 100%;
+    transition: 0.3s;
 }
 
 
@@ -494,7 +525,7 @@ body:after {
     bottom: 0;
     z-index: 100;
     pointer-events: none;
-    opacity: 1;
+    opacity: 1!important;
     height: 100%;
     width: 100%;
 }
@@ -503,14 +534,14 @@ body:before {
     background-image: url("../img/overlayLine.svg");
     background-size: 10px;
     content: " ";
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: 1;
+    z-index:101;
     pointer-events: none;
-    opacity: 1;
+    opacity: 1 !important;
     height: 100%;
     width: 100%;
 }
@@ -527,14 +558,11 @@ header h1:hover {
 body {
     background: transparent;
     font-family: "Nunito Sans", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     min-height: 100vh;
     width: 100%;
     margin: 0;
-    background-size: cover;
-    flex-direction: column;
+
     overflow-x: hidden;
 }
 
@@ -562,8 +590,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    height: 30%;
-    width: 30%;
+
 }
 
 .accueil button {

@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta name="viewport" content="width=device-width, maximum-scale=1.5">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="UTF-8">
-    <title>SportTrack | Accueil</title>
-    <link href="./style/style.css" rel="stylesheet">
-    <link href="./img/logo.svg" rel="icon"/>
-</head>
-
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!---->
+<!--<head>-->
+<!--    <meta name="viewport" content="width=device-width, maximum-scale=1.5">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta name="viewport" content="width=device-width, user-scalable=no">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>SportTrack | Accueil</title>-->
+<!--    <link href="./style/style.css" rel="stylesheet">-->
+<!--    <link href="./img/logo.svg" rel="icon"/>-->
+<!--</head>-->
+<!---->
+<!--<body>-->
 <video preload="auto" playsinline autoplay muted loop id="myVideo">
     <source src="./img/video.mp4" type="video/mp4">
 </video>
@@ -57,5 +57,5 @@ if (isset($_SESSION['email'])) {
         document.getElementById("header-burger").classList.toggle("toggle");
     }
 </script>
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
