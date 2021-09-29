@@ -19,7 +19,6 @@
 </video>
 
 <?php
-session_start();
 if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];
     ?>
@@ -51,6 +50,12 @@ if (isset($_SESSION['email'])) {
     <!--    <button class=button onclick="window.location.href='?page=login'">Login</button>-->
     <!--    <button class=button onclick="window.location.href='?page=register'">Register</button>-->
     <!--    <button class=button onclick="window.location.href='?page=upload'">Upload</button>-->
+
+
+    <?php
+    echo($_SESSION["table"]);
+
+    ?>
 </div>
 
 <script>

@@ -1,7 +1,7 @@
 <?php
 require("Controller.php");
-require_once("../model/SQLiteConnection.php");
-require("../model/Activity.php");
+require_once("./model/SQLiteConnection.php");
+require("./model/Activity.php");
 class ListActivityController implements Controller {
 //Ce tableau devra faire apparaître la description, la date, l’heure de début et la durée de chaque activité,
 //ainsi que la distance parcourue lors de celle-ci et les fréquences cardiaques minimum, maximum et moyenne.

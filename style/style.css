@@ -18,6 +18,10 @@
 }
 
 
+
+.activity-table{
+    z-index: 5;
+}
 ::-webkit-scrollbar{
     width: 13px;
     height: 13px;

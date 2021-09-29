@@ -8,7 +8,6 @@ require('controller/ApplicationController.php');
 
 if (isset($_REQUEST["page"])) {
     $controller = ApplicationController::getInstance()->getController($_REQUEST);
-    echo $controller;
 
     if ($controller != null) {
         require("controller/$controller.php");
