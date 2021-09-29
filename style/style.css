@@ -22,19 +22,32 @@
 .activity-table{
     text-align: center;
     z-index: 5;
-    background-color: rgba(255, 255, 255, 0.11);
+    background-color: transparent;
     backdrop-filter: blur(5px);
     color: white;
-    padding: 10px;
+    padding: 0;
     border-radius: 17px;
-    margin-top: 120px;
-    margin-bottom: 40px !important;
+    margin-top: 80px;
+    margin-bottom: 80px !important;
     font-family: "Nunito Sans", sans-serif;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
 
 
 }
 
-
+footer{
+    min-height: 150px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0;
+    left:0;
+    backdrop-filter: blur(5px);
+}
 
 
 .activity-table table {
@@ -60,6 +73,30 @@ tbody tr:last-child{
     background: rgba(255, 255, 255, 0.5);
     border-radius:  0  0 10px 10px ;
     color: black;
+}
+
+.add-activity{
+    z-index: 5;
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.add-activity .header-btn{
+    color: #fff;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.11);
+    border-color: #fff;
+    filter: none;
+}
+
+.add-activity span{
+    font-size: 30px;
+    margin-left: 10px;
 }
 
 

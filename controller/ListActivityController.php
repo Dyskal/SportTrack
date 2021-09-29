@@ -8,7 +8,9 @@ class ListActivityController implements Controller {
     }
 
     public function loadActivity(){
+
         session_start();
+
         $email = $_SESSION["email"];
         $dbc = SqliteConnection::getInstance()->getConnection();
         $query = "Select * from Activity Where user_id = :email";

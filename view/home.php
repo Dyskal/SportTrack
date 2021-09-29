@@ -45,7 +45,9 @@ if (isset($_SESSION['email'])) {
 ?>
 
 <div class=accueil>
+    <div class="add-activity"><button onclick="window.location.href='?page=upload'" class="header-btn">Add an activity <span>+</span></button></div>
     <?php echo($_SESSION["table"]); ?>
+
 </div>
 
 <script>

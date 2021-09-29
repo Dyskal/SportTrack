@@ -76,5 +76,6 @@ if (isset($_SESSION['email'])) {
         document.body.classList.toggle("toggle");
     }
 </script>
+<footer>SportTrack 2021</footer>
 </body>
 </html>
