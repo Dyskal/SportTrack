@@ -24,7 +24,7 @@ class ListActivityController implements Controller {
             $table .= '</div>';
         }
         $_SESSION['table'] = $table;
-        echo($table);
+//        echo($table);
     }
 
     public function handle($request) {}
