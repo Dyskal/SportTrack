@@ -28,9 +28,11 @@
     <h2>Register</h2>
     <form action="./controller/AddUserController.php" method="post">
         <label for="mail">Email address</label>
-                <input class="input" id="mail" name="mail" required type="text"/>
-                <label for="password">Password</label>
-                <input class="input" id="password" minlength="8" name="password" required type="password"/>
+        <input class="input" id="mail" name="mail" required type="text"/>
+        <label for="password">Password</label>
+        <input class="input" id="password" minlength="8" name="password" required type="password"/>
+        <label for="confirm-passsword">Confirm passsword</label>
+        <input class="input" id="confirm_password" minlength="8" name="confirm_password" required type="password"/>
         <label for="lname">Last name</label>
         <input class="input" id="lname" name="lname" required type="text"/>
         <label for="fname">First name</label>
@@ -65,5 +67,23 @@
         <input class="button right" type="submit" value="Submit"/>
     </form>
 </div>
+<script>
+
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+
+
+</script>
 </body>
 </html>
