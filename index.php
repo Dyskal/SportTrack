@@ -1,39 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-//ini_set('display_errors', 'On');
-//error_reporting(E_ALL);
-//require('controller/ApplicationController.php');
-//
-//$controller = ApplicationController::getInstance()->getController($_REQUEST);
-//if ($controller != null) {
-////    require("controller/$controller.php");
-////    (new $controller())->handle($_REQUEST);
-//    $view = ApplicationController::getInstance()->getView($_REQUEST);
-//    if ($view != null) {
-//        require("view/$view.php");
-//    }
-//} else {
-
-
-
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
-require ('controller/ApplicationController.php');
+require('controller/ApplicationController.php');
 
-if (isset($_REQUEST))
 $controller = ApplicationController::getInstance()->getController($_REQUEST);
-if($controller != null){
-    include "controller/$controller.php";
+if ($controller != null) {
+    require("controller/$controller.php");
     (new $controller())->handle($_REQUEST);
-}
-
-$view = ApplicationController::getInstance()->getView($_REQUEST);
-if($view != null){
-    include "view/$view.php";
+    $view = ApplicationController::getInstance()->getView($_REQUEST);
+    if ($view != null) {
+        require("view/$view.php");
+    }
 } else {
-
-
 ?>
 <head>
     <meta name="viewport" content="width=device-width, maximum-scale=1.5">
@@ -56,9 +36,18 @@ session_start();
 if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];
     ?>
-    <script type="text/javascript">
-        window.location.href = './?page=home';
-    </script>
+    <header>
+        <h1 onclick="window.location.href='./'">SportTrack</h1>
+        <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
+        <nav id="menu">
+            <button onclick="window.location.href='./'" class="header-btn header-home"></button>
+            <button onclick="window.location.href='?page=upload'" class="header-btn header-upload"></button>
+            <button onclick="window.location.href='?page=profile'" class="header-btn header-account"></button>
+            <form action="./controller/DisconnectUserController.php" method="get">
+                <button class="header-btn header-logout"></button>
+            </form>
+        </nav>
+    </header>
 
     <?php
 } else {
