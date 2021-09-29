@@ -6,20 +6,16 @@ class ModifyUserController implements Controller {
         $this->modify();
     }
 
-    public function handle($request) {
-        // TODO: Implement handle() method.
-    }
-
-
     public function modify() {
         session_start();
         $email = $_SESSION['email'];
         $dbc = SqliteConnection::getInstance()->getConnection();
-        $query = "Select * From User Where email='$email'";
-        $stmt = $dbc->query($query);
+        $query = "Select * From User Where email = :email";
+        $stmt = $dbc->prepare($query);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
         $user = $stmt->fetchAll(PDO::FETCH_CLASS, 'User')[0];
         $user->init($email, $user->getPassword(), $_POST["lname"], $_POST["fname"], $_POST["bdate"],  $_POST["gender"], $_POST["height"], $_POST["weight"]);
-
 
         $_SESSION["lname"] = $_POST["lname"];
         $_SESSION["fname"] = $_POST["fname"];
@@ -28,7 +24,6 @@ class ModifyUserController implements Controller {
         $_SESSION["height"] = $_POST["height"];
         $_SESSION["weight"] = $_POST["weight"];
 
-
         $UserDAO = UserDAO::getInstance();
         $UserDAO->update($user);
         ?>
@@ -36,11 +31,9 @@ class ModifyUserController implements Controller {
             window.location.href = '../?page=profile&msg=Changes%20have%20been%20saved.&color=%2300fc0080';
         </script>
         <?php
-
-
     }
+
+    public function handle($request) {}
 }
-
-
 $o = new ModifyUserController();
 ?>

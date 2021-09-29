@@ -17,7 +17,7 @@ class CalculDistanceImpl implements CalculDistance {
         for ($i = 1; $i < sizeof($parcours); $i++) {
             $ret += $this->calculDistance2PointsGPS($parcours[$i-1]['latitude'], $parcours[$i-1]['longitude'], $parcours[$i]['latitude'], $parcours[$i]['longitude']);
         }
-        return $ret;
+        return round($ret, 1);
     }
 
     public function json_cut(string $array): array {

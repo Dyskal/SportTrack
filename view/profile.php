@@ -83,9 +83,7 @@ if (isset($_GET['msg'])) {
     if (strlen($error) > 1) {
         ?>
         <div style="background: <?php if (isset($_GET['color'])){ echo $_GET['color'];} ?>" class="error" id="hideDiv">
-            <?php
-            echo $error;
-            ?>
+            <?php echo($error); ?>
         </div>
         <?php
     }
@@ -94,7 +92,6 @@ if (isset($_GET['msg'])) {
 <script>
     setTimeout(function() {
         document.getElementById("hideDiv").classList.add("hide");
-        console.log("uho");
     }, 10000)
 </script>
 </body>

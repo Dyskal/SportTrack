@@ -17,8 +17,10 @@ class ConnectUserController implements Controller {
 
             $email = $_SESSION['email'];
             $dbc = SqliteConnection::getInstance()->getConnection();
-            $query = "Select * From User Where email='$email'";
-            $stmt = $dbc->query($query);
+            $query = "Select * From User Where email = :email";
+            $stmt = $dbc->prepare($query);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
             $user = $stmt->fetchAll(PDO::FETCH_CLASS, 'User')[0];
 
             $_SESSION['gender'] = $user->getGender();
@@ -62,7 +64,7 @@ class ConnectUserController implements Controller {
                 <div class=loading3></div>
             </div>
             <script type="text/javascript">
-                window.location.href = '../?page=login&msg=Wrong%20password%20or%20email,%20please try again.';
+                window.location.href = '../?page=login&msg=Wrong%20password%20or%20email,%20please%20try%20again.';
             </script>
             <?php
         }

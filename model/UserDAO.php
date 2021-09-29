@@ -22,8 +22,10 @@ class UserDAO {
 
     public final function verifyPassword($email, $password): bool {
         $dbc = SqliteConnection::getInstance()->getConnection();
-        $query = "Select password from User Where email = '$email'";
-        $stmt = $dbc->query($query);
+        $query = "Select password From User Where email = :email";
+        $stmt = $dbc->prepare($query);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
         $row = $stmt->fetch();
         if ($row['password'] == $password) {
             return true;

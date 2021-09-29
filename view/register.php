@@ -31,7 +31,7 @@
         <input class="input" id="mail" name="mail" required type="text"/>
         <label for="password">Password</label>
         <input class="input" id="password" minlength="8" name="password" required type="password"/>
-        <label for="confirm-passsword">Confirm passsword</label>
+        <label for="confirm_password">Confirm passsword</label>
         <input class="input" id="confirm_password" minlength="8" name="confirm_password" required type="password"/>
         <label for="lname">Last name</label>
         <input class="input" id="lname" name="lname" required type="text"/>
@@ -40,19 +40,6 @@
         <label for="bdate">Birth date</label>
         <input class="input" id="bdate" name="bdate" max="<?= date('Y-m-d'); ?>" required type="date"/>
         <label for="gender">Gender</label>
-        <!--        <div class="container-radio">-->
-        <!--            <div>-->
-        <!--                <input checked class="radio" id="w" value="W" name="gender" required type="radio"/>-->
-        <!--                <label for="w">Woman</label></div>-->
-        <!--            <div>-->
-        <!--                <input class="radio" id="m" value="M" name="gender" type="radio">-->
-        <!--                <label for="m">Man</label>-->
-        <!--            </div>-->
-        <!--            <div>-->
-        <!--                <input class="radio" id="o" value="O" name="gender" type="radio">-->
-        <!--                <label for="o">Other</label>-->
-        <!--            </div>-->
-        <!--        </div>-->
         <select name="gender" id="gender">
             <option value="M">Man</option>
             <option value="W">Women</option>
@@ -69,11 +56,11 @@
 </div>
 <script>
 
-    var password = document.getElementById("password")
-        , confirm_password = document.getElementById("confirm_password");
+    let password = document.getElementById("password"),
+        confirm_password = document.getElementById("confirm_password");
 
     function validatePassword() {
-        if (password.value != confirm_password.value) {
+        if (password.value !== confirm_password.value) {
             confirm_password.setCustomValidity("Passwords Don't Match");
         } else {
             confirm_password.setCustomValidity('');

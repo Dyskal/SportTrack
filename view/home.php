@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,16 +45,7 @@ if (isset($_SESSION['email'])) {
 ?>
 
 <div class=accueil>
-    <!--    <button class=button onclick="window.location.href='?page=profile'">Profile</button>-->
-    <!--    <button class=button onclick="window.location.href='?page=login'">Login</button>-->
-    <!--    <button class=button onclick="window.location.href='?page=register'">Register</button>-->
-    <!--    <button class=button onclick="window.location.href='?page=upload'">Upload</button>-->
-
-
-    <?php
-    echo($_SESSION["table"]);
-
-    ?>
+    <?php echo($_SESSION["table"]); ?>
 </div>
 
 <script>
