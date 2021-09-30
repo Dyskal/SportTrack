@@ -8,6 +8,10 @@ class UploadActivityController implements Controller {
         $this->UploadFile();
     }
 
+
+    /**
+     * Permet d'upload des fichiers json contenant les infos des activités
+     */
     public function UploadFile() {
         session_start();
         $file = fopen($_FILES['file']['tmp_name'], 'r');
@@ -37,6 +41,8 @@ class UploadActivityController implements Controller {
         $activity->setDistance($distance->calculDistanceTrajet($distance->json_cut(json_encode($jsond['data']))));
         $ActivityDAO->update($activity);
         ?>
+        <!--                  Lancement d'un petit menu de chargement-->
+
         <head>
             <meta charset="UTF-8">
             <title>SportTrack | Accueil</title>
@@ -48,6 +54,9 @@ class UploadActivityController implements Controller {
             <div class=loading2></div>
             <div class=loading3></div>
         </div>
+
+        <!--            redirection vers la page login avec une erreur passé en parametre de l'url-->
+
         <script type="text/javascript">
             window.location.href = '..';
         </script>

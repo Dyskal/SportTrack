@@ -1,13 +1,18 @@
 <?php
 require("Controller.php");
 require_once("../model/UserDAO.php");
+
 class ModifyUserController implements Controller {
     public function __construct() {
         $this->modify();
     }
 
+    /**
+     * Permet de modifier les infos d'un utilisateur
+     */
     public function modify() {
         session_start();
+        //Met à jour la table de l'utilisateur
         $email = $_SESSION['email'];
         $dbc = SqliteConnection::getInstance()->getConnection();
         $query = "Select * From User Where email = :email";
@@ -15,8 +20,8 @@ class ModifyUserController implements Controller {
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetchAll(PDO::FETCH_CLASS, 'User')[0];
-        $user->init($email, $user->getPassword(), htmlspecialchars($_POST["lname"]), htmlspecialchars($_POST["fname"]), htmlspecialchars($_POST["bdate"]),  htmlspecialchars($_POST["gender"]), htmlspecialchars($_POST["height"]), htmlspecialchars($_POST["weight"]));
-
+        $user->init($email, $user->getPassword(), htmlspecialchars($_POST["lname"]), htmlspecialchars($_POST["fname"]), htmlspecialchars($_POST["bdate"]), htmlspecialchars($_POST["gender"]), htmlspecialchars($_POST["height"]), htmlspecialchars($_POST["weight"]));
+        //mise à jour des variables de session
         $_SESSION["lname"] = htmlspecialchars($_POST["lname"]);
         $_SESSION["fname"] = htmlspecialchars($_POST["fname"]);
         $_SESSION["gender"] = htmlspecialchars($_POST["gender"]);
@@ -32,8 +37,8 @@ class ModifyUserController implements Controller {
         </script>
         <?php
     }
-
-    public function handle($request) {}
+    public function handle($request) {
+    }
 }
 $o = new ModifyUserController();
 ?>
