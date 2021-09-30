@@ -13,20 +13,20 @@ class ConnectUserController implements Controller {
         $UserDAO = UserDAO::getInstance();
         $passwordCheck = $UserDAO->verifyPassword(htmlspecialchars($_POST["email"]), htmlspecialchars($_POST["password"]));
 
-
-//verifie que les identifiants de l'utilisateur sont bon
+        //Verifie que les identifiants de l'utilisateur sont bons
         if ($passwordCheck) {
+            session_set_cookie_params(['lifetime' => 0, 'path' => '/m3104_24', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => '']);
             session_start();
             $_SESSION["email"] = htmlspecialchars($_POST["email"]);
             $email = $_SESSION['email'];
-            //          on recupere les infos de l'utilisateur grâce à son email
+            //On récupère les infos de l'utilisateur grâce à son email
             $dbc = SqliteConnection::getInstance()->getConnection();
             $query = "Select * From User Where email = :email";
             $stmt = $dbc->prepare($query);
             $stmt->bindValue(':email', $email, PDO::PARAM_STR);
             $stmt->execute();
             $user = $stmt->fetchAll(PDO::FETCH_CLASS, 'User')[0];
-//            On recupere les infos de l'utilisateur dans la session pour pouvoir les afficher sur la page de modification de profil
+            //On récupère les infos de l'utilisateur dans la session pour pouvoir les afficher sur la page de modification de profil
             $_SESSION['gender'] = $user->getGender();
             $_SESSION['lname'] = $user->getLastName();
             $_SESSION['fname'] = $user->getFirstName();
@@ -34,13 +34,9 @@ class ConnectUserController implements Controller {
             $_SESSION['bdate'] = $user->getBirthDate();
             $_SESSION['height'] = $user->getHeight();
             $_SESSION['weight'] = $user->getWeight();
-
-
-
             ?>
 
-
-<!--                  Lancement d'un petit menu de chargement-->
+            <!--Lancement d'un petit menu de chargement-->
             <head>
                 <meta charset="UTF-8">
                 <title>SportTrack | Accueil</title>
@@ -53,16 +49,15 @@ class ConnectUserController implements Controller {
                 <div class=loading3></div>
             </div>
 
-
-<!--            redirection vers la page d'accueil-->
+            <!--Redirection vers la page d'accueil-->
             <script type="text/javascript">
                 window.location.href = '..';
             </script>
             <?php
         } else {
             ?>
-            <!--                  Lancement d'un petit menu de chargement-->
 
+            <!--Lancement d'un petit menu de chargement-->
             <head>
                 <meta charset="UTF-8">
                 <title>SportTrack | Accueil</title>
@@ -74,8 +69,8 @@ class ConnectUserController implements Controller {
                 <div class=loading2></div>
                 <div class=loading3></div>
             </div>
-            <!--            redirection vers la page login avec une erreur passé en parametre de l'url-->
 
+            <!--Redirection vers la page login avec une erreur passée en paramètre de l'url-->
             <script type="text/javascript">
                 window.location.href = '../?page=login&msg=Wrong%20password%20or%20email,%20please%20try%20again.';
             </script>

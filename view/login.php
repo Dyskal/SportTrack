@@ -1,4 +1,3 @@
-
 <header>
     <h1 onclick="window.location.href='./'">SportTrack</h1>
     <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
@@ -26,7 +25,6 @@
 
 <?php
 if (isset($_GET['msg'])) {
-
     $error = urldecode($_GET['msg']);
     if (strlen($error) > 1) {
         ?>
@@ -40,7 +38,7 @@ if (isset($_GET['msg'])) {
 }
 ?>
 <script>
-    setTimeout(function () {
+    setTimeout(function() {
         document.getElementById("hideDiv").classList.add("hide");
     }, 10000)
 </script>

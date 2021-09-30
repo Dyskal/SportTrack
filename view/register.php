@@ -1,4 +1,3 @@
-
 <!--Page d'inscription-->
 <header>
     <h1 onclick="window.location.href='./'">SportTrack</h1>
@@ -41,7 +40,7 @@
     </form>
 </div>
 <script>
-    // le code vient de https://codepen.io/diegoleme/pen/surIK
+    //Le code vient de https://codepen.io/diegoleme/pen/surIK
     let password = document.getElementById("password"),
         confirm_password = document.getElementById("confirm_password");
 
@@ -55,7 +54,4 @@
 
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
-
-
-
 </script>

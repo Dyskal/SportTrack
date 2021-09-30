@@ -7,16 +7,15 @@ class ListActivityController implements Controller {
         $this->loadActivity();
     }
 
-
     /**
-     * Recupere les activités de l'utilisateur
+     * Récupère les activités de l'utilisateur
      */
     public function loadActivity(){
-
+        session_set_cookie_params(['lifetime' => 0, 'path' => '/m3104_24', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => '']);
         session_start();
 
 
-//Cherche les activites dans la base de donnees
+        //Cherche les activités dans la base de données
         $email = $_SESSION["email"];
         $dbc = SqliteConnection::getInstance()->getConnection();
         $query = "Select * from Activity Where user_id = :email";
@@ -25,7 +24,7 @@ class ListActivityController implements Controller {
         $stmt->execute();
         $res = $stmt->fetchAll(PDO::FETCH_CLASS, 'Activity');
 
-        // Ajout des activités dans la session pour être affichés sur la page d'accueil
+        // Ajout des activités dans la session pour être affichées sur la page d'accueil
         $table = '';
         foreach($res as $act) {
             $table .= '<div class="activity-table">';

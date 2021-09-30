@@ -8,18 +8,20 @@ class UploadActivityController implements Controller {
         $this->UploadFile();
     }
 
-
     /**
      * Permet d'upload des fichiers json contenant les infos des activités
      */
     public function UploadFile() {
+        session_set_cookie_params(['lifetime' => 0, 'path' => '/m3104_24', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => '']);
         session_start();
+
+        //Parse le fichier JSON
         $file = fopen($_FILES['file']['tmp_name'], 'r');
         $json = (fread($file, filesize($_FILES['file']['tmp_name'])));
         fclose($file);
         $jsond = json_decode($json, true);
 
-
+        //Crée une activité avec les données du fichier
         $activity = new Activity();
         $ActivityDAO = ActivityDAO::getInstance();
         $activity_id = $ActivityDAO->getNextId();
@@ -27,6 +29,7 @@ class UploadActivityController implements Controller {
         $ActivityDAO->delete($activity);
         $ActivityDAO->insert($activity);
 
+        //Lie les data à l'activité
         $ActivityDataDAO = ActivityDataDAO::getInstance();
         foreach ($jsond['data'] as $line) {
             $data = new ActivityData();
@@ -35,14 +38,15 @@ class UploadActivityController implements Controller {
             $ActivityDataDAO->insert($data);
         }
 
+        //Calcule la distance totale
         $distance = new CalculDistanceImpl();
         $activity_array = $ActivityDAO->find($activity_id);
         $activity = $activity_array[0];
         $activity->setDistance($distance->calculDistanceTrajet($distance->json_cut(json_encode($jsond['data']))));
         $ActivityDAO->update($activity);
         ?>
-        <!--                  Lancement d'un petit menu de chargement-->
 
+        <!--Lancement d'un petit menu de chargement-->
         <head>
             <meta charset="UTF-8">
             <title>SportTrack | Accueil</title>
@@ -55,8 +59,7 @@ class UploadActivityController implements Controller {
             <div class=loading3></div>
         </div>
 
-        <!--            redirection vers la page login avec une erreur passé en parametre de l'url-->
-
+        <!--Redirection vers la page login avec une erreur passé en paramètre de l'url-->
         <script type="text/javascript">
             window.location.href = '..';
         </script>

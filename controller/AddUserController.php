@@ -10,8 +10,6 @@ class AddUserController implements Controller {
      * Permet de s'inscrire sur le site
      */
     public function AddUser() {
-
-
         //Création de l'utilisateur dans la base de données
         $User = new User();
         $User->init(htmlspecialchars($_POST["mail"]), htmlspecialchars($_POST["password"]), htmlspecialchars($_POST["lname"]), htmlspecialchars($_POST["fname"]), htmlspecialchars($_POST["bdate"]), htmlspecialchars($_POST["gender"]), htmlspecialchars($_POST["height"]), htmlspecialchars($_POST["weight"]));

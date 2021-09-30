@@ -1,5 +1,5 @@
-
 <?php
+session_set_cookie_params(['lifetime' => 0, 'path' => '/m3104_24', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => '']);
 session_start()
 ?>
 <header>
@@ -19,8 +19,6 @@ session_start()
 <div class="container">
     <h2><?php echo htmlspecialchars($_SESSION["email"]); ?></h2>
     <form action="./controller/ModifyUserController.php" method="post">
-
-
         <label for="fname">First name</label>
         <input value="<?php echo htmlspecialchars($_SESSION["fname"]); ?>" class="input" id="fname" name="fname"
                required type="text"/>
@@ -68,9 +66,9 @@ session_start()
         <input class="button cancel" onclick="window.location.href='./'" type="button" value="Cancel" formnovalidate/>
     </form>
 </div>
+
 <?php
 if (isset($_GET['msg'])) {
-
     $error = urldecode($_GET['msg']);
     if (strlen($error) > 1) {
         ?>
@@ -84,7 +82,7 @@ if (isset($_GET['msg'])) {
 }
 ?>
 <script>
-    setTimeout(function () {
+    setTimeout(function() {
         document.getElementById("hideDiv").classList.add("hide");
     }, 10000)
 </script>

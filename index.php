@@ -38,6 +38,7 @@ if (isset($_REQUEST["page"])) {
 </video>
 
 <?php
+session_set_cookie_params(['lifetime' => 0, 'path' => '/m3104_24', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => '']);
 session_start();
 if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];

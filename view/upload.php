@@ -1,4 +1,3 @@
-
 <header>
     <h1 onclick="window.location.href='./'">SportTrack</h1>
     <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>

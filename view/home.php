@@ -1,4 +1,3 @@
-
 <video preload="auto" playsinline autoplay muted loop id="myVideo">
     <source src="./img/video.mp4" type="video/mp4">
 </video>
@@ -35,7 +34,6 @@ if (isset($_SESSION['email'])) {
         <button onclick="window.location.href='?page=upload'" class="header-btn">Add an activity <span>+</span></button>
     </div>
     <?php echo($_SESSION["table"]); ?>
-
 </div>
 
 <script>

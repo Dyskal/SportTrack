@@ -8,11 +8,11 @@ class ApplicationController {
         $this->routes = [
             '/' => ['controller' => null, 'view' => 'home'],
             'home' => ['controller' => 'ListActivityController', 'view' => 'home'],
-            'profile' => ['controller' => 'MainController', 'view' => 'profile'],
-            'login' => ['controller' => 'MainController', 'view' => 'login'],
-            'register' => ['controller' => 'MainController', 'view' => 'register'],
-            'upload' => ['controller' => 'MainController', 'view' => 'upload'],
-            'error' => ['controller' => null, 'view' => 'ErrorView']
+            'profile' => ['controller' => 'NullController', 'view' => 'profile'],
+            'login' => ['controller' => 'NullController', 'view' => 'login'],
+            'register' => ['controller' => 'NullController', 'view' => 'register'],
+            'upload' => ['controller' => 'NullController', 'view' => 'upload'],
+            'error' => ['controller' => 'NullController', 'view' => 'ErrorView']
         ];
     }
 
