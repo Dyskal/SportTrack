@@ -15,10 +15,7 @@
     flex-direction: column;
     justify-content: space-between;
     z-index: 5;
-}
-
-.accueil button {
-    width: 100%;
+    margin-top: 200px;
 }
 
 .activity-table {
@@ -575,6 +572,17 @@
         clip-path: circle(200% at calc(100vw - 27px) calc(40px));
         scroll-margin-top: 0;
     }
+    .first-page-content{
+        flex-direction: column !important;
+    }
+    .first-page-content .img{
+        width: 60% !important;
+    }
+    .first-page-content .slogan{
+        margin-top: 50px;
+        margin-left: 0px;
+    }
+
 }
 
 @media (min-width: 1201px) {
@@ -637,6 +645,139 @@ body:before {
     z-index: 101;
 }
 
+.first-page-content{
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 5;
+    position: relative;
+    font-family: "Nunito Sans", sans-serif;
+}
+.first-page-content .slogan{
+    margin-left:20px ;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.first-page-content .slogan h1{
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 60px;
+    font-weight: bold;
+    width: fit-content;
+    position: relative;
+
+}
+
+.first-page-content .slogan h2{
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    width: fit-content;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.first-page-content h1::before{
+    align-items: center;
+    background: rgba(127, 255, 0, 0.5);
+    color: chartreuse;
+    content: "";
+    height: 50%;
+    width: 100%;
+    top: 40%;
+    transform: rotate(3deg);
+    position: absolute;
+    text-align: center;
+    display: block;
+    transition: 0.5s;
+    backdrop-filter: saturate(3);
+    z-index: -1;
+}
+
+/*.first-page-content h2::before{*/
+/*    align-items: center;*/
+/*    background: rgba(255, 255, 255, 0.9);*/
+/*    content: "";*/
+/*    height: 50%;*/
+/*    width: 100%;*/
+/*    top: 40%;*/
+/*    transform: rotate(1deg);*/
+/*    position: absolute;*/
+/*    text-align: center;*/
+/*    display: block;*/
+/*    transition: 0.5s;*/
+/*    z-index: -1;*/
+/*}*/
+
+.first-page-content button {
+    width: 100%;
+}
+
+.first-page-content img {
+    border-radius: 20px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+    transform: rotate(-5deg);
+    webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: relative;
+    transition: 0.5s;
+}
+
+.first-page-content .img{
+    position: relative;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    transition: 0.5s;
+}
+
+.first-page-content .img::after {
+    transform: rotate(-3deg);
+    border-radius: 20px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    color: #3eb42e;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 5px;
+    position: absolute;
+    text-align: center;
+    transition: 0.3s;
+    display: block;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.first-page-content .img::before {
+    left: 5px;
+    transform: rotate(-7deg);
+    border-radius: 20px;
+    align-items: center;
+    background: rgba(62, 180, 46, 0.5);
+    color: #3eb42e;
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    transition: 0.3s;
+    display: block;
+    transition: 0.5s;
+}
+
+.img:hover::after,  .img:hover::before,.img:hover img{
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+}
+
 footer {
     background-color: #fff;
     bottom: 0;
@@ -685,11 +826,10 @@ h2 {
 header {
     align-items: center;
     backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.11);
+    background-color: rgba(255, 255, 255, 0.5);
     color: #3eb42e;
     display: flex;
     float: left;
-    font-family: "Alegreya", cursive;
     font-size: 25px;
     font-weight: 100;
     height: 80px;
@@ -702,9 +842,15 @@ header {
     width: calc(100% - 14px);
 }
 
+header h1{
+    font-weight: bold;
+    width: fit-content;
+    position: relative;
+}
+
+
 header h1:hover {
     cursor: pointer;
-    opacity: 0.8;
 }
 
 input {

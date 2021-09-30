@@ -15,7 +15,7 @@
 <body class="bg-image">
 <div class="page-content">
 <?php
-ini_set('display_errors', 'On');
+ini_set('display_errors', 'Off');
 error_reporting(E_ALL);
 require('controller/ApplicationController.php');
 
@@ -63,8 +63,11 @@ if (isset($_SESSION['email'])) {
 }
 ?>
 
-<div class=accueil>
-    Sportrack c'est trop bien
+<div class=first-page-content>
+    <div class="img">
+    <img src="./img/preview.jpg">
+    </div>
+    <div class="slogan"><h2>MANAGE YOUR OUTINGS IN ONE CLICK WITH</h2> <h1>SportTrack</h1></div>
 </div>
 <?php
 }
