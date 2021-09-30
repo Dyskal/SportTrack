@@ -62,7 +62,9 @@ if (isset($_SESSION['email'])) {
 }
 ?>
 
-<div class=accueil></div>
+<div class=accueil>
+    Sportrack c'est trop bien
+</div>
 <?php
 }
 ?>
