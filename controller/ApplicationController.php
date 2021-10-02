@@ -6,7 +6,7 @@ class ApplicationController {
     private function __construct() {
         // Sets the controller and the view of the application.
         $this->routes = [
-            '/' => ['controller' => null, 'view' => 'home'],
+            '/' => ['controller' => 'NullController', 'view' => 'home'],
             'home' => ['controller' => 'ListActivityController', 'view' => 'home'],
             'profile' => ['controller' => 'NullController', 'view' => 'profile'],
             'login' => ['controller' => 'NullController', 'view' => 'login'],
@@ -35,7 +35,7 @@ class ApplicationController {
      * @param Controller The controller that is responsible for processing the
      * request specified as parameter.
      */
-    public function getController(array $request) {
+    public function getController(array $request): ?string {
         if ($request != null && array_key_exists($request['page'], $this->routes)) {
             return $this->routes[$request['page']]['controller'];
         }
@@ -49,7 +49,7 @@ class ApplicationController {
      * @param Object The view that must be return in response of the HTTP request
      * specified as parameter.
      */
-    public function getView(array $request) {
+    public function getView(array $request): string {
         if ($request != null && array_key_exists($request['page'], $this->routes)) {
             return $this->routes[$request['page']]['view'];
         }

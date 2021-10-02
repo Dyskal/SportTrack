@@ -3,17 +3,12 @@ require("Controller.php");
 require_once("./model/SQLiteConnection.php");
 require("./model/Activity.php");
 class ListActivityController implements Controller {
-    public function __construct() {
-        $this->loadActivity();
-    }
-
     /**
      * Récupère les activités de l'utilisateur
      */
     public function loadActivity(){
         session_set_cookie_params(['lifetime' => 0, 'path' => '/m3104_24', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => '']);
         session_start();
-
 
         //Cherche les activités dans la base de données
         $email = $_SESSION["email"];
@@ -37,7 +32,8 @@ class ListActivityController implements Controller {
         $_SESSION['table'] = $table;
     }
 
-    public function handle($request) {}
+    public function handle($request) {
+        $this->loadActivity();
+    }
 }
-$o = new ListActivityController();
 ?>

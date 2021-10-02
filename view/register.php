@@ -40,8 +40,6 @@
     </form>
 </div>
 
-
-
 <?php
 if (isset($_GET['msg'])) {
     $error = urldecode($_GET['msg']);

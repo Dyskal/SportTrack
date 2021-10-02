@@ -5,11 +5,15 @@
 
 #Modifications techniques :
 
-Nous avons restreint l'accès aux dossiers model, sql et autres avec un fichier .htaccess et une jolie page 403.
+Nous avons restreint l'accès aux dossiers model, sql et views avec un fichier .htaccess et une jolie page 403.
+
+Nous n'avons pas utilisé les controlleurs dans les routes car, de la manière dont nous l'avons codé,
+nous devions avoir la vue avant le controller, et appeller le controller depuis la vue, ce qui n'etait pas possible avec cette configuration.
 
 Tout les champs rentrés par l'utilisateurs ont leurs caractères spéciaux échapés pour empecher les XSS.
 
-Restriction du cookie à /m3104_24 pour que la session soit seulement utilisable sur notre site (pb de conflit entre les sites)
+Restriction du cookie à /m3104_24 pour que la session soit seulement utilisable sur notre site (pb de conflit entre les sites).
+Mais une session d'un autre site pourrait interférer avec notre site.
 
 Site totalement responsive sur mobile.
 
