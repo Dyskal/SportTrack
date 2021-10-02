@@ -39,6 +39,23 @@
         <input class="button right" type="submit" value="Submit"/>
     </form>
 </div>
+
+
+
+<?php
+if (isset($_GET['msg'])) {
+    $error = urldecode($_GET['msg']);
+    if (strlen($error) > 1) {
+        ?>
+        <div style="background: <?php if (isset($_GET['color'])) {
+            echo $_GET['color'];
+        } ?>" class="error" id="hideDiv">
+            <?php echo(htmlspecialchars($error)); ?>
+        </div>
+        <?php
+    }
+}
+?>
 <script>
     //Le code vient de https://codepen.io/diegoleme/pen/surIK
     let password = document.getElementById("password"),
@@ -54,4 +71,9 @@
 
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
+</script>
+<script>
+    setTimeout(function() {
+        document.getElementById("hideDiv").classList.add("hide");
+    }, 10000)
 </script>
