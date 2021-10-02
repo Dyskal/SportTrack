@@ -25,17 +25,28 @@ class UploadActivityController implements Controller {
         $activity = new Activity();
         $ActivityDAO = ActivityDAO::getInstance();
         $activity_id = $ActivityDAO->getNextId();
-        $activity->init($activity_id, $_SESSION['email'], date('Y-m-d', strtotime($jsond['activity']['date'])), $jsond['activity']['description'], null, null, null, null, null, null);
-        $ActivityDAO->delete($activity);
-        $ActivityDAO->insert($activity);
+        if (!array_key_exists('activity', $jsond) || !array_key_exists('date', $jsond['activity']) || !array_key_exists('description', $jsond['activity'])) {
+            $this->exit();
+        } else {
+            $activity->init($activity_id, $_SESSION['email'], date('Y-m-d', strtotime($jsond['activity']['date'])), $jsond['activity']['description'], null, null, null, null, null, null);
+            $ActivityDAO->delete($activity);
+            $ActivityDAO->insert($activity);
+        }
 
         //Lie les data à l'activité
         $ActivityDataDAO = ActivityDataDAO::getInstance();
-        foreach ($jsond['data'] as $line) {
-            $data = new ActivityData();
-            $data_id = $ActivityDataDAO->getNextId();
-            $data->init($data_id, $activity_id, $line['time'], $line['cardio_frequency'], $line['latitude'], $line['longitude'], $line['altitude']);
-            $ActivityDataDAO->insert($data);
+        if (!array_key_exists('data', $jsond)) {
+            $this->exit();
+        } else {
+            foreach ($jsond['data'] as $line) {
+                if (!array_key_exists('time', $line) || !array_key_exists('cardio_frequency', $line) || !array_key_exists('latitude', $line) || !array_key_exists('longitude', $line) || !array_key_exists('altitude', $line)) {
+                    break;
+                }
+                $data = new ActivityData();
+                $data_id = $ActivityDataDAO->getNextId();
+                $data->init($data_id, $activity_id, $line['time'], $line['cardio_frequency'], $line['latitude'], $line['longitude'], $line['altitude']);
+                $ActivityDataDAO->insert($data);
+            }
         }
 
         //Calcule la distance totale
@@ -59,7 +70,7 @@ class UploadActivityController implements Controller {
             <div class=loading3></div>
         </div>
 
-        <!--Redirection vers la page login avec une erreur passé en paramètre de l'url-->
+        <!--Redirection vers la page home-->
         <script type="text/javascript">
             window.location.href = '..';
         </script>
@@ -67,6 +78,14 @@ class UploadActivityController implements Controller {
     }
 
     public function handle($request) {}
+
+    public function exit() {
+        ?>
+        <script type="text/javascript">
+            window.location.href = '../?page=home&msg=Activity%20cannot%20be%20imported.%20JSON%20file%20must%20be%20errored.';
+        </script>
+        <?php
+    }
 }
 $o = new UploadActivityController();
 ?>

@@ -36,7 +36,24 @@ if (isset($_SESSION['email'])) {
     <?php echo($_SESSION["table"]); ?>
 </div>
 
+<?php
+if (isset($_GET['msg'])) {
+    $error = urldecode($_GET['msg']);
+    if (strlen($error) > 1) {
+        ?>
+        <div style="z-index: 7; background: <?php if (isset($_GET['color'])) {
+            echo $_GET['color'];
+        } ?>" class="error" id="hideDiv">
+            <?php echo(htmlspecialchars($error)); ?>
+        </div>
+        <?php
+    }
+}
+?>
 <script>
+    setTimeout(function() {
+        document.getElementById("hideDiv").classList.add("hide");
+    }, 10000)
     function burgerMenu() {
         let nav = document.getElementById("menu");
         nav.classList.toggle("toggle");
