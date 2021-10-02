@@ -14,64 +14,64 @@
 
 <body class="bg-image">
 <div class="page-content">
-<?php
-ini_set('display_errors', 'Off');
-error_reporting(E_ALL);
-require('controller/ApplicationController.php');
+    <?php
+    ini_set('display_errors', 'Off');
+//    error_reporting(E_ALL);
+    require('controller/ApplicationController.php');
 
 
-if (isset($_REQUEST["page"])) {
-    $controller = ApplicationController::getInstance()->getController($_REQUEST);
+    if (isset($_REQUEST["page"])) {
+        $controller = ApplicationController::getInstance()->getController($_REQUEST);
 
-    if ($controller != null) {
-        require("controller/$controller.php");
-        (new $controller())->handle($_REQUEST);
-        $view = ApplicationController::getInstance()->getView($_REQUEST);
-        if ($view != null) {
-            require("view/$view.php");
+        if ($controller != null) {
+            require("controller/$controller.php");
+            (new $controller())->handle($_REQUEST);
+            $view = ApplicationController::getInstance()->getView($_REQUEST);
+            if ($view != null) {
+                require("view/$view.php");
+            }
         }
-    }
-} else {
-    ?>
-<video preload="auto" playsinline autoplay muted loop id="myVideo">
-    <source src="./img/video.mp4" type="video/mp4">
-</video>
+    } else {
+        ?>
+        <video preload="auto" playsinline autoplay muted loop id="myVideo">
+            <source src="./img/video.mp4" type="video/mp4">
+        </video>
 
-<?php
-session_set_cookie_params(['lifetime' => 0, 'path' => '/m3104_24', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => '']);
-session_start();
-if (isset($_SESSION['email'])) {
+    <?php
+    session_set_cookie_params(['lifetime' => 0, 'path' => '/m3104_24', 'domain' => '', 'secure' => false, 'httponly' => false, 'samesite' => '']);
+    session_start();
+    if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];
     ?>
-    <script type="text/javascript">
-        window.location.href = './?page=home';
-    </script>
+        <script type="text/javascript">
+            window.location.href = './?page=home';
+        </script>
 
     <?php
-} else {
+    } else {
     ?>
-    <header>
-        <h1 onclick="window.location.href='./'">SportTrack</h1>
-        <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
-        <nav id="menu">
-            <button onclick="window.location.href='./'" class="header-btn header-home"></button>
-            <button onclick="window.location.href='?page=register'" class="header-btn header-login">Register</button>
-            <button onclick="window.location.href='?page=login'" class="header-btn header-login">Login</button>
-        </nav>
-    </header>
+        <header>
+            <h1 onclick="window.location.href='./'">SportTrack</h1>
+            <button onclick="burgerMenu()" id="header-burger" class="header-btn header-burger"></button>
+            <nav id="menu">
+                <button onclick="window.location.href='./'" class="header-btn header-home"></button>
+                <button onclick="window.location.href='?page=register'" class="header-btn header-login">Register</button>
+                <button onclick="window.location.href='?page=login'" class="header-btn header-login">Login</button>
+            </nav>
+        </header>
     <?php
-}
-?>
+    }
+    ?>
 
-<div class=first-page-content>
-    <div class="img">
-    <img src="./img/preview.jpg">
-    </div>
-    <div class="slogan"><h2>MANAGE YOUR OUTINGS IN ONE CLICK WITH</h2> <h1>SportTrack</h1></div>
-</div>
-<?php
-}
-?>
+        <div class=first-page-content>
+            <div class="img">
+                <img src="./img/preview.jpg" alt="">
+            </div>
+            <div class="slogan"><h2>MANAGE YOUR OUTINGS IN ONE CLICK WITH</h2> <h1>SportTrack</h1></div>
+        </div>
+        <?php
+    }
+    ?>
 </div>
 <script>
     function burgerMenu() {
