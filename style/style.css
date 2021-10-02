@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
+
+
 #myVideo {
     left: 50%;
     min-height: 100%;
@@ -48,7 +50,7 @@
 .add-activity .header-btn {
     align-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.11);
+    background: rgba(0, 0, 0, 0.1);
     border-color: #fff;
     color: #fff;
     display: flex;
@@ -174,10 +176,9 @@
 
 .header-btn {
     background: transparent;
-    border: solid 2px #fff;
+    border: solid 2px #3eb42e;
     border-radius: 1000px;
     color: #3eb42e;
-    filter: invert(52%) sepia(92%) saturate(427%) hue-rotate(66deg) brightness(101%) contrast(86%);
     font-family: "Nunito Sans", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -186,10 +187,14 @@
     min-width: 40px;
     position: relative;
     transition: 0.3s;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 .header-btn::after {
     pointer-events: none;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 .header-btn::after {
@@ -720,8 +725,8 @@ body:before {
 
 .first-page-content img {
     border-radius: 20px;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
     transform: rotate(-5deg);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
     webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
     width: 100%;
     position: relative;
@@ -827,7 +832,7 @@ h2 {
 header {
     align-items: center;
     backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.1);
     color: #3eb42e;
     display: flex;
     float: left;
