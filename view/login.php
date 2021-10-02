@@ -19,7 +19,7 @@
             <button onclick="window.location.href='?page=register'" name="register" class="button">Register</button>
             <button class="button right">Login</button>
         </div>
-        <a onclick="alert('not implemented yet')">Forget password ?</a>
+        <a onclick="alert('not implemented yet')">Forgot password ?</a>
     </form>
 </div>
 
