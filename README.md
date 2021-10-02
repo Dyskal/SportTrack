@@ -15,6 +15,8 @@ Site totalement responsive sur mobile.
 
 #Pour tester : 
 
-Un compte sera créé : prof@mail.com avec le mot de passe 123456789
+Fonctionne sous un serveur local, mais doit être dans un répertoire du style `localhost/m3104_24/`
+
+Un compte sera créé : `prof@mail.com` avec le mot de passe `123456789`
 
 Pour créer une activité, un fichier json_test.json est disponible avec une activité exemple.
