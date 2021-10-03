@@ -3,7 +3,7 @@
 [Site IUT](http://m3104.iut-info-vannes.net/m3104_24/)
 
 
-#Modifications techniques :
+# Modifications techniques :
 
 Nous avons restreint l'accès aux dossiers model, sql et views avec un fichier .htaccess et une jolie page 403.
 
@@ -17,7 +17,7 @@ Mais une session d'un autre site pourrait interférer avec notre site.
 
 Site totalement responsive sur mobile.
 
-#Pour tester : 
+# Pour tester : 
 
 Fonctionne sous un serveur local, mais doit être dans un répertoire du style `localhost/m3104_24/`
 
