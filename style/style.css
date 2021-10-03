@@ -616,6 +616,11 @@
         border: 0 solid #fff !important;
         min-width: 150px !important;
     }
+    .slogan{
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+
+    }
 }
 @media (min-width: 1201px) {
     .header-burger {
