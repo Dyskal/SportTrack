@@ -10,7 +10,8 @@ const UserDAO = function () {
 
     };
     this.findAll = function (callback) {
-
+        const query = "Select * From User Order By lname, fname";
+        return db.all(query, callback);
     };
     this.findByKey = function (key, callback) {
 

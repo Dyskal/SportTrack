@@ -5,3 +5,5 @@ let db = new sqlite3.Database('../sql/sport_track.db', (err) => {
     }
     console.log('Connected to the SQlite database');
 });
+
+module.exports = db;
