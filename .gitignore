@@ -4,3 +4,4 @@
 *.pdf
 *.zip
 test.*
+node_modules
