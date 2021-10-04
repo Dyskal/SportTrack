@@ -7,14 +7,16 @@ const ActivityDAO = function () {
          db.run(query, params, callback);
     };
     this.update = function (key, values, callback) {
-
+        const query = "Update Activity Set user_id = ?, date = ?, description = ?, start_time = ?, duration = ?, distance = ?, freq_min = ?, freq_max = ?, freq_avg = ?  Where id = ?";
+        const params = [values['user_id'], values['date'], values['description'], values['start_time'], values['duration'], values['distance'], values['freq_min'], values['freq_max'], values['freq_avg'] , values['id']]
+        db.run(query, params, callback);
     };
     this.delete = function (key, callback) {
         const query = "Delete From Activity Where id=" + key;
          db.run(query,[],callback);
     };
     this.findAll = function (callback) {
-        const query = "Select * From Activity Order By lname, fname";
+        const query = "Select * From Activity";
         return db.all(query, callback);
     };
     this.findByKey = function (key, callback) {
