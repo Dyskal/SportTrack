@@ -9,7 +9,7 @@ function calculDistanceTrajet(parcours) {
     for (let i = 1; i < parcours.length; i++) {
         ret += calculDistance2PointsGPS(parcours[i-1]['latitude'], parcours[i-1]['longitude'], parcours[i]['latitude'], parcours[i]['longitude']);
     }
-    return Math.round(ret);
+    return ret.toFixed(1);
 }
 
 array = [
@@ -20,4 +20,4 @@ array = [
     {"time": "13:00:20", "cardio_frequency": 98, "latitude": 47.647867, "longitude": -2.781744, "altitude": 16},
     {"time": "13:00:25", "cardio_frequency": 103, "latitude": 47.648510, "longitude": -2.780145, "altitude": 16}
 ]
-console.log(array.length)
+console.log(calculDistanceTrajet(array))
