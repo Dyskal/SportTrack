@@ -1,10 +1,9 @@
 const db = require('./sqlite_connection');
-
-const UserDAO = function () {
+const ActivityDataDAO = function () {
     this.insert = function (values) {
         return new Promise((resolve, reject) => {
-            const query = "Insert Into User(email, password, lname, fname, bdate, gender, height, weight) Values (?, ?, ?, ?, ?, ?, ?, ?)";
-            const params = [values.email, values.password, values.lname, values.fname, values.bdate, values.gender, values.height, values.weight];
+            const query = "Insert Into ActivityData(data_id, activity_id, time, cardio_frequency, latitude, longitude, altitude) Values (?, ?, ?, ?, ?, ?, ?)";
+            const params = [values.data_id, values.activity_id, values.time, values.cardio_frequency, values.latitude, values.longitude, values.altitude]
             db.run(query, params, (error, row) => {
                 if (error) {
                     reject(error)
@@ -16,8 +15,8 @@ const UserDAO = function () {
 
     this.update = function (key, values) {
         return new Promise((resolve, reject) => {
-            const query = "Update User Set email = ? , password = ?, lname = ?, fname = ?, bdate = ?, gender = ?, height = ?, weight = ? Where email = ?";
-            const params = [values.email, values.password, values.lname, values.fname, values.bdate, values.gender, values.height, values.weight, key];
+            const query = "Update ActivityData Set data_id = ?, activity_id = ?, time = ?, cardio_frequency = ?, latitude = ?, longitude = ?, altitude = ? Where data_id = ?";
+            const params = [values.data_id, values.activity_id, values.time, values.cardio_frequency, values.latitude, values.longitude, values.altitude, key]
             db.run(query, params, (error, row) => {
                 if (error) {
                     reject(error)
@@ -29,7 +28,7 @@ const UserDAO = function () {
 
     this.delete = function (key) {
         return new Promise((resolve, reject) => {
-            const query = "Delete From User Where email = ?";
+            const query = "Delete From ActivityData Where data_id = ?";
             db.run(query, key, (error, row) => {
                 if (error) {
                     reject(error)
@@ -41,7 +40,7 @@ const UserDAO = function () {
 
     this.findAll = function () {
         return new Promise((resolve, reject) => {
-            const query = "Select * From User Order By lname, fname";
+            const query = "Select * From ActivityData";
             db.all(query, [], (error, row) => {
                 if (error) {
                     reject(error)
@@ -53,7 +52,7 @@ const UserDAO = function () {
 
     this.findByKey = function (key) {
         return new Promise((resolve, reject) => {
-            const query = "Select * From User Where email = ?";
+            const query = "Select * From ActivityData Where data_id = ?";
             db.all(query, key, (error, row) => {
                 if (error) {
                     reject(error)
@@ -64,4 +63,4 @@ const UserDAO = function () {
     };
 };
 
-module.exports = new UserDAO();
+module.exports = new ActivityDataDAO();
