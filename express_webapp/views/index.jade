@@ -1,5 +1,20 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    .page-content
+        video#myVideo(preload='auto' playsinline='' autoplay='' muted='' loop='')
+            source(src='/images/video.mp4' type='video/mp4')
+        header
+            h1(onclick="window.location.href='./'") SportTrack
+            button#header-burger.header-btn.header-burger(onclick='burgerMenu()')
+            nav#menu
+                button.header-btn.header-home(onclick="window.location.href='.'")
+                button.header-btn.header-login(onclick="window.location.href='register'") Register
+                button.header-btn.header-login(onclick="window.location.href='login'") Login
+        .first-page-content
+            .img
+                img(src='/images/preview.jpg' alt='')
+            .slogan
+                h2 MANAGE YOUR OUTINGS IN ONE CLICK WITH
+                h1 SportTrack
+    script(src='/javascript/global.js')

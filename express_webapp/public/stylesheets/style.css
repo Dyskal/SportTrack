@@ -616,12 +616,14 @@
         border: 0 solid #fff !important;
         min-width: 150px !important;
     }
-    .slogan{
+
+    .slogan {
         margin-left: 20px !important;
         margin-right: 20px !important;
 
     }
 }
+
 @media (min-width: 1201px) {
     .header-burger {
         display: none !important;
@@ -664,6 +666,7 @@ body:after {
     top: 0;
     width: 100%;
     z-index: 100;
+    transform: translate3d(0, 0, 0); /*fix some disappearing issues don't remove*/
 }
 
 body:before {
@@ -680,9 +683,11 @@ body:before {
     top: 0;
     width: 100%;
     z-index: 101;
+    transform: translate3d(0, 0, 0); /*fix some disappearing issues don't remove*/
+
 }
 
-.first-page-content{
+.first-page-content {
     align-items: center;
     align-content: center;
     display: flex;
@@ -693,13 +698,13 @@ body:before {
     font-family: "Nunito Sans", sans-serif;
 }
 
-.first-page-content .slogan{
-    margin-left:150px ;
+.first-page-content .slogan {
+    margin-left: 150px;
     display: flex;
     flex-direction: column;
 }
 
-.first-page-content .slogan h1{
+.first-page-content .slogan h1 {
     color: rgba(255, 255, 255, 0.9);
     font-size: 60px;
     font-weight: bold;
@@ -707,7 +712,7 @@ body:before {
     position: relative;
 }
 
-.first-page-content .slogan h2{
+.first-page-content .slogan h2 {
     color: #fff;
     font-size: 35px;
     font-weight: bold;
@@ -716,7 +721,7 @@ body:before {
     text-transform: uppercase;
 }
 
-.first-page-content h1::before{
+.first-page-content h1::before {
     align-items: center;
     background: rgba(127, 255, 0, 0.5);
     color: chartreuse;
@@ -762,7 +767,7 @@ body:before {
     transition: 0.5s;
 }
 
-.first-page-content .img{
+.first-page-content .img {
     position: relative;
     width: 30%;
     display: flex;
@@ -824,9 +829,10 @@ footer {
     padding: 0;
     position: relative;
     text-align: center;
-    transform: translate(0, 150px);
     width: 100%;
     z-index: 5;
+    transform: translate3d(0, 150px, 0);/*fix some disappearing issues don't remove*/
+
 }
 
 footer h3 {
@@ -877,7 +883,7 @@ header {
     width: calc(100% - 14px);
 }
 
-header h1{
+header h1 {
     font-weight: bold;
     width: fit-content;
     position: relative;
