@@ -3,5 +3,8 @@
         "express-generator": "^4.16.1",
         "sqlite3": "^5.0.2"
     },
+    "scripts": {
+        "start": "cd .\\express_webapp\\ && node ./bin/www"
+    },
     "type": "module"
 }

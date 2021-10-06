@@ -1,8 +1,8 @@
 extends layout
 
 block content
-    table(border='1')
-        thead
+    table
+        tbody
             tr
                 th Email
                 th Nom
@@ -11,13 +11,12 @@ block content
                 th Genre
                 th Taille
                 th Poids
-        tbody
             each val in data
-             tr
-                td= val.email
-                td= val.lname
-                td= val.fname
-                td= val.bdate
-                td= val.gender
-                td= val.height
-                td= val.weight
+                tr
+                    td= val.email
+                    td= val.lname
+                    td= val.fname
+                    td= val.bdate
+                    td= val.gender
+                    td= val.height
+                    td= val.weight

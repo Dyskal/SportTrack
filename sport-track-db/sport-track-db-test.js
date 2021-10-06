@@ -11,8 +11,8 @@ async function user_test() {
         fname: "prenom",
         bdate: "2013-10-16",
         gender: "M",
-        height: "123",
-        weight: "321",
+        height: 123,
+        weight: 321,
     }
 
     const User1 = {
@@ -22,8 +22,8 @@ async function user_test() {
         fname: "prenom",
         bdate: "2013-10-16",
         gender: "M",
-        height: "124",
-        weight: "421",
+        height: 124,
+        weight: 421,
     }
 
     console.log("User")
