@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1000 1000">
+    <defs>
+        <style>.cls-1,.cls-2,.cls-3{fill:#fff;}.cls-1{opacity:0.30;fill:#3eb42e;}.cls-2{opacity:0.5;fill:#3eb42e;}
+        </style>
+    </defs>
+    <title>Footer</title>
+    <polygon class="cls-1" points="0 144 1000 1000 0 1000 0 144"/>
+    <polygon class="cls-2" points="0 357.91 0 1000 1000 1000 1000 576.59 0 357.91"/>
+    <polygon class="cls-3" points="1000 0 0 1000 1000 1000 1000 0"/>
+</svg>
