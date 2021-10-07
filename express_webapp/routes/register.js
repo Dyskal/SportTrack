@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-router.get('/register', async function (req, res, next) {
+router.get('/', async function (req, res) {
     res.render('register')
 });
 module.exports = router;

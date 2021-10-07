@@ -1,0 +1,10 @@
+extends layout
+
+block content
+video#myVideo(preload='auto' playsinline='' autoplay='' muted='' loop='')
+    source(src='./img/video.mp4' type='video/mp4')
+.accueil
+    .add-activity
+        button.header-btn(onclick="window.location.href='?page=upload'")
+            | Add an activity
+            span +
