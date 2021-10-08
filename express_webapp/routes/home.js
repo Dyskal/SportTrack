@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-router.get('/', async function (req, res) {
+const asyncMiddleware = require("./asyncMiddleware");
+
+router.get('/', asyncMiddleware(async (req, res, next) => {
     res.render('home')
-});
+}))
+
 module.exports = router;

@@ -10,7 +10,7 @@ const ActivityDataDAO = function () {
                 }
                 resolve(row)
             });
-        }).catch((error) => console.error(error));
+        })
     };
 
     this.update = function (key, values) {
@@ -23,7 +23,7 @@ const ActivityDataDAO = function () {
                 }
                 resolve(row)
             });
-        }).catch((error) => console.error(error));
+        })
     };
 
     this.delete = function (key) {
@@ -35,7 +35,7 @@ const ActivityDataDAO = function () {
                 }
                 resolve(row)
             });
-        }).catch((error) => console.error(error));
+        })
     };
 
     this.findAll = function () {
@@ -47,7 +47,7 @@ const ActivityDataDAO = function () {
                 }
                 resolve(row)
             });
-        }).catch((error) => console.error(error));
+        })
     };
 
     this.findByKey = function (key) {
@@ -59,7 +59,7 @@ const ActivityDataDAO = function () {
                 }
                 resolve(row)
             });
-        }).catch((error) => console.error(error));
+        })
     };
 };
 

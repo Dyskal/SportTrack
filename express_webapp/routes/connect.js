@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const user_dao = require('sport-track-db').user_dao;
+const asyncMiddleware = require("./asyncMiddleware");
 
-router.get('/', async function (req, res) {
+router.get('/', asyncMiddleware(async (req, res, next) => {
     res.render('login')
-});
+}))
 
-router.post('/', async function (req, res) {
+router.post('/', asyncMiddleware(async (req, res, next) => {
     //if password valid
     if (req.session.email === undefined) {
         req.session.email = req.body.email;
@@ -21,11 +22,11 @@ router.post('/', async function (req, res) {
         }
     }
     res.render('error', {message: "camarchpa", error: {status: 200, stack: "lalal"}})
-})
+}))
 
-router.post('/disconnect', async function (req, res) {
+router.post('/disconnect', asyncMiddleware(async (req, res, next) => {
     req.session.destroy()
     res.render('/')
-})
+}))
 
 module.exports = router;

@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const user_dao = require('sport-track-db').user_dao;
+const asyncMiddleware = require("./asyncMiddleware");
 
-router.get('/', async function (req, res) {
+router.get('/', asyncMiddleware(async (req, res, next) => {
     const rows = await user_dao.findAll();
     res.render('users', {data: rows})
-});
+}))
 
-router.post('/', async function (req, res) {
+router.post('/', asyncMiddleware(async (req, res, next) => {
     const usr = await user_dao.findByKey(req.body.email)
     if (usr.length === 0) {
         if (req.body.email != null && req.body.password != null && req.body.lname != null && req.body.fname != null && req.body.bdate != null &&
@@ -17,6 +18,6 @@ router.post('/', async function (req, res) {
         }
     }
     res.render('error', {message: "camarchpa", error: {status: 200, stack: "lalal"}})
-})
+}))
 
 module.exports = router;
