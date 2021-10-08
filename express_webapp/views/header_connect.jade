@@ -1,0 +1,10 @@
+header
+    h1(onclick="window.location.href='./'") SportTrack
+    button#header-burger.header-btn.header-burger(onclick='burgerMenu()')
+    nav#menu
+        button.header-btn.header-home(onclick="window.location.href='./'")
+        button.header-btn.header-upload(onclick="window.location.href='?page=upload'")
+        button.header-btn.header-account(onclick="window.location.href='?page=profile'")
+        form(action='./controller/DisconnectUserController.php' method='get')
+            button.header-btn.header-logout
+block content

@@ -2,35 +2,30 @@ extends layout
 
 block content
     .page-content
-        header
-            h1(onclick="window.location.href='./'") SportTrack
-            button#header-burger.header-btn.header-burger(onclick='burgerMenu()')
-            nav#menu
-                button.header-btn.header-home(onclick="window.location.href='./'")
-                button.header-btn.header-login(onclick="window.location.href='?page=register'") Register
-                button.header-btn.header-login(onclick="window.location.href='?page=login'") Login
-        .container
-            h2 Register
-            form(action='./controller/AddUserController.php' method='post')
-                label(for='mail') Email address
-                input#mail.input(name='mail' required='' type='text')
-                label(for='password') Password
-                input#password.input(minlength='8' name='password' required='' type='password')
-                label(for='confirm_password') Confirm passsword
-                input#confirm_password.input(minlength='8' name='confirm_password' required='' type='password')
-                label(for='lname') Last name
-                input#lname.input(name='lname' required='' type='text')
-                label(for='fname') First name
-                input#fname.input(name='fname' required='' type='text')
-                label(for='bdate') Birth date
-                input#bdate.input(name='bdate' max="<?= date('Y-m-d'); ?>" required='' type='date')
-                label(for='gender') Gender
-                select#gender(name='gender')
-                    option(value='M') Man
-                    option(value='W') Women
-                    option(value='O') Other
-                label(for='height') Height
-                input#height.input(min='0' name='height' oninput="validity.valid||(value='');" required='' type='number')
-                label(for='weight') Weight
-                input#weight.input(min='0' name='weight' oninput="validity.valid||(value='');" required='' type='number')
-                input.button.right(type='submit' value='Submit')
+        include header_disconnect
+
+            .container
+                h2 Register
+                form(action='./controller/AddUserController.php' method='post')
+                    label(for='mail') Email address
+                    input#mail.input(name='mail' required='' type='text')
+                    label(for='password') Password
+                    input#password.input(minlength='8' name='password' required='' type='password')
+                    label(for='confirm_password') Confirm passsword
+                    input#confirm_password.input(minlength='8' name='confirm_password' required='' type='password')
+                    label(for='lname') Last name
+                    input#lname.input(name='lname' required='' type='text')
+                    label(for='fname') First name
+                    input#fname.input(name='fname' required='' type='text')
+                    label(for='bdate') Birth date
+                    input#bdate.input(name='bdate' max="<?= date('Y-m-d'); ?>" required='' type='date')
+                    label(for='gender') Gender
+                    select#gender(name='gender')
+                        option(value='M') Man
+                        option(value='W') Women
+                        option(value='O') Other
+                    label(for='height') Height
+                    input#height.input(min='0' name='height' oninput="validity.valid||(value='');" required='' type='number')
+                    label(for='weight') Weight
+                    input#weight.input(min='0' name='weight' oninput="validity.valid||(value='');" required='' type='number')
+                    input.button.right(type='submit' value='Submit')
