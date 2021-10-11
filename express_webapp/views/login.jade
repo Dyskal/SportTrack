@@ -1,6 +1,3 @@
-
-
-
 extends layout
 block content
 
@@ -17,3 +14,7 @@ block content
                     button.button(onclick="window.location.href='?page=register'" name='register') Register
                     button.button.right Login
                 a(onclick="alert('not implemented yet')") Forgot password ?
+        -if (error)
+            div.error.red#hideDiv Wrong password or email, please try again.
+        - else if (!error && fromregister)
+            div.error.green#hideDiv Register complete, please login.
