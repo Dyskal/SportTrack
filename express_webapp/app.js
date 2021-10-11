@@ -5,13 +5,12 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 
-const indexRouter = require('./routes/index');
-const users = require('./routes/users');
-const register = require('./routes/register');
-const connect = require('./routes/connect');
-// const login = require('./routes/login');
-// const upload = require('./routes/upload');
 const home = require('./routes/home');
+const index = require('./routes/index');
+const login = require('./routes/login');
+const register = require('./routes/register');
+const users = require('./routes/users');
+// const upload = require('./routes/upload');
 
 const app = express();
 
@@ -30,10 +29,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', index);
 app.use('/users', users);
 app.use('/register', register);
-// app.use('/login', login);
+app.use('/login', login);
 // app.use('/upload', upload);
 app.use('/home', home);
 

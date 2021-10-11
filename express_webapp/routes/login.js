@@ -4,29 +4,27 @@ const user_dao = require('sport-track-db').user_dao;
 const asyncMiddleware = require("./asyncMiddleware");
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
-    res.render('login')
+    res.render('login', {error: false, fromregister: false})
 }))
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
-    //if password valid
-    if (req.session.email === undefined) {
+    if (await user_dao.verifyPassword(req.body.email, req.body.password)) {
         req.session.email = req.body.email;
+        req.session.password = req.body.password;
+        req.session.lname = req.body.lname;
+        req.session.bdate = req.body.bdate;
+        req.session.gender = req.body.gender;
+        req.session.height = req.body.height;
+        req.session.weight = req.body.weight;
+        res.render('home')
+    } else {
+        res.render('login', {error: true, fromregister: false})
     }
-    //full bullshit a changer
-    const usr = await user_dao.findByKey(req.body.email)
-    if (usr.length === 0) {
-        if (req.body.email != null && req.body.password != null && req.body.lname != null && req.body.fname != null && req.body.bdate != null &&
-            req.body.gender != null && req.body.height != null && req.body.weight != null) {
-            await user_dao.insert(req.body)
-            res.render('login')
-        }
-    }
-    res.render('error', {message: "camarchpa", error: {status: 200, stack: "lalal"}})
 }))
 
-router.post('/disconnect', asyncMiddleware(async (req, res, next) => {
+router.get('/disconnect', asyncMiddleware(async (req, res, next) => {
     req.session.destroy()
-    res.render('/')
+    res.render('index')
 }))
 
 module.exports = router;
