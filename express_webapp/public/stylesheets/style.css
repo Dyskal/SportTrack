@@ -140,7 +140,9 @@
     font-size: 20px;
     padding: 30px;
     position: fixed;
-    transform: translate(0, -50%);
+    z-index: 6;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: 1s;
     pointer-events: none;
 }

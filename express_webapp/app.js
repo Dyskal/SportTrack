@@ -9,7 +9,10 @@ const indexRouter = require('./routes/index');
 const users = require('./routes/users');
 const register = require('./routes/register');
 const connect = require('./routes/connect');
+// const login = require('./routes/login');
+// const upload = require('./routes/upload');
 const home = require('./routes/home');
+
 const app = express();
 
 app.use(session({
@@ -30,7 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', users);
 app.use('/register', register);
-app.use('/login', connect);
+// app.use('/login', login);
+// app.use('/upload', upload);
 app.use('/home', home);
 
 // catch 404 and forward to error handler
