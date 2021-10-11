@@ -5,13 +5,13 @@ block content
         include header_disconnect
         .container
             h2 Login
-            form(action='./controller/ConnectUserController.php' method='post')
+            form(action='login' method='post')
                 label(for='email') Email
                 input#email.input(name='email' required='' type='email')
                 label(for='password') Password
                 input#password.input(name='password' minlength='8' required='' type='password')
                 .input-btns
-                    button.button(onclick="window.location.href='?page=register'" name='register') Register
+                    button.button(onclick="window.location.href='register'" name='register') Register
                     button.button.right Login
                 a(onclick="alert('not implemented yet')") Forgot password ?
         -if (error)
