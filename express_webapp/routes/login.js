@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const user_dao = require('sport-track-db').user_dao;
 const asyncMiddleware = require("./asyncMiddleware");
+const htmlescape = require('./htmlescape');
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
     res.render('login', {error: false, fromregister: false})
@@ -9,13 +10,13 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
     if (await user_dao.verifyPassword(req.body.email, req.body.password)) {
-        req.session.email = req.body.email;
-        req.session.password = req.body.password;
-        req.session.lname = req.body.lname;
-        req.session.bdate = req.body.bdate;
-        req.session.gender = req.body.gender;
-        req.session.height = req.body.height;
-        req.session.weight = req.body.weight;
+        req.session.email = htmlescape(req.body.email);
+        req.session.password = htmlescape(req.body.password);
+        req.session.lname = htmlescape(req.body.lname);
+        req.session.bdate = htmlescape(req.body.bdate);
+        req.session.gender = htmlescape(req.body.gender);
+        req.session.height = htmlescape(req.body.height);
+        req.session.weight = htmlescape(req.body.weight);
         res.render('home')
     } else {
         res.render('login', {error: true, fromregister: false})

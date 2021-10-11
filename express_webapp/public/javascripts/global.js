@@ -7,12 +7,6 @@ function burgerMenu() {
     document.body.classList.toggle("toggle");
 }
 
-
-
-
-
-
-
 setTimeout(function() {
     document.getElementsByClassName("error")[0].classList.add("hide");
 }, 10000)

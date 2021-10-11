@@ -70,10 +70,14 @@ const UserDAO = function () {
                 if (error) {
                     reject(error)
                 }
-                if (row.password === pass) {
-                    resolve(true)
-                } else {
+                if (row === undefined) {
                     resolve(false)
+                } else {
+                    if (row.password === pass) {
+                        resolve(true)
+                    } else {
+                        resolve(false)
+                    }
                 }
             });
         });

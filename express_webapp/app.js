@@ -16,7 +16,10 @@ const app = express();
 
 app.use(session({
     secret: 'qitBmMSV9xxsp3EB47vO0w',
-    cookie: {secret: true}
+    cookie: {secret: true},
+    resave: true,
+    saveUninitialized: true
+    // path: '/m3104_24'
 }))
 
 // view engine setup
@@ -52,4 +55,5 @@ app.use(function(req, res, err) {
     res.render('error');
 });
 
+console.log("Server running on http://localhost:3000")
 module.exports = app;
