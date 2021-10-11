@@ -147,6 +147,12 @@
     pointer-events: none;
 }
 
+
+.error.green {
+    background: rgba(0, 255, 0, 0.5);
+}
+
+
 .header-account::after {
     align-items: center;
     border: 2px solid;
