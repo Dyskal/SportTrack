@@ -60,7 +60,23 @@ const UserDAO = function () {
                 }
                 resolve(row)
             });
-        })
+        });
+    };
+
+    this.verifyPassword = function (email, pass) {
+        return new Promise((resolve, reject) => {
+            const query = "Select password From User Where email = ?";
+            db.get(query, email, (error, row) => {
+                if (error) {
+                    reject(error)
+                }
+                if (row.password === pass) {
+                    resolve(true)
+                } else {
+                    resolve(false)
+                }
+            });
+        });
     };
 };
 

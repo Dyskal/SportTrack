@@ -17,7 +17,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
             res.render('login')
         }
     }
-    res.render('error', {message: "camarchpa", error: {status: 200, stack: "lalal"}})
+    res.render('error', {message: "Error"})
 }))
 
 module.exports = router;

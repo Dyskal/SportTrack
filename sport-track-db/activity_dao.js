@@ -60,7 +60,19 @@ const ActivityDAO = function () {
                 }
                 resolve(row)
             });
-        }).catch((error) => console.error(error));
+        });
+    };
+
+    this.getNextId = function () {
+        return new Promise((resolve, reject) => {
+            const query = "Select MAX(id) as nextId From Activity";
+            db.get(query, [], (error, row) => {
+                if (error) {
+                    reject(error)
+                }
+                resolve(row.nextId+1)
+            });
+        });
     };
 };
 

@@ -36,6 +36,13 @@ async function user_test() {
     console.log("findByKey")
     console.log(await user_dao.findByKey(User1.email))
     console.log()
+    console.log("findByKey")
+    console.log(await user_dao.findByKey(User1.email))
+    console.log()
+    console.log("verifyPassword")
+    const res = await user_dao.verifyPassword(User1.email, User1.password)
+    console.log(res)
+    console.log()
 }
 
 async function activity_test() {
@@ -75,6 +82,9 @@ async function activity_test() {
     console.log("findByKey")
     console.log(await activity_dao.findByKey(Activity1.id))
     console.log()
+    console.log("getNextId")
+    console.log(await activity_dao.getNextId())
+    console.log()
 }
 
 async function activity_data_test() {
@@ -107,6 +117,9 @@ async function activity_data_test() {
     await activity_data_dao.update(ActivityData.data_id, ActivityData1)
     console.log("findByKey")
     console.log(await activity_data_dao.findByKey(ActivityData1.data_id))
+    console.log()
+    console.log("getNextId")
+    console.log(await activity_data_dao.getNextId())
     console.log()
 }
 

@@ -61,6 +61,18 @@ const ActivityDataDAO = function () {
             });
         })
     };
+
+    this.getNextId = function () {
+        return new Promise((resolve, reject) => {
+            const query = "Select MAX(activity_id) as nextId From ActivityData";
+            db.get(query, [], (error, row) => {
+                if (error) {
+                    reject(error)
+                }
+                resolve(row.nextId+1)
+            });
+        });
+    };
 };
 
 module.exports = new ActivityDataDAO();
