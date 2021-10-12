@@ -7,5 +7,5 @@ module.exports = function escape(string) {
         '<': "&lt;",
         '>': "&gt;"
     };
-    return string.replace(/[&"'<>]/g, c => lookup[c] );
-}
+    return string.replace(/[&"'<>]/g, c => lookup[c]);
+};

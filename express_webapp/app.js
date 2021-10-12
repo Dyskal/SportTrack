@@ -8,9 +8,9 @@ const session = require('express-session');
 const home = require('./routes/home');
 const index = require('./routes/index');
 const login = require('./routes/login');
+const profile = require('./routes/profile')
 const register = require('./routes/register');
-const users = require('./routes/users');
-// const upload = require('./routes/upload');
+const upload = require('./routes/upload');
 
 const app = express();
 
@@ -32,12 +32,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/register', register);
-app.use('/login', login);
-// app.use('/upload', upload);
 app.use('/home', home);
+app.use('/', index);
+app.use('/login', login);
+app.use('/profile', profile);
+app.use('/register', register);
+app.use('/upload', upload);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

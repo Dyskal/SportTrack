@@ -5,11 +5,12 @@ const asyncMiddleware = require("./asyncMiddleware");
 const htmlescape = require("./htmlescape");
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
-    res.render('register', {error: false})
-}))
+    //TODO if session degage
+    res.render('register', {error: false});
+}));
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
-    const usr = await user_dao.findByKey(htmlescape(req.body.email))
+    const usr = await user_dao.findByKey(htmlescape(req.body.email));
     if (usr.length === 0) {
         if (htmlescape(req.body.email) != null && htmlescape(req.body.password) != null && htmlescape(req.body.lname) != null && htmlescape(req.body.fname) != null &&
             htmlescape(req.body.bdate) != null && htmlescape(req.body.gender) != null && htmlescape(req.body.height) != null && htmlescape(req.body.weight) != null) {
@@ -22,12 +23,12 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
                 gender: htmlescape(req.body.gender),
                 height: htmlescape(req.body.height),
                 weight: htmlescape(req.body.weight),
-            }
-            await user_dao.insert(User)
-            res.render('login', {error: false, fromregister: true})
+            };
+            await user_dao.insert(User);
+            res.render('login', {error: false, fromregister: true});
         }
     }
-    res.render('register', {error: true})
-}))
+    res.render('register', {error: true});
+}));
 
 module.exports = router;
