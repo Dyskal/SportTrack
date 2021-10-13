@@ -53,7 +53,7 @@ const ActivityDAO = function () {
 
     this.findByKey = function (key) {
         return new Promise((resolve, reject) => {
-            const query = "Select * From Activity Where id = ?";
+            const query = "Select * From Activity Where user_id = ?";
             db.all(query, key, (error, row) => {
                 if (error) {
                     reject(error)
