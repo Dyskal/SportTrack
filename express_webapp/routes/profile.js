@@ -10,19 +10,16 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
     }
 
     res.render('profile', {
-        lname: req.session.lname,
-        fname: req.session.fname,
-        bdate: req.session.bdate,
-        gender: req.session.gender,
-        height: req.session.height,
-        weight: req.session.weight,
+
         session: req.session
     });
 }));
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
-    if (htmlescape(req.body.lname) != null && htmlescape(req.body.fname) != null && htmlescape(req.body.bdate) != null &&
-        htmlescape(req.body.gender) != null && htmlescape(req.body.height) != null && htmlescape(req.body.weight) != null) {
+    console.log(req.body.height);
+    if (req.body.lname != null && req.body.fname != null && req.body.bdate != null && req.body.gender != null && req.body.height != null && req.body.weight != null
+        && req.body.lname != undefined && req.body.fname != undefined && req.body.bdate != undefined && req.body.gender != undefined && req.body.height != undefined && req.body.weight != undefined
+        && req.body.lname !== "" && req.body.fname !== "" && req.body.bdate !== "" && req.body.gender !== "" && req.body.height !== "" && req.body.weight !== "") {
         const User = {
             email: htmlescape(req.session.email),
             password: htmlescape(req.session.password),
@@ -33,7 +30,11 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
             height: htmlescape(req.body.height),
             weight: htmlescape(req.body.weight),
         };
-        await user_dao.update(User.email, User);
+        console.log(User);
+        await user_dao.update(User.email, User)
+
+
+
         req.session.fname = User.fname;
         req.session.lname = User.lname;
         req.session.bdate = User.bdate;
@@ -42,12 +43,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
         req.session.weight = User.weight;
 
         res.render('profile', {
-            lname: req.session.lname,
-            fname: req.session.fname,
-            bdate: req.session.bdate,
-            gender: req.session.gender,
-            height: req.session.height,
-            weight: req.session.weight,
+
             session: req.session,
 
             change: true
@@ -55,12 +51,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
     }
 
     res.render('profile', {
-        lname: req.session.lname,
-        fname: req.session.fname,
-        bdate: req.session.bdate,
-        gender: req.session.gender,
-        height: req.session.height,
-        weight: req.session.weight,
+
         session: req.session,
 
         change: false

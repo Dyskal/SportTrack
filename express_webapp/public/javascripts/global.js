@@ -11,4 +11,15 @@ setTimeout(function() {
     document.getElementsByClassName("error")[0].classList.add("hide");
 }, 10000)
 
+function autoSelect(liste, find) {
+    for (let i of liste) {
+        if (i.value === find) {
+            i.selected = 'selected'
+
+        }
+    }
+
+}
+
+
 
