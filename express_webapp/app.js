@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const session = require('express-session');
+const cookieSession = require('cookie-session');
 
 const home = require('./routes/home');
 const index = require('./routes/index');
@@ -14,12 +14,11 @@ const upload = require('./routes/upload');
 
 const app = express();
 
-app.use(session({
+app.use(cookieSession({
     secret: 'qitBmMSV9xxsp3EB47vO0w',
-    cookie: {secret: true},
-    resave: true,
-    saveUninitialized: true
-    // path: '/m3104_24'
+    resave: false,
+    saveUninitialized: true,
+    maxAge: 2147483647
 }));
 
 // view engine setup

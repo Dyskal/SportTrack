@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const upload = multer({dest: 'public/uploads/'})
+const upload = multer({dest: 'uploads/'})
 const fs = require('fs').promises;
 const activity_dao = require('sport-track-db').activity_dao;
 const asyncMiddleware = require("./asyncMiddleware");
