@@ -1,6 +1,11 @@
-.container
-    h2 Upload
-    form(action='upload' method='post' enctype='multipart/form-data')
-        .upload-btn-wrapper
-            input#file(accept='.json, application/json' name='file' required='' type='file')
-        input.button(type='submit' value='Submit')
+extends layout
+
+block content
+    .page-content
+        include header_connect
+        .container
+            h2 Upload
+            form(action='upload' method='post' enctype='multipart/form-data')
+                .upload-btn-wrapper
+                    input#file(accept='.json, application/json' name='file' required='' type='file')
+                input.button(type='submit' value='Submit')
