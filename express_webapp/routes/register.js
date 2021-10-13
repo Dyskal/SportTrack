@@ -14,8 +14,7 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 router.post('/', asyncMiddleware(async (req, res, next) => {
     const usr = await user_dao.findByKey(htmlescape(req.body.email));
     if (usr.length === 0) {
-        if (htmlescape(req.body.email) != null && htmlescape(req.body.password) != null && htmlescape(req.body.lname) != null && htmlescape(req.body.fname) != null &&
-            htmlescape(req.body.bdate) != null && htmlescape(req.body.gender) != null && htmlescape(req.body.height) != null && htmlescape(req.body.weight) != null) {
+        if (req.body.email && req.body.password && req.body.lname && req.body.fname && req.body.bdate && req.body.gender && req.body.height && req.body.weight) {
             const User = {
                 email: htmlescape(req.body.email),
                 password: htmlescape(req.body.password),

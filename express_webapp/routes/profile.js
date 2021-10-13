@@ -14,8 +14,8 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 router.post('/', asyncMiddleware(async (req, res, next) => {
     if (req.body.lname && req.body.fname && req.body.bdate && req.body.gender && req.body.height && req.body.weight) {
         const User = {
-            email: htmlescape(req.session.email),
-            password: htmlescape(req.session.password),
+            email: req.session.email,
+            password: req.session.password,
             lname: htmlescape(req.body.lname),
             fname: htmlescape(req.body.fname),
             bdate: htmlescape(req.body.bdate),
