@@ -14,7 +14,7 @@ block content
                 label(for='lname') Last name
                 input#lname.input(value="#{session.lname}" name='lname' required='' type='text')
                 label(for='bdate' ) Birth date
-                input#bdate.input(value="#{session.bdate}" name='bdate' required='' type='date')
+                input#bdate.input(value="#{session.bdate}" name='bdate' onfocus="this.max=new Date().toISOString().split('T')[0]" required='' type='date')
                 label(for='gender') Gender
                 select#gender( name='gender')
                     option(value='M')

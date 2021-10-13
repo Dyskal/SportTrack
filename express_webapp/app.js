@@ -20,7 +20,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
     // path: '/m3104_24'
-}))
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

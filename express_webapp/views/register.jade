@@ -18,7 +18,7 @@ block content
                     label(for='fname') First name
                     input#fname.input(name='fname' required='' type='text')
                     label(for='bdate') Birth date
-                    input#bdate.input(name='bdate' max="<?= date('Y-m-d'); ?>" required='' type='date')
+                    input#bdate.input(name='bdate' onfocus="this.max=new Date().toISOString().split('T')[0]" required='' type='date')
                     label(for='gender') Gender
                     select#gender(name='gender')
                         option(value='M') Man
