@@ -33,3 +33,5 @@ block content
             div.error.green#hideDiv Changes applied.
         - else if (!change && typeof change !== "undefined")
             div.error.red#hideDiv Please use correct values.
+    script.
+        autoSelect(document.getElementsByTagName("option"), "#{session.gender}");
