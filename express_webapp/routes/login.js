@@ -5,7 +5,9 @@ const asyncMiddleware = require("./asyncMiddleware");
 const htmlescape = require('./htmlescape');
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
-    //TODO if session degage
+    if (req.session.email) {
+        res.redirect('home');
+    }
     res.render('login', {error: false, fromregister: false});
 }));
 

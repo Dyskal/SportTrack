@@ -3,7 +3,9 @@ const router = express.Router();
 const asyncMiddleware = require("./asyncMiddleware");
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
-    //TODO if pas de session degage
+    if (!req.session.email) {
+        res.redirect('/');
+    }
     res.render('profile');
 }));
 
