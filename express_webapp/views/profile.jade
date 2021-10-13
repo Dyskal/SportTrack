@@ -6,16 +6,17 @@ block content
         include header_connect
 
         .container
+
             h2 email
             form(action='profile' method='post')
                 label(for='fname') First name
-                input#fname.input(name='fname' required='' type='text')
+                input#fname.input(value="#{session.fname}" name='fname' required='' type='text')
                 label(for='lname') Last name
-                input#lname.input(name='lname' required='' type='text')
-                label(for='bdate') Birth date
-                input#bdate.input(name='bdate' required='' type='date')
+                input#lname.input(value="#{session.lname}" name='lname' required='' type='text')
+                label(for='bdate' ) Birth date
+                input#bdate.input(value="#{session.bdate}" name='bdate' required='' type='date')
                 label(for='gender') Gender
-                select#gender(name='gender')
+                select#gender( name='gender')
                     option(value='M')
                         | Man
                     option(value='W')
@@ -23,8 +24,12 @@ block content
                     option(value='O')
                         | Other
                 label(for='height') Height:
-                input#height.input(min='0' name='height' oninput="validity.valid||(value='');" required='' type='number')
+                input#height.input(value="#{session.height}" min='0' name='height' oninput="validity.valid||(value='');" required='' type='number')
                 label(for='weight') Weight:
-                input#weight.input(min='0' name='weight' oninput="validity.valid||(value='');" required='' type='number')
+                input#weight.input(value="#{session.weight}" min='0' name='weight' oninput="validity.valid||(value='');" required='' type='number')
                 input.button.right(type='submit' value='Save changes')
                 input.button.cancel(onclick="window.location.href='home'" type='button' value='Cancel' formnovalidate='')
+        -if (change)
+            div.error.green#hideDiv Changes applied.
+        - else if (!change && typeof change !== "undefined")
+            div.error.red#hideDiv Please use correct values.
