@@ -8,11 +8,7 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
     if (!req.session.email) {
         res.redirect('/');
     }
-
-    res.render('profile', {
-
-        session: req.session
-    });
+    res.render('profile', {session: req.session});
 }));
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
@@ -29,8 +25,6 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
         };
         await user_dao.update(User.email, User)
 
-
-
         req.session.fname = User.fname;
         req.session.lname = User.lname;
         req.session.bdate = User.bdate;
@@ -38,20 +32,10 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
         req.session.height = User.height;
         req.session.weight = User.weight;
 
-        res.render('profile', {
-
-            session: req.session,
-
-            change: true
-        });
+        res.render('profile', {session: req.session, change: true});
     }
 
-    res.render('profile', {
-
-        session: req.session,
-
-        change: false
-    });
+    res.render('profile', {session: req.session, change: false});
 }));
 
 module.exports = router;

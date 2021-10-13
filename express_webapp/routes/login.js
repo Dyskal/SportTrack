@@ -15,7 +15,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
     if (await user_dao.verifyPassword(req.body.email, req.body.password)) {
         req.session.email = htmlescape(req.body.email);
         req.session.password = htmlescape(req.body.password);
-        const User = (await user_dao.findByKey(req.session.email))[0];
+        const User = await user_dao.findByKey(req.session.email);
         req.session.fname = User.fname;
         req.session.lname = User.lname;
         req.session.bdate = User.bdate;

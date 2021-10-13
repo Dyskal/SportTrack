@@ -1,58 +1,72 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const upload = multer({dest: 'uploads/'})
+const upload = multer({dest: 'uploads/'});
 const fs = require('fs').promises;
 const activity_dao = require('sport-track-db').activity_dao;
+const activity_data_dao = require('sport-track-db').activity_data_dao;
 const asyncMiddleware = require("./asyncMiddleware");
 const htmlescape = require("./htmlescape");
+const calculDistanceTrajet = require("./calculDistanceTrajet");
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
     if (!req.session.email) {
         res.redirect('/');
     }
-    res.render('upload');
+    res.render('upload', {error: false});
 }));
 
 router.post('/', upload.single('file'), asyncMiddleware(async (req, res, next) => {
     function exit() {
-        res.render('upload', {error: true})
+        res.render('upload', {error: true});
     }
-    const file = await JSON.parse((await fs.readFile(req.file.path)).toString());
-    console.log(file);
-    if (file.activity.date && file.activity.description) {
-        const id = await activity_dao.getNextId();
-        await activity_dao.insert(id, req.session.email, new Date(file.activity.date).toISOString().slice(0,10), htmlescape(file.activity.description), null, null, null, null, null, null);
-        if (file.data) {
 
+    const file = await JSON.parse((await fs.readFile(req.file.path)).toString());
+    if (file.activity.date && file.activity.description) {
+        const activity_id = await activity_dao.getNextId();
+        const Activity = {
+            id: activity_id,
+            user_id: req.session.email,
+            date: new Date(file.activity.date).toISOString().slice(0, 10),
+            description: htmlescape(file.activity.description),
+            start_time: null,
+            duration: null,
+            distance: null,
+            freq_min: null,
+            freq_max: null,
+            freq_avg: null
+        };
+        await activity_dao.insert(Activity);
+
+        if (file.data) {
+            for (const row of file.data) {
+                const data_id = await activity_data_dao.getNextId();
+                if (row.time && row.cardio_frequency && row.latitude && row.longitude && row.altitude) {
+                    const ActivityData = {
+                        data_id: data_id,
+                        activity_id: activity_id,
+                        time: row.time,
+                        cardio_frequency: row.cardio_frequency,
+                        latitude: row.latitude,
+                        longitude: row.longitude,
+                        altitude: row.altitude
+                    };
+                    await activity_data_dao.insert(ActivityData);
+                } else {
+                    exit();
+                }
+            }
+
+            const Activity_arr = await activity_dao.findByKey(activity_id);
+            Activity_arr['distance'] = calculDistanceTrajet(file.data);
+            await activity_dao.update(Activity_arr.id, Activity_arr)
         } else {
-            
+            exit();
         }
-        //         $ActivityDataDAO = ActivityDataDAO::getInstance();
-        //         if (!array_key_exists('file', $jsond)) {
-        //             $this->exit();
-        //         } else {
-        //             foreach ($jsond['file'] as $line) {
-        //                 if (!array_key_exists('time', $line) || !array_key_exists('cardio_frequency', $line) || !array_key_exists('latitude', $line) || !array_key_exists('longitude', $line) || !array_key_exists('altitude', $line)) {
-        //                     break;
-        //                 }
-        //                 $file = new ActivityData();
-        //                 $data_id = $ActivityDataDAO->getNextId();
-        //                 $file->init($data_id, $activity_id, $line['time'], $line['cardio_frequency'], $line['latitude'], $line['longitude'], $line['altitude']);
-        //                 $ActivityDataDAO->insert($file);
-        //             }
-        //         }
-        //
-        //         //Calcule la distance totale
-        //         $distance = new CalculDistanceImpl();
-        //         $activity_array = $ActivityDAO->find($activity_id);
-        //         $activity = $activity_array[0];
-        //         $activity->setDistance($distance->calculDistanceTrajet($distance->json_cut(json_encode($jsond['file']))));
-        //         $ActivityDAO->update($activity);
+        res.render('home', {activities: (await activity_dao.findByUser(req.session.email))[0]})
     } else {
         exit();
     }
-
 }));
 
 module.exports = router;
