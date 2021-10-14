@@ -10,3 +10,26 @@ block content
                 button.header-btn(onclick="window.location.href='upload'")
                     | Add an activity
                     span +
+            if (activities)
+                for row in activities
+                    .activity-table
+                        table
+                            tbody
+                                tr
+                                    th Description
+                                    th Date
+                                    th Start Time
+                                    th Duration
+                                    th Distance
+                                    th Freq Min
+                                    th Freq Max
+                                    th Freq Avg
+                                tr
+                                    td= row.description
+                                    td= row.date
+                                    td= row.start_time
+                                    td= row.duration
+                                    td= row.distance
+                                    td= row.freq_min
+                                    td= row.freq_max
+                                    td= row.freq_avg
