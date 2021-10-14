@@ -1,3 +1,9 @@
+function asyncMiddleware(fn) {
+    return (req, res, next) => {
+        Promise.resolve(fn(req, res, next)).catch(next);
+    };
+}
+
 const deg2rad = deg => (deg * Math.PI) / 180.0;
 
 function calculDistance2PointsGPS(lat1, long1, lat2, long2) {
@@ -12,4 +18,16 @@ function calculDistanceTrajet(parcours) {
     return ret.toFixed(1);
 }
 
-module.exports = calculDistanceTrajet;
+//https://stackoverflow.com/a/30970751
+function escape(string) {
+    const lookup = {
+        '&': "&amp;",
+        '"': "&quot;",
+        '\'': "&apos;",
+        '<': "&lt;",
+        '>': "&gt;"
+    };
+    return string.replace(/[&"'<>]/g, c => lookup[c]);
+}
+
+module.exports = {asyncMiddleware: asyncMiddleware, calculDistanceTrajet: calculDistanceTrajet, htmlescape: escape}

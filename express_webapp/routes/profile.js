@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const user_dao = require("sport-track-db").user_dao;
-const asyncMiddleware = require("./asyncMiddleware");
-const htmlescape = require("./htmlescape");
+const asyncMiddleware = require("./functions").asyncMiddleware;
+const htmlescape = require("./functions").htmlescape;
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
     if (!req.session.email) {
@@ -12,7 +12,7 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
-    if (req.body.lname && req.body.fname && req.body.bdate && req.body.gender && req.body.height && req.body.weight) {
+    if (req.session.email && req.session.password && req.body.lname && req.body.fname && req.body.bdate && req.body.gender && req.body.height && req.body.weight) {
         const User = {
             email: req.session.email,
             password: req.session.password,
@@ -34,7 +34,6 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
 
         res.render('profile', {session: req.session, change: true});
     }
-
     res.render('profile', {session: req.session, change: false});
 }));
 

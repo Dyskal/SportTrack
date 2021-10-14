@@ -7,8 +7,7 @@
 
 Tout les champs rentrés par l'utilisateurs ont leurs caractères spéciaux échapés pour empecher les XSS.
 
-Restriction du cookie à /m3104_24 pour que la session soit seulement utilisable sur notre site (pb de conflit entre les sites).
-Mais une session d'un autre site pourrait interférer avec notre site.
+Sauvegarde de la session dans un cookie pour la persistance.
 
 Site totalement responsive sur mobile.
 
