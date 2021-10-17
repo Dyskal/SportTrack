@@ -13,11 +13,11 @@ Site totalement responsive sur mobile.
 
 # Pour tester : 
 
-Lancer `npm install` dans la base du projet et dans `express_webapp`.
+Lancer `npm install` dans la base du projet et dans `express_webapp`. (Testé uniquement avec Node v16)
 
 Lancer `npm start` depuis la base du projet ou depuis le dossier `express_webapp`.
 
-Fonctionne sous un serveur local `localhost/`.
+Fonctionne sous un serveur local `localhost:3000`.
 
 Un compte sera créé : `prof@mail.com` avec le mot de passe `123456789`.
 
