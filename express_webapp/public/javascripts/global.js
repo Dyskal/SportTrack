@@ -1,3 +1,5 @@
+
+//Fonction qui permet d'afficher le menu format mobile
 function burgerMenu() {
     let nav = document.getElementById("menu");
     nav.classList.toggle("toggle");
@@ -7,6 +9,7 @@ function burgerMenu() {
     document.body.classList.toggle("toggle");
 }
 
+//Script supprimant les notifications au bout de 10 secondes
 setTimeout(function() {
     document.getElementsByClassName("error")[0].classList.add("hide");
 }, 10000);
