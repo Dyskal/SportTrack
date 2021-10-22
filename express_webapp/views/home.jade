@@ -8,9 +8,11 @@ block content
     .page-content
         .accueil
             .add-activity
+                //Upload d'une seance de sport
                 button.header-btn(onclick="window.location.href='upload'")
                     | Add an activity
                     span +
+            //Affichage des seances uploadees
             if (activities)
                 for row in activities
                     .activity-table

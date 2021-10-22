@@ -1,3 +1,5 @@
+//Page permettant de s'inscrire sur le site
+
 extends layout
 
 block content
@@ -5,6 +7,7 @@ block content
         include header_disconnect
             .container
                 h2 Register
+                //Formulaire d'inscription
                 form(action='register' method='post')
                     label(for='email') Email address
                     input#email.input(name='email' required='' type='text')
@@ -28,5 +31,6 @@ block content
                     label(for='weight') Weight
                     input#weight.input(min='0' name='weight' oninput="validity.valid||(value='');" required='' type='number')
                     input.button.right(type='submit' value='Submit')
+        //Notification
         -if (error)
             div.error.red#hideDiv User already created.
