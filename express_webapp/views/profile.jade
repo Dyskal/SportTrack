@@ -34,5 +34,6 @@ block content
             div.error.green#hideDiv Changes applied.
         - else if (!change && typeof change !== "undefined")
             div.error.red#hideDiv Please use correct values.
+    //Permet d'afficher le "gender" de l'utilisateur
     script.
         autoSelect(document.getElementsByTagName("option"), "#{session.gender}");
