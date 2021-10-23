@@ -23,4 +23,4 @@ Fonctionne sous un serveur local `localhost:3000`.
 
 Un compte sera créé : `prof@mail.com` avec le mot de passe `123456789`.
 
-Pour créer une activité, un fichier json_test.json est disponible avec une activité exemple.
+Pour créer une activité, deux fichiers `json_test.json` et `json_test2.json` sont disponibles avec une activité exemple.
