@@ -1,5 +1,6 @@
 const db = require('./sqlite_connection');
 
+//Toutes les fonction retournent des promesses pour gérer l'asynchronisme
 const ActivityDataDAO = function() {
     this.insert = function(values) {
         return new Promise((resolve, reject) => {
@@ -63,6 +64,7 @@ const ActivityDataDAO = function() {
         });
     };
 
+    //Fonction pour retourer le prochain id d'une donnée
     this.getNextId = function() {
         return new Promise((resolve, reject) => {
             const query = "Select MAX(data_id) as nextId From ActivityData";
@@ -70,7 +72,7 @@ const ActivityDataDAO = function() {
                 if (error) {
                     reject(error);
                 }
-                resolve(row.nextId+1);
+                resolve(row.nextId + 1);
             });
         });
     };

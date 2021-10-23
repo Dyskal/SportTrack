@@ -15,7 +15,9 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
     res.render('upload', {error: false});
 }));
 
+//Route pour charger un fichier d'activité
 router.post('/', upload.single('file'), asyncMiddleware(async (req, res, next) => {
+    //Gestion d'erreur, essaye de supprimer le fichier uploadé s'il a été enregistré et renvoie vers la page upload avec une erreur
     async function exit() {
         try {
             await fs.unlink(req.file.path);
@@ -23,7 +25,9 @@ router.post('/', upload.single('file'), asyncMiddleware(async (req, res, next) =
         res.render('upload', {error: true});
     }
 
+    //Try/Catch pour la structure du JSON
     try {
+        //Lit le fichier et parse son contenu, vérifie que chaque partie du JSON existe, dans le cas contraire, appel à la fct exit()
         const file = await JSON.parse((await fs.readFile(req.file.path)).toString());
         if (file.activity.date && file.activity.description) {
             const activity_id = await activity_dao.getNextId();
@@ -61,11 +65,12 @@ router.post('/', upload.single('file'), asyncMiddleware(async (req, res, next) =
                 }
 
                 const Activity_arr = await activity_dao.findByKey(activity_id);
-                Activity_arr['distance'] = calculDistanceTrajet(file.data);
+                Activity_arr.distance = calculDistanceTrajet(file.data);
                 await activity_dao.update(Activity_arr.id, Activity_arr);
             } else {
                 await exit();
             }
+            //Supprime le fichier et redirige vers home pour afficher l'activité
             await fs.unlink(req.file.path);
             res.redirect('home');
         } else {

@@ -1,4 +1,4 @@
-//Page d'accueil des utilisateurs connectes
+//- Page d'accueil des utilisateurs connectés
 extends layout
 
 block content
@@ -8,11 +8,11 @@ block content
     .page-content
         .accueil
             .add-activity
-                //Upload d'une seance de sport
+                //- Upload d'une séance de sport
                 button.header-btn(onclick="window.location.href='upload'")
                     | Add an activity
                     span +
-            //Affichage des seances uploadees
+            //- Affichage des séance uploadées
             if (activities)
                 for row in activities
                     .activity-table

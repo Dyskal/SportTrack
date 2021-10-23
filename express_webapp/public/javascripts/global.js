@@ -1,5 +1,4 @@
-
-//Fonction qui permet d'afficher le menu format mobile
+//Fonction qui permet d'afficher le menu au format mobile
 function burgerMenu() {
     let nav = document.getElementById("menu");
     nav.classList.toggle("toggle");
@@ -14,6 +13,7 @@ setTimeout(function() {
     document.getElementsByClassName("error")[0].classList.add("hide");
 }, 10000);
 
+//Fonction pour mettre l'attribut 'selected' à l'item de la liste
 function autoSelect(liste, find) {
     liste.forEach(i => {
         if (i.value === find) {

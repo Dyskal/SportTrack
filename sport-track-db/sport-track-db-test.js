@@ -2,7 +2,6 @@ const user_dao = require('./sport-track-db').user_dao;
 const activity_dao = require('./sport-track-db').activity_dao;
 const activity_data_dao = require('./sport-track-db').activity_data_dao;
 
-
 async function user_test() {
     const User = {
         email: "user@mail.com",

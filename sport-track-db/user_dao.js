@@ -1,5 +1,6 @@
 const db = require('./sqlite_connection');
 
+//Toutes les fonction retournent des promesses pour gérer l'asynchronisme
 const UserDAO = function() {
     this.insert = function(values) {
         return new Promise((resolve, reject) => {
@@ -63,6 +64,7 @@ const UserDAO = function() {
         });
     };
 
+    //Fonction pour vérifier le mot de passe de l'utilisateur lors de la connexion
     this.verifyPassword = function(email, pass) {
         return new Promise((resolve, reject) => {
             const query = "Select password From User Where email = ?";

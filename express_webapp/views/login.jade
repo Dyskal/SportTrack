@@ -1,5 +1,4 @@
-//Page pour se connecter a son compte
-
+//- Page pour se connecter à son compte
 extends layout
 
 block content
@@ -7,7 +6,7 @@ block content
         include header_disconnect
         .container
             h2 Login
-            //Formulaire de connexion
+            //- Formulaire de connexion
             form(action='login' method='post')
                 label(for='email') Email
                 input#email.input(name='email' required='' type='email')
@@ -17,7 +16,7 @@ block content
                     button.button(onclick="window.location.href='register'" name='register') Register
                     button.button.right Login
                 a(onclick="alert('not implemented yet')") Forgot password ?
-        //Notification
+        //- Notification
         -if (error)
             div.error.red#hideDiv Wrong password or email, please try again.
         - else if (!error && fromregister)

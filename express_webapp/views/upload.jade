@@ -1,4 +1,4 @@
-//Page permettant l'upload de ses seances de sport
+//- Page permettant l'upload de ses séances de sport
 extends layout
 
 block content
@@ -6,11 +6,11 @@ block content
         include header_connect
         .container
             h2 Upload
-            //Upload des seances
+            //- Upload des seances
             form(action='upload' method='post' enctype='multipart/form-data')
                 .upload-btn-wrapper
                     input#file(accept='.json, application/json' name='file' required='' type='file')
                 input.button(type='submit' value='Submit')
-        //Notification
+        //- Notification
         -if (error)
             div.error.red#hideDiv Activity cannot be imported. JSON file must be errored.

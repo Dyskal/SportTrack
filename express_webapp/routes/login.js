@@ -6,14 +6,14 @@ const htmlescape = require("./functions").htmlescape;
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
     if (req.session.email) {
-        res.redirect('home');//Redirection sur home si l'utilisateur est deja connecte
+        res.redirect('home');
     }
     res.render('login', {error: false, fromregister: false});
 }));
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
     if (req.body.email && req.body.password) {
-        if (await user_dao.verifyPassword(req.body.email, req.body.password)) { //Verification du mot de passe saisie
+        if (await user_dao.verifyPassword(req.body.email, req.body.password)) { //Vérification du mot de passe saisi
             req.session.email = htmlescape(req.body.email);
             req.session.password = htmlescape(req.body.password);
             const User = await user_dao.findByKey(req.session.email);
@@ -28,10 +28,10 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
             res.redirect('home');
         }
     }
-    res.render('login', {error: true, fromregister: false});//Retour sur login avec une option indiquant une erreur
+    res.render('login', {error: true, fromregister: false}); //Retour sur login avec une option indiquant une erreur
 }));
 
-//Deconnecte l'utilisateur
+//Déconnecte l'utilisateur et le redirige vers l'index.
 router.get('/disconnect', asyncMiddleware(async (req, res, next) => {
     req.session = null;
     res.redirect('/');

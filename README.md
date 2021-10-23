@@ -5,7 +5,9 @@
 
 # Modifications techniques :
 
-Tout les champs rentrés par l'utilisateurs ont leurs caractères spéciaux échapés pour empecher les XSS.
+Tous les champs rentrés par l'utilisateur ont leurs caractères spéciaux échapés pour empecher les XSS.
+
+Tout les callbacks ont été remplacés par des promesses.
 
 Sauvegarde de la session dans un cookie pour la persistance.
 

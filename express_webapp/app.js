@@ -14,6 +14,7 @@ const upload = require('./routes/upload');
 
 const app = express();
 
+//Création d'une session avec cookie pour la persistance
 app.use(cookieSession({
     secret: 'qitBmMSV9xxsp3EB47vO0w',
     resave: false,

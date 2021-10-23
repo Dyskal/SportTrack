@@ -1,7 +1,7 @@
 {
     "activity": {
-        "date": "01/09/2018",
-        "description": "1ere sortie"
+        "date": "12/09/2020",
+        "description": "2eme sortie"
     },
     "data": [
         {"time": "13:00:00", "cardio_frequency":  99, "latitude": 47.644795, "longitude": -2.776605, "altitude": 18},
